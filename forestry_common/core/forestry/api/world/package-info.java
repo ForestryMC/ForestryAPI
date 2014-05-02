@@ -1,9 +1,7 @@
 /*******************************************************************************
- * Copyright 2011-2014 by SirSengir
+ * Copyright 2011-2014 SirSengir
  * 
- * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
- * 
- * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/3.0/.
+ * This work (the API) is licensed under the "MIT" License, see LICENSE.txt for details.
  ******************************************************************************/
 @API(apiVersion="1.0", owner="ForestryAPI|core", provides="ForestryAPI|world")
 package forestry.api.world;
