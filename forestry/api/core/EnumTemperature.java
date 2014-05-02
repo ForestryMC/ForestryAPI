@@ -134,7 +134,7 @@ public enum EnumTemperature {
 		if (rawTemp >= 2.0f) {
 			value = EnumTemperature.HOT;
 		}
-		else if (rawTemp >= 1.2f) {
+		else if (rawTemp >= 0.95f) {
 			value = EnumTemperature.WARM;
 		}
 		else if (rawTemp >= 0.2f) {
