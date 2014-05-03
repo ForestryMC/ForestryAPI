@@ -25,5 +25,8 @@ public class AlleleManager {
 	 * Translates plain saplings into genetic data. Used by the treealyzer and the farm to convert foreign saplings.
 	 */
 	public static HashMap<ItemStack, IIndividual> ersatzSaplings = new HashMap<ItemStack, IIndividual>();
-
+	/**
+	 * Queryable instance of an {@link IClimateHelper} for easier implementation.
+	 */
+	public static IClimateHelper climateHelper;
 }
