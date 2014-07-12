@@ -6,22 +6,27 @@
 package forestry.api.mail;
 
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTUtil;
+
+import com.mojang.authlib.GameProfile;
 
 import forestry.api.core.INBTTagable;
 
 public class MailAddress implements INBTTagable {
 	private String type;
-	private String identifier;
+	private GameProfile profile;
 
 	private MailAddress() {
 	}
 
-	public MailAddress(String identifier) {
-		this(identifier, "player");
+	public MailAddress(GameProfile profile) {
+		this(profile, "player");
 	}
 
-	public MailAddress(String identifier, String type) {
-		this.identifier = identifier;
+	public MailAddress(GameProfile profile, String type) {
+		if (profile == null) throw new NullPointerException("profile can't be null.");
+
+		this.profile = profile;
 		this.type = type;
 	}
 
@@ -29,8 +34,8 @@ public class MailAddress implements INBTTagable {
 		return type;
 	}
 
-	public String getIdentifier() {
-		return identifier;
+	public GameProfile getProfile() {
+		return profile;
 	}
 
 	public boolean isPlayer() {
@@ -43,13 +48,19 @@ public class MailAddress implements INBTTagable {
 			type = nbttagcompound.getString("TP");
 		else
 			type = nbttagcompound.getShort("TYP") == 0 ? "player" : "trader";
-		identifier = nbttagcompound.getString("ID");
+
+		if (nbttagcompound.hasKey("profile")) {
+			profile = NBTUtil.func_152459_a(nbttagcompound.getCompoundTag("profile"));
+		}
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbttagcompound) {
 		nbttagcompound.setString("TP", type);
-		nbttagcompound.setString("ID", identifier);
+
+		NBTTagCompound profileNbt = new NBTTagCompound();
+		NBTUtil.func_152460_a(profileNbt, profile);
+		nbttagcompound.setTag("profile", profileNbt);
 	}
 
 	public static MailAddress loadFromNBT(NBTTagCompound nbttagcompound) {

@@ -10,6 +10,8 @@ import java.util.Map;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import com.mojang.authlib.GameProfile;
+
 public interface IPostOffice {
 
 	void collectPostage(ItemStack[] stamps);
@@ -26,5 +28,5 @@ public interface IPostOffice {
 
 	void deregisterTradeStation(ITradeStation trade);
 
-	Map<String, ITradeStation> getActiveTradeStations(World world);
+	Map<GameProfile, ITradeStation> getActiveTradeStations(World world);
 }

@@ -8,6 +8,8 @@ package forestry.api.mail;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import com.mojang.authlib.GameProfile;
+
 public interface ILetterHandler {
-	IPostalState handleLetter(World world, String recipient, ItemStack letterStack, boolean doLodge);
+	IPostalState handleLetter(World world, GameProfile recipient, ItemStack letterStack, boolean doLodge);
 }
