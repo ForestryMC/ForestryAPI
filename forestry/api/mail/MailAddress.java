@@ -58,9 +58,11 @@ public class MailAddress implements INBTTagable {
 	public void writeToNBT(NBTTagCompound nbttagcompound) {
 		nbttagcompound.setString("TP", type);
 
-		NBTTagCompound profileNbt = new NBTTagCompound();
-		NBTUtil.func_152460_a(profileNbt, profile);
-		nbttagcompound.setTag("profile", profileNbt);
+		if (profile != null) {
+			NBTTagCompound profileNbt = new NBTTagCompound();
+			NBTUtil.func_152460_a(profileNbt, profile);
+			nbttagcompound.setTag("profile", profileNbt);
+		}
 	}
 
 	public static MailAddress loadFromNBT(NBTTagCompound nbttagcompound) {
