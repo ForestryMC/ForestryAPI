@@ -38,17 +38,17 @@ public interface IPostRegistry {
 	Map<String, IPostalCarrier> getRegisteredCarriers();
 
 	/* TRADE STATIONS */
-	void deleteTradeStation(World world, GameProfile moniker);
+	void deleteTradeStation(World world, MailAddress address);
 
-	ITradeStation getOrCreateTradeStation(World world, GameProfile owner, GameProfile moniker);
+	ITradeStation getOrCreateTradeStation(World world, GameProfile owner, MailAddress address);
 
-	ITradeStation getTradeStation(World world, GameProfile moniker);
+	ITradeStation getTradeStation(World world, MailAddress address);
 
-	boolean isAvailableTradeMoniker(World world, GameProfile moniker);
+	boolean isAvailableTradeAddress(World world, MailAddress address);
 
-	boolean isValidTradeMoniker(World world, GameProfile moniker);
+	boolean isValidTradeAddress(World world, MailAddress address);
 
 	/* PO BOXES */
-	boolean isValidPOBox(World world, GameProfile username);
+	boolean isValidPOBox(World world, MailAddress address);
 
 }
