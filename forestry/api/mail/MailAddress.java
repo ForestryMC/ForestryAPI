@@ -5,38 +5,91 @@
  ******************************************************************************/
 package forestry.api.mail;
 
+import forestry.core.utils.StringUtil;
+import forestry.mail.EnumAddressee;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTUtil;
 
 import com.mojang.authlib.GameProfile;
 
 import forestry.api.core.INBTTagable;
+import net.minecraft.server.MinecraftServer;
+import org.apache.commons.lang3.StringUtils;
 
 public class MailAddress implements INBTTagable {
 	private String type;
-	private GameProfile profile;
+	private Object identifier; // identifier is a GameProfile if this.type is "player" and String for traders
 
 	private MailAddress() {
 	}
 
-	public MailAddress(GameProfile profile) {
-		this(profile, "player");
+	public MailAddress(GameProfile identifier) {
+		this(identifier, "player");
 	}
 
-	public MailAddress(GameProfile profile, String type) {
-		if (profile == null) throw new NullPointerException("profile can't be null.");
+    public MailAddress(String identifier) {
+        this(identifier, "trader");
+    }
 
-		this.profile = profile;
-		this.type = type;
-	}
+    private MailAddress(Object identifier, String type) {
+        this.identifier = identifier;
+        this.type = type;
+    }
+
+    public static MailAddress makeMailAddress(String identifier, String type) {
+        if (StringUtils.isBlank(identifier)) throw new IllegalArgumentException("identifier can't be blank.");
+        if (StringUtils.isBlank(type)) throw new IllegalArgumentException("type can't be blank.");
+
+        MailAddress mailAddress = new MailAddress();
+        mailAddress.type = type;
+        if (mailAddress.isPlayer())
+            mailAddress.identifier = MinecraftServer.getServer().func_152358_ax().func_152655_a(identifier);
+        else
+            mailAddress.identifier = identifier;
+
+        if (mailAddress.identifier == null)
+            return null;
+        return mailAddress;
+    }
 
 	public String getType() {
 		return type;
 	}
 
-	public GameProfile getProfile() {
-		return profile;
+	public Object getIdentifier() {
+		return this.identifier;
 	}
+
+    public String getIdentifierName() {
+        if (isPlayer())
+            return ((GameProfile)this.identifier).getName();
+        else
+            return (String)this.identifier;
+    }
+
+    @Override
+    public String toString() {
+        if (isPlayer()) {
+            GameProfile profile = (GameProfile)this.identifier;
+            return profile.getName() + ":" + profile.getId().toString();
+        } else {
+            return (String) this.identifier;
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof MailAddress))
+            return false;
+
+        MailAddress address = (MailAddress)o;
+        return (address.getIdentifier().equals(this.getIdentifier()));
+    }
+
+    @Override
+    public int hashCode() {
+        return this.identifier.hashCode();
+    }
 
 	public boolean isPlayer() {
 		return "player".equals(type);
@@ -49,20 +102,26 @@ public class MailAddress implements INBTTagable {
 		else
 			type = nbttagcompound.getShort("TYP") == 0 ? "player" : "trader";
 
-		if (nbttagcompound.hasKey("profile")) {
-			profile = NBTUtil.func_152459_a(nbttagcompound.getCompoundTag("profile"));
-		}
+        if (isPlayer()) {
+            if (nbttagcompound.hasKey("identifier")) {
+                identifier = NBTUtil.func_152459_a(nbttagcompound.getCompoundTag("identifier"));
+            }
+        } else {
+            identifier = nbttagcompound.getString("identifier");
+        }
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbttagcompound) {
 		nbttagcompound.setString("TP", type);
 
-		if (profile != null) {
-			NBTTagCompound profileNbt = new NBTTagCompound();
-			NBTUtil.func_152460_a(profileNbt, profile);
-			nbttagcompound.setTag("profile", profileNbt);
-		}
+        if (isPlayer()) {
+            NBTTagCompound profileNbt = new NBTTagCompound();
+            NBTUtil.func_152460_a(profileNbt, (GameProfile)identifier);
+            nbttagcompound.setTag("identifier", profileNbt);
+        } else {
+            nbttagcompound.setString("identifier", (String)identifier);
+        }
 	}
 
 	public static MailAddress loadFromNBT(NBTTagCompound nbttagcompound) {
