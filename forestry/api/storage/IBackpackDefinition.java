@@ -5,7 +5,6 @@
  ******************************************************************************/
 package forestry.api.storage;
 
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
@@ -16,10 +15,14 @@ public interface IBackpackDefinition {
 	 */
 	String getKey();
 
+	@Deprecated
+	String getName();
+
 	/**
+	 * @param backpack
 	 * @return Human-readable name of the backpack.
 	 */
-	String getName();
+	String getName(ItemStack backpack);
 
 	/**
 	 * @return Primary colour for the backpack icon.
