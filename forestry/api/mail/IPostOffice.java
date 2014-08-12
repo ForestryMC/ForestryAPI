@@ -28,5 +28,5 @@ public interface IPostOffice {
 
 	void deregisterTradeStation(ITradeStation trade);
 
-	Map<GameProfile, ITradeStation> getActiveTradeStations(World world);
+	Map<MailAddress, ITradeStation> getActiveTradeStations(World world);
 }

@@ -5,19 +5,23 @@
  ******************************************************************************/
 package forestry.api.mail;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
 import net.minecraft.item.ItemStack;
 
 import com.mojang.authlib.GameProfile;
 
 public class TradeStationInfo {
-	public final GameProfile moniker;
+	public final MailAddress address;
 	public final GameProfile owner;
 	public final ItemStack tradegood;
 	public final ItemStack[] required;
 	public final IPostalState state;
 
-	public TradeStationInfo(GameProfile moniker, GameProfile owner, ItemStack tradegood, ItemStack[] required, IPostalState state) {
-		this.moniker = moniker;
+	public TradeStationInfo(MailAddress address, GameProfile owner, ItemStack tradegood, ItemStack[] required, IPostalState state) {
+        if (address.isPlayer()) {
+            throw new IllegalArgumentException("TradeStation address must not be a player");
+        }
+		this.address = address;
 		this.owner = owner;
 		this.tradegood = tradegood;
 		this.required = required;

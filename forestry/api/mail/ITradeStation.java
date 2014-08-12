@@ -11,7 +11,7 @@ import com.mojang.authlib.GameProfile;
 
 public interface ITradeStation extends ILetterHandler, IInventory {
 
-	GameProfile getMoniker();
+	MailAddress getAddress();
 
 	boolean isValid();
 
