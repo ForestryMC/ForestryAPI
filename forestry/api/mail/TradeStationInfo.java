@@ -5,7 +5,7 @@
  ******************************************************************************/
 package forestry.api.mail;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
+import java.lang.IllegalArgumentException;
 import net.minecraft.item.ItemStack;
 
 import com.mojang.authlib.GameProfile;
