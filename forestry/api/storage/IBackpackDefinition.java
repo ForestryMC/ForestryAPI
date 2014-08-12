@@ -5,7 +5,6 @@
  ******************************************************************************/
 package forestry.api.storage;
 
-import java.util.Collection;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -38,14 +37,6 @@ public interface IBackpackDefinition {
 	 * @param validItem
 	 */
 	void addValidItem(ItemStack validItem);
-
-	/**
-	 * Returns an arraylist of all items valid for this backpack type.
-	 * 
-	 * @param player
-	 * @return Collection of itemstack which are valid items for this backpack type. May be empty or null and does not necessarily include all valid items.
-	 */
-	Collection<ItemStack> getValidItems(EntityPlayer player);
 
 	/**
 	 * Returns true if the itemstack is a valid item for this backpack type.
