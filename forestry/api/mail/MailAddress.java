@@ -10,73 +10,70 @@ import java.util.Locale;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTUtil;
 import net.minecraft.server.MinecraftServer;
-
-import org.apache.commons.lang3.StringUtils;
+import net.minecraft.world.World;
+import net.minecraft.entity.player.EntityPlayer;
 
 import com.mojang.authlib.GameProfile;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.UUID;
+
 import forestry.api.core.INBTTagable;
+import forestry.core.proxy.Proxies;
+import forestry.core.network.EntityNetData;
 
 public class MailAddress implements INBTTagable {
+	@EntityNetData
 	private String type;
-	private Object identifier; // identifier is a GameProfile if this.type is "player" and String for traders
+	@EntityNetData
+	private GameProfile gameProfile; // gameProfile is a fake GameProfile for traders, and real for players
 
-	private MailAddress() {
+	private static final MailAddress invalidAddress = new MailAddress();
+
+	public MailAddress() {
+		this.type = "invalid";
+		this.gameProfile = new GameProfile(new UUID(0,0), "");
 	}
 
-	public MailAddress(GameProfile identifier) {
-		this(identifier, "player");
+	public MailAddress(GameProfile gameProfile) {
+		this.type = "player";
+		this.gameProfile = gameProfile;
 	}
 
-	public MailAddress(String identifier) {
-		this(identifier, "trader");
+	public MailAddress(String name) {
+		GameProfile profile = new GameProfile(new UUID(0, 0), name);
+		this.type = "trader";
+		this.gameProfile = profile;
 	}
 
-	private MailAddress(Object identifier, String type) {
-		this.identifier = identifier;
-		this.type = type;
-	}
-
-	public static MailAddress makeMailAddress(String identifier, String type) {
-		if (StringUtils.isBlank(identifier)) return null;
+	public static MailAddress makeMailAddress(String name, String type) {
+		if (StringUtils.isBlank(name)) return null;
 		if (StringUtils.isBlank(type)) return null;
 
-		MailAddress mailAddress = new MailAddress();
-		mailAddress.type = type;
-		
-		if (mailAddress.isPlayer())
-			mailAddress.identifier = MinecraftServer.getServer().func_152358_ax().func_152655_a(identifier);
-		else
-			mailAddress.identifier = identifier;
-
-		if (mailAddress.identifier == null)
-			return null;
-		
-		return mailAddress;
+		if ("player".equals(type)) {
+			GameProfile gameProfile = MinecraftServer.getServer().func_152358_ax().func_152655_a(name);
+			return new MailAddress(gameProfile);
+		} else {
+			return new MailAddress(name);
+		}
 	}
 
 	public String getType() {
 		return type;
 	}
 
-	public Object getIdentifier() {
-		return this.identifier;
-	}
-
-	public String getIdentifierName() {
-		if (isPlayer())
-			return ((GameProfile)this.identifier).getName();
-		else
-			return (String)this.identifier;
+	public String getName() {
+		return gameProfile.getName();
 	}
 
 	@Override
 	public String toString() {
+		String name = gameProfile.getName().toLowerCase(Locale.ENGLISH);
 		if (isPlayer()) {
-			GameProfile profile = (GameProfile)this.identifier;
-			return profile.getName() + ":" + profile.getId().toString();
+			return type + "-" + name + "-" + gameProfile.getId().toString();
 		} else {
-			return ((String)this.identifier).toLowerCase(Locale.ENGLISH);
+			return type + "-" + name;
 		}
 	}
 
@@ -86,31 +83,32 @@ public class MailAddress implements INBTTagable {
 			return false;
 
 		MailAddress address = (MailAddress)o;
-		return (address.getIdentifier().equals(this.getIdentifier()));
+		return address.gameProfile.equals(gameProfile);
 	}
 
 	@Override
 	public int hashCode() {
-		return this.identifier.hashCode();
+		return gameProfile.hashCode();
 	}
 
 	public boolean isPlayer() {
 		return "player".equals(type);
 	}
 
+	public boolean isValid() {
+		return !"invalid".equals(type);
+	}
+
 	@Override
 	public void readFromNBT(NBTTagCompound nbttagcompound) {
 		if(nbttagcompound.hasKey("TP"))
 			type = nbttagcompound.getString("TP");
-		else
-			type = nbttagcompound.getShort("TYP") == 0 ? "player" : "trader";
 
-		if (isPlayer()) {
-			if (nbttagcompound.hasKey("identifier")) {
-				identifier = NBTUtil.func_152459_a(nbttagcompound.getCompoundTag("identifier"));
-			}
-		} else {
-			identifier = nbttagcompound.getString("identifier");
+		if ("invalid".equals(type)) {
+			gameProfile = invalidAddress.gameProfile;
+		} else if(nbttagcompound.hasKey("profile")) {
+			NBTTagCompound profileTag = nbttagcompound.getCompoundTag("profile");
+			gameProfile = NBTUtil.func_152459_a(profileTag);
 		}
 	}
 
@@ -118,14 +116,10 @@ public class MailAddress implements INBTTagable {
 	public void writeToNBT(NBTTagCompound nbttagcompound) {
 		nbttagcompound.setString("TP", type);
 
-		if (isPlayer()) {
-			if (identifier != null) {
-				NBTTagCompound profileNbt = new NBTTagCompound();
-				NBTUtil.func_152460_a(profileNbt, (GameProfile)identifier);
-				nbttagcompound.setTag("identifier", profileNbt);
-			}
-		} else {
-			nbttagcompound.setString("identifier", (String)identifier);
+		if (gameProfile != null) {
+			NBTTagCompound profileNbt = new NBTTagCompound();
+			NBTUtil.func_152460_a(profileNbt, gameProfile);
+			nbttagcompound.setTag("profile", profileNbt);
 		}
 	}
 
@@ -133,5 +127,24 @@ public class MailAddress implements INBTTagable {
 		MailAddress address = new MailAddress();
 		address.readFromNBT(nbttagcompound);
 		return address;
+	}
+
+	public EntityPlayer getPlayer(World world) {
+		if (!this.isPlayer())
+			throw new IllegalArgumentException("Address must be a player");
+
+		GameProfile playerProfile = (GameProfile)this.gameProfile;
+
+		return world.func_152378_a(playerProfile.getId());
+	}
+
+	public boolean isClientPlayer(World world) {
+		if (!this.isPlayer())
+			throw new IllegalArgumentException("Address must be a player");
+
+		EntityPlayer addressPlayer = this.getPlayer(world);
+		EntityPlayer clientPlayer = Proxies.common.getPlayer();
+
+		return addressPlayer != null && clientPlayer != null && clientPlayer.equals(addressPlayer);
 	}
 }
