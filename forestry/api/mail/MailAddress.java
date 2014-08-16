@@ -5,6 +5,8 @@
  ******************************************************************************/
 package forestry.api.mail;
 
+import java.util.Locale;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTUtil;
 import net.minecraft.server.MinecraftServer;
@@ -74,7 +76,7 @@ public class MailAddress implements INBTTagable {
 			GameProfile profile = (GameProfile)this.identifier;
 			return profile.getName() + ":" + profile.getId().toString();
 		} else {
-			return (String) this.identifier;
+			return ((String)this.identifier).toLowerCase(Locale.ENGLISH);
 		}
 	}
 
