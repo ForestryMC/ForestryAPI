@@ -31,9 +31,9 @@ public interface IAllele {
 	 */
 	String getName();
 
-    /**
-     * @return The unlocalized identifier
-     */
-    String getUnlocalizedName();
-	
+	/**
+	* @return The unlocalized identifier
+	*/
+	String getUnlocalizedName();
+
 }
