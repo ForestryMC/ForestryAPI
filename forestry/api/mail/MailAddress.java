@@ -37,22 +37,29 @@ public class MailAddress implements INBTTagable {
 	}
 
 	public MailAddress(GameProfile gameProfile) {
+		if (gameProfile == null)
+			throw new IllegalArgumentException("gameProfile must not be null");
+
 		this.type = "player";
 		this.gameProfile = gameProfile;
 	}
 
 	public MailAddress(String name) {
-		GameProfile profile = new GameProfile(new UUID(0, 0), name);
+		if (name == null)
+			throw new IllegalArgumentException("name must not be null");
+
 		this.type = "trader";
-		this.gameProfile = profile;
+		this.gameProfile = new GameProfile(new UUID(0,0), name);
 	}
 
 	public static MailAddress makeMailAddress(String name, String type) {
-		if (StringUtils.isBlank(name)) return null;
-		if (StringUtils.isBlank(type)) return null;
+		if (StringUtils.isBlank(name) || StringUtils.isBlank(type))
+			return null;
 
 		if ("player".equals(type)) {
 			GameProfile gameProfile = MinecraftServer.getServer().func_152358_ax().func_152655_a(name);
+			if (gameProfile == null)
+				gameProfile = new GameProfile(new UUID(0,0), name);
 			return new MailAddress(gameProfile);
 		} else {
 			return new MailAddress(name);
@@ -69,9 +76,9 @@ public class MailAddress implements INBTTagable {
 
 	@Override
 	public String toString() {
-		String name = gameProfile.getName().toLowerCase(Locale.ENGLISH);
+		String name = getName().toLowerCase(Locale.ENGLISH);
 		if (isPlayer()) {
-			return type + "-" + name + "-" + gameProfile.getId().toString();
+			return type + "-" + name + "-" + gameProfile.getId();
 		} else {
 			return type + "-" + name;
 		}
@@ -131,16 +138,14 @@ public class MailAddress implements INBTTagable {
 
 	public EntityPlayer getPlayer(World world) {
 		if (!this.isPlayer())
-			throw new IllegalArgumentException("Address must be a player");
+			return null;
 
-		GameProfile playerProfile = (GameProfile)this.gameProfile;
-
-		return world.func_152378_a(playerProfile.getId());
+		return world.getPlayerEntityByName(this.gameProfile.getName());
 	}
 
 	public boolean isClientPlayer(World world) {
 		if (!this.isPlayer())
-			throw new IllegalArgumentException("Address must be a player");
+			return false;
 
 		EntityPlayer addressPlayer = this.getPlayer(world);
 		EntityPlayer clientPlayer = Proxies.common.getPlayer();
