@@ -17,10 +17,14 @@ public interface IPostRegistry {
 	/* POST OFFICE */
 	IPostOffice getPostOffice(World world);
 
+	/* MAIL ADDRESSES */
+	IMailAddress getMailAddress(GameProfile gameProfile);
+	IMailAddress getMailAddress(String traderName);
+
 	/* LETTERS */
 	boolean isLetter(ItemStack itemstack);
 
-	ILetter createLetter(MailAddress sender, MailAddress recipient);
+	ILetter createLetter(IMailAddress sender, IMailAddress recipient);
 
 	ILetter getLetter(ItemStack itemstack);
 
@@ -38,17 +42,17 @@ public interface IPostRegistry {
 	Map<String, IPostalCarrier> getRegisteredCarriers();
 
 	/* TRADE STATIONS */
-	void deleteTradeStation(World world, MailAddress address);
+	void deleteTradeStation(World world, IMailAddress address);
 
-	ITradeStation getOrCreateTradeStation(World world, GameProfile owner, MailAddress address);
+	ITradeStation getOrCreateTradeStation(World world, GameProfile owner, IMailAddress address);
 
-	ITradeStation getTradeStation(World world, MailAddress address);
+	ITradeStation getTradeStation(World world, IMailAddress address);
 
-	boolean isAvailableTradeAddress(World world, MailAddress address);
+	boolean isAvailableTradeAddress(World world, IMailAddress address);
 
-	boolean isValidTradeAddress(World world, MailAddress address);
+	boolean isValidTradeAddress(World world, IMailAddress address);
 
 	/* PO BOXES */
-	boolean isValidPOBox(World world, MailAddress address);
+	boolean isValidPOBox(World world, IMailAddress address);
 
 }

@@ -7,11 +7,9 @@ package forestry.api.mail;
 
 import net.minecraft.inventory.IInventory;
 
-import com.mojang.authlib.GameProfile;
-
 public interface ITradeStation extends ILetterHandler, IInventory {
 
-	MailAddress getAddress();
+	IMailAddress getAddress();
 
 	boolean isValid();
 

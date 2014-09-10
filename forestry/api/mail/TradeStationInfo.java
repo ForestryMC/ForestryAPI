@@ -7,17 +7,16 @@ package forestry.api.mail;
 
 import java.lang.IllegalArgumentException;
 import net.minecraft.item.ItemStack;
-
 import com.mojang.authlib.GameProfile;
 
 public class TradeStationInfo {
-	public final MailAddress address;
+	public final IMailAddress address;
 	public final GameProfile owner;
 	public final ItemStack tradegood;
 	public final ItemStack[] required;
 	public final IPostalState state;
 
-	public TradeStationInfo(MailAddress address, GameProfile owner, ItemStack tradegood, ItemStack[] required, IPostalState state) {
+	public TradeStationInfo(IMailAddress address, GameProfile owner, ItemStack tradegood, ItemStack[] required, IPostalState state) {
         if (address.isPlayer()) {
             throw new IllegalArgumentException("TradeStation address must not be a player");
         }

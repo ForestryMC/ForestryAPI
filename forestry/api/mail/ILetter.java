@@ -22,15 +22,15 @@ public interface ILetter extends IInventory, INBTTagable {
 
 	boolean isMailable();
 
-	void setSender(MailAddress address);
+	void setSender(IMailAddress address);
 
-	MailAddress getSender();
+	IMailAddress getSender();
 
 	boolean hasRecipient();
 
-	void setRecipient(MailAddress address);
+	void setRecipient(IMailAddress address);
 
-	MailAddress[] getRecipients();
+	IMailAddress[] getRecipients();
 
 	String getRecipientString();
 

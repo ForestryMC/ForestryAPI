@@ -12,8 +12,6 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import com.mojang.authlib.GameProfile;
-
 /**
  *  Postal Carriers are systems which can be hooked into Forestry's mail system to handle mail delivery.
  * 
@@ -45,6 +43,6 @@ public interface IPostalCarrier {
 	 * @param doDeliver Whether or not the letter is supposed to actually be delivered or if delivery is only to be simulated.
 	 * @return {link IPostalState} holding information on success or failure for delivery.
 	 */
-	IPostalState deliverLetter(World world, IPostOffice office, MailAddress recipient, ItemStack letterstack, boolean doDeliver);
+	IPostalState deliverLetter(World world, IPostOffice office, IMailAddress recipient, ItemStack letterstack, boolean doDeliver);
 
 }
