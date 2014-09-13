@@ -18,6 +18,8 @@ public interface IMailAddress extends INBTTagable {
 	boolean isValid();
 
 	boolean isPlayer();
+	boolean isTrader();
+
 	boolean isClientPlayer(World world);
 	EntityPlayer getPlayer(World world);
 	GameProfile getPlayerProfile();

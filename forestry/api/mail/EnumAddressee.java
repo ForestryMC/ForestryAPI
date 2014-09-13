@@ -8,7 +8,7 @@ package forestry.api.mail;
 import java.util.Locale;
 
 public enum EnumAddressee {
-	PLAYER, TRADER, INVALID;
+	PLAYER, TRADER;
 	
 	public static EnumAddressee fromString(String ident) {
 		ident = ident.toLowerCase(Locale.ENGLISH);

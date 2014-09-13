@@ -17,8 +17,8 @@ public class TradeStationInfo {
 	public final IPostalState state;
 
 	public TradeStationInfo(IMailAddress address, GameProfile owner, ItemStack tradegood, ItemStack[] required, IPostalState state) {
-        if (address.isPlayer()) {
-            throw new IllegalArgumentException("TradeStation address must not be a player");
+        if (!address.isTrader()) {
+            throw new IllegalArgumentException("TradeStation address must be a trader");
         }
 		this.address = address;
 		this.owner = owner;
