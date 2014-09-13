@@ -37,9 +37,9 @@ public interface IPostRegistry {
 	 */
 	void registerCarrier(IPostalCarrier carrier);
 
-	IPostalCarrier getCarrier(String uid);
+	IPostalCarrier getCarrier(EnumAddressee uid);
 
-	Map<String, IPostalCarrier> getRegisteredCarriers();
+	Map<EnumAddressee, IPostalCarrier> getRegisteredCarriers();
 
 	/* TRADE STATIONS */
 	void deleteTradeStation(World world, IMailAddress address);

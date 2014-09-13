@@ -22,9 +22,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 public interface IPostalCarrier {
 
 	/**
-	 * @return A lower-case identifier without spaces.
+	 * @return An EnumAddressee identifying the type of carrier
 	 */
-	String getUID();
+	EnumAddressee getType();
 
 	/**
 	 * @return A human-readable name for this carrier.
