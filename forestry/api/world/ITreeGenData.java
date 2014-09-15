@@ -9,6 +9,8 @@ import net.minecraft.world.World;
 
 import com.mojang.authlib.GameProfile;
 
+import forestry.api.arboriculture.ITreeGenome;
+
 public interface ITreeGenData {
 
 	int getGirth(World world, int x, int y, int z);
@@ -22,4 +24,6 @@ public interface ITreeGenData {
 	boolean allowsFruitBlocks();
 
 	boolean trySpawnFruitBlock(World world, int x, int y, int z);
+
+	ITreeGenome getGenome();
 }
