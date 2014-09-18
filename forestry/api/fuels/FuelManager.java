@@ -32,6 +32,9 @@ public class FuelManager {
 	 * Add new fuels for EngineCopper (= peat-fired engine) here
 	 */
 	public static HashMap<ItemStack, EngineCopperFuel> copperEngineFuel;
+	/**
+	 * Add new fuels for Generator here
+	 */
+	public static HashMap<Fluid, GeneratorFuel> generatorFuel;
 
-	// Generator fuel list in GeneratorFuel.class
 }
