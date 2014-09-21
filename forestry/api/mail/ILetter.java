@@ -38,8 +38,7 @@ public interface ILetter extends IInventory, INBTTagable {
 
 	String getText();
 
-	@SuppressWarnings("rawtypes")
-	void addTooltip(List list);
+	void addTooltip(List<String> list);
 
 	boolean isPostPaid();
 
