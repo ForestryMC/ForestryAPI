@@ -18,12 +18,6 @@ import forestry.api.genetics.IMutation;
  * @author SirSengir
  */
 public class BeeManager {
-
-	/**
-	 * Get your own reference to this via AlleleManager.alleleRegistry.getSpeciesRoot("rootBees") and save it somewhere.
-	 */
-	@Deprecated
-	public static IBeeRoot beeInterface;
 	
 	/**
 	 * Species templates for bees that can drop from hives.

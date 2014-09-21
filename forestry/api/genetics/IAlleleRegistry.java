@@ -1,6 +1,6 @@
 /*******************************************************************************
  * Copyright 2011-2014 SirSengir
- * 
+ *
  * This work (the API) is licensed under the "MIT" License, see LICENSE.txt for details.
  ******************************************************************************/
 package forestry.api.genetics;
@@ -9,7 +9,6 @@ import java.util.Collection;
 import java.util.Map;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
 import com.mojang.authlib.GameProfile;
 
@@ -111,16 +110,6 @@ public interface IAlleleRegistry {
 	 * @return IAllele if found or a replacement is found in the Deprecated Allele map, null otherwise.
 	 */
 	IAllele getAllele(String uid);
-
-	/* THIS SHOULD BE PHASED OUT */
-	@Deprecated
-	void reloadMetaMap(World world);
-
-	@Deprecated
-	IAllele getFromMetaMap(int meta);
-
-	@Deprecated
-	int getFromUIDMap(String uid);
 
 	/* CLASSIFICATIONS */
 	/**

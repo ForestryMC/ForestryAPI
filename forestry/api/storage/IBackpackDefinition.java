@@ -15,9 +15,6 @@ public interface IBackpackDefinition {
 	 */
 	String getKey();
 
-	@Deprecated
-	String getName();
-
 	/**
 	 * @param backpack
 	 * @return Human-readable name of the backpack.
