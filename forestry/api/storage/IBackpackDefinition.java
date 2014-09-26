@@ -8,6 +8,8 @@ package forestry.api.storage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
+import java.util.List;
+
 public interface IBackpackDefinition {
 
 	/**
@@ -37,6 +39,7 @@ public interface IBackpackDefinition {
 	 * @param validItem
 	 */
 	void addValidItem(ItemStack validItem);
+	void addValidItems(List<ItemStack> validItems);
 
 	/**
 	 * Returns true if the itemstack is a valid item for this backpack type.
