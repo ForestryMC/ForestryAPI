@@ -36,7 +36,7 @@ public abstract class HiveGround extends HiveBasic {
 		int y = world.getHeightValue(x, z);
 
 		// get to the ground
-		while (world.getBlock(x, y - 1, z).isLeaves(world, x, y - 1, z) || canReplace(world, x, y - 1, z)) {
+		while (y >= 0 && (world.getBlock(x, y - 1, z).isLeaves(world, x, y - 1, z) || canReplace(world, x, y - 1, z))) {
 			y--;
 		}
 
