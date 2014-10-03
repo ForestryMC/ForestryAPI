@@ -5,8 +5,11 @@
  ******************************************************************************/
 package forestry.api.apiculture.hives;
 
+import forestry.api.core.EnumHumidity;
+import forestry.api.core.EnumTemperature;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 
 /**
  * A basic tree hive implementation. Hives that generate on trees can subclass this.
@@ -15,6 +18,11 @@ public abstract class HiveTree extends HiveBasic {
 
 	public HiveTree(Block hiveBlock, int hiveMeta, float genChance) {
 		super(hiveBlock, hiveMeta, genChance);
+	}
+
+	@Override
+	public boolean isGoodClimate(BiomeGenBase biome, EnumTemperature temperature, EnumHumidity humidity) {
+		return !EnumTemperature.isBiomeHellish(biome);
 	}
 
 	@Override

@@ -5,9 +5,12 @@
  ******************************************************************************/
 package forestry.api.apiculture.hives;
 
+import forestry.api.core.EnumHumidity;
+import forestry.api.core.EnumTemperature;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.HashSet;
 
@@ -23,6 +26,11 @@ public abstract class HiveGround extends HiveBasic {
 
 		for (Block block : groundBlocks)
 			groundMaterials.add(block.getMaterial());
+	}
+
+	@Override
+	public boolean isGoodClimate(BiomeGenBase biome, EnumTemperature temperature, EnumHumidity humidity) {
+		return !EnumTemperature.isBiomeHellish(biome);
 	}
 
 	@Override
