@@ -79,7 +79,6 @@ public abstract class HiveBasic implements IHive {
 		Material material = block.getMaterial();
 		return (material.isReplaceable() && !material.isLiquid()) ||
 				material == Material.air ||
-				material == Material.grass ||
 				material == Material.plants;
 	}
 }
