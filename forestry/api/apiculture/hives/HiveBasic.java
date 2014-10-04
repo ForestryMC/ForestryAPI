@@ -64,7 +64,17 @@ public abstract class HiveBasic implements IHive {
 	}
 
 	@Override
-	public boolean isGoodClimate(BiomeGenBase biome, EnumTemperature temperature, EnumHumidity humidity) {
+	public boolean isGoodBiome(BiomeGenBase biome) {
+		return true;
+	}
+
+	@Override
+	public boolean isGoodHumidity(EnumHumidity humidity) {
+		return true;
+	}
+
+	@Override
+	public boolean isGoodTemperature(EnumTemperature temperature) {
 		return true;
 	}
 

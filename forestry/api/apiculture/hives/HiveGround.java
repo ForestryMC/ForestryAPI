@@ -29,7 +29,7 @@ public abstract class HiveGround extends HiveBasic {
 	}
 
 	@Override
-	public boolean isGoodClimate(BiomeGenBase biome, EnumTemperature temperature, EnumHumidity humidity) {
+	public boolean isGoodBiome(BiomeGenBase biome) {
 		return !EnumTemperature.isBiomeHellish(biome);
 	}
 

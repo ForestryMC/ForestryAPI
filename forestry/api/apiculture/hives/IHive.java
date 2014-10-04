@@ -31,7 +31,9 @@ public interface IHive {
 	 * returns true if the hive can be generated in these conditions.
 	 * Used as a fast early-elimination check for hives that have no hope of spawning in the area.
 	 */
-	boolean isGoodClimate(BiomeGenBase biome, EnumTemperature temperature, EnumHumidity humidity);
+	boolean isGoodBiome(BiomeGenBase biome);
+	boolean isGoodHumidity(EnumHumidity humidity);
+	boolean isGoodTemperature(EnumTemperature temperature);
 
 	/**
 	 * returns true if the hive can be generated at this location.
