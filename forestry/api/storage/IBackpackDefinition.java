@@ -23,6 +23,9 @@ public interface IBackpackDefinition {
 	 */
 	String getName(ItemStack backpack);
 
+	@Deprecated
+	String getName();
+
 	/**
 	 * @return Primary colour for the backpack icon.
 	 */
