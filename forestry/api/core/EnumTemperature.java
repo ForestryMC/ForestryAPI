@@ -69,16 +69,16 @@ public enum EnumTemperature {
 	public static EnumTemperature getFromValue(float rawTemp) {
 		EnumTemperature value = EnumTemperature.ICY;
 
-		if (rawTemp >= 1.8f) {
+		if (rawTemp > 1.00f) {
 			value = EnumTemperature.HOT;
 		}
-		else if (rawTemp >= 0.95f) {
+		else if (rawTemp > 0.80f) {
 			value = EnumTemperature.WARM;
 		}
-		else if (rawTemp >= 0.2f) {
+		else if (rawTemp > 0.30f) {
 			value = EnumTemperature.NORMAL;
 		}
-		else if (rawTemp >= 0.05f) {
+		else if (rawTemp > 0.0f) {
 			value = EnumTemperature.COLD;
 		}
 
