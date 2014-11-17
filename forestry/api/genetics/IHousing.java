@@ -5,6 +5,7 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
+import forestry.api.core.EnumErrorCode;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -37,9 +38,13 @@ public interface IHousing {
 
 	EnumHumidity getHumidity();
 
+	@Deprecated // Deprecated since Forestry 3.2.0. Use EnumErrorCode version instead.
 	void setErrorState(int state);
+	void setErrorState(EnumErrorCode state);
 
+	@Deprecated // Deprecated since Forestry 3.2.0. Use getErrorState instead.
 	int getErrorOrdinal();
+	EnumErrorCode getErrorState();
 
 	/**
 	 * Adds products to the housing's inventory.

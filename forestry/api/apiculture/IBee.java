@@ -7,6 +7,7 @@ package forestry.api.apiculture;
 
 import java.util.ArrayList;
 
+import forestry.api.core.EnumErrorCode;
 import net.minecraft.item.ItemStack;
 
 import forestry.api.genetics.IEffectData;
@@ -66,7 +67,16 @@ public interface IBee extends IIndividualLiving {
 	 * @param housing the {@link IBeeHousing} the bee currently resides in.
 	 * @return Ordinal of the error code encountered. 0 - EnumErrorCode.OK
 	 */
+	@Deprecated // Deprecated since Forestry 3.2.0. Use canWork instead.
 	int isWorking(IBeeHousing housing);
+
+	/**
+	 * Determines whether the queen can work.
+	 *
+	 * @param housing the {@link IBeeHousing} the bee currently resides in.
+	 * @return the error code encountered.
+	 */
+	EnumErrorCode canWork(IBeeHousing housing);
 
 	boolean hasFlower(IBeeHousing housing);
 
