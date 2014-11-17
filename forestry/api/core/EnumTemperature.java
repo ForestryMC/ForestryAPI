@@ -13,6 +13,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraftforge.common.BiomeDictionary;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *  Many things Forestry use temperature and humidity of a biome to determine whether they can or how they can work or spawn at a given location.
  * 
@@ -21,6 +24,8 @@ import net.minecraftforge.common.BiomeDictionary;
 public enum EnumTemperature {
 	NONE("None", "habitats/ocean"), ICY("Icy", "habitats/snow"), COLD("Cold", "habitats/taiga"),
 	NORMAL("Normal", "habitats/plains"), WARM("Warm", "habitats/jungle"), HOT("Hot", "habitats/desert"), HELLISH("Hellish", "habitats/nether");
+
+	private static final Map<BiomeGenBase, Boolean> isBiomeHellishCache = new HashMap<BiomeGenBase, Boolean>();
 
 	public final String name;
 	public final String iconIndex;
@@ -40,13 +45,19 @@ public enum EnumTemperature {
 	}
 
 	/**
-	 * Determines if a given BiomeGenBase is of HELLISH temperature, since it is treated seperatly from actual temperature values.
+	 * Determines if a given BiomeGenBase is of HELLISH temperature, since it is treated separately from actual temperature values.
 	 * Uses the BiomeDictionary.
 	 * @param biomeGen BiomeGenBase of the biome in question
 	 * @return true, if the BiomeGenBase is a Nether-type biome; false otherwise.
 	 */
 	public static boolean isBiomeHellish(BiomeGenBase biomeGen) {
-		return BiomeDictionary.isBiomeOfType(biomeGen, BiomeDictionary.Type.NETHER);
+		if (isBiomeHellishCache.containsKey(biomeGen)) {
+			return isBiomeHellishCache.get(biomeGen);
+		}
+
+		boolean isBiomeHellish = BiomeDictionary.isBiomeOfType(biomeGen, BiomeDictionary.Type.NETHER);
+		isBiomeHellishCache.put(biomeGen, isBiomeHellish);
+		return isBiomeHellish;
 	}
 
 	/**
