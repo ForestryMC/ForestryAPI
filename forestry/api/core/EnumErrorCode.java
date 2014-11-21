@@ -11,8 +11,6 @@ import net.minecraft.util.IIcon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import forestry.core.render.TextureManager;
-
 public enum EnumErrorCode {
 
 	UNKNOWN("unknown"),
@@ -117,7 +115,7 @@ public enum EnumErrorCode {
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister register) {
-		icon = TextureManager.getInstance().registerTex(register, "errors/" + iconName);
+		icon = register.registerIcon("forestry:errors/" + iconName);
 	}
 
 	@SideOnly(Side.CLIENT)
