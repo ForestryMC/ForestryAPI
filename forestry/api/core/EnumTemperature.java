@@ -60,9 +60,10 @@ public enum EnumTemperature {
 	 * Uses the BiomeDictionary.
 	 * @param biomeID ID of the BiomeGenBase in question
 	 * @return true, if the biomeID is a Nether-type biome; false otherwise.
-	 * @deprecated since 3.2. Use BiomeHelper.isBiomeHellish(int biomeID)
+	 * @deprecated since 3.2. Use BiomeHelper.isBiomeHellish(BiomeGenBase biomeGen)
 	 */
 	@Deprecated
+	@SuppressWarnings("deprecated")
 	public static boolean isBiomeHellish(int biomeID) {
 		return BiomeHelper.isBiomeHellish(biomeID);
 	}
@@ -99,6 +100,10 @@ public enum EnumTemperature {
 		return getFromValue(biomeGenBase.temperature);
 	}
 
+	/**
+	 * @deprecated since Forestry 3.2. Use getFromBiome(BiomeGenBase biomeGenBase)
+	 */
+	@Deprecated
 	public static EnumTemperature getFromBiome(int biomeID) {
 		if (BiomeDictionary.isBiomeRegistered(biomeID))
 			throw new InvalidParameterException("BiomeID is not registered: " + biomeID);

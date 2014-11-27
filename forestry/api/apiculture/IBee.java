@@ -5,14 +5,14 @@
  ******************************************************************************/
 package forestry.api.apiculture;
 
-import java.util.ArrayList;
-
 import forestry.api.core.EnumErrorCode;
-import net.minecraft.item.ItemStack;
-
 import forestry.api.genetics.IEffectData;
 import forestry.api.genetics.IIndividual;
 import forestry.api.genetics.IIndividualLiving;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.ArrayList;
 
 /**
  * Other implementations than Forestry's default one are not supported.
@@ -80,7 +80,12 @@ public interface IBee extends IIndividualLiving {
 
 	boolean hasFlower(IBeeHousing housing);
 
+	/**
+	 * @deprecated since Forestry 3.2. Use getSuitableBiomes()
+	 */
+	@Deprecated
 	ArrayList<Integer> getSuitableBiomeIds();
+	ArrayList<BiomeGenBase> getSuitableBiomes();
 
 	ItemStack[] getProduceList();
 

@@ -17,6 +17,10 @@ public class BiomeHelper {
 		return biomeGenBase.getEnableSnow() || biomeGenBase.canSpawnLightningBolt();
 	}
 
+	/**
+	 * @deprecated since Forestry 3.2. Use canRainOrSnow(BiomeGenBase biomeGenBase)
+	 */
+	@Deprecated
 	public static boolean canRainOrSnow(int biomeID) {
 		return BiomeDictionary.isBiomeRegistered(biomeID) && canRainOrSnow(BiomeGenBase.getBiome(biomeID));
 	}
@@ -37,6 +41,10 @@ public class BiomeHelper {
 		return isBiomeHellish;
 	}
 
+	/**
+	 * @deprecated since Forestry 3.2. Use isBiomeHellish(BiomeGenBase biomeGen)
+	 */
+	@Deprecated
 	public static boolean isBiomeHellish(int biomeID) {
 		return BiomeDictionary.isBiomeRegistered(biomeID) && isBiomeHellish(BiomeGenBase.getBiome(biomeID));
 	}
