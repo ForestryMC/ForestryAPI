@@ -5,8 +5,7 @@
  ******************************************************************************/
 package forestry.api.apiculture.hives;
 
-import forestry.api.core.EnumHumidity;
-import forestry.api.core.EnumTemperature;
+import forestry.api.core.BiomeHelper;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -22,7 +21,7 @@ public abstract class HiveTree extends HiveBasic {
 
 	@Override
 	public boolean isGoodBiome(BiomeGenBase biome) {
-		return !EnumTemperature.isBiomeHellish(biome);
+		return !BiomeHelper.isBiomeHellish(biome);
 	}
 
 	@Override

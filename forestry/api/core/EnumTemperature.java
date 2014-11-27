@@ -13,6 +13,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraftforge.common.BiomeDictionary;
 
+import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,8 +25,6 @@ import java.util.Map;
 public enum EnumTemperature {
 	NONE("None", "habitats/ocean"), ICY("Icy", "habitats/snow"), COLD("Cold", "habitats/taiga"),
 	NORMAL("Normal", "habitats/plains"), WARM("Warm", "habitats/jungle"), HOT("Hot", "habitats/desert"), HELLISH("Hellish", "habitats/nether");
-
-	private static final Map<BiomeGenBase, Boolean> isBiomeHellishCache = new HashMap<BiomeGenBase, Boolean>();
 
 	public final String name;
 	public final String iconIndex;
@@ -49,51 +48,61 @@ public enum EnumTemperature {
 	 * Uses the BiomeDictionary.
 	 * @param biomeGen BiomeGenBase of the biome in question
 	 * @return true, if the BiomeGenBase is a Nether-type biome; false otherwise.
+	 * @deprecated since 3.2. Use BiomeHelper.isBiomeHellish(BiomeGenBase biomeGen)
 	 */
+	@Deprecated
 	public static boolean isBiomeHellish(BiomeGenBase biomeGen) {
-		if (isBiomeHellishCache.containsKey(biomeGen)) {
-			return isBiomeHellishCache.get(biomeGen);
-		}
-
-		boolean isBiomeHellish = BiomeDictionary.isBiomeOfType(biomeGen, BiomeDictionary.Type.NETHER);
-		isBiomeHellishCache.put(biomeGen, isBiomeHellish);
-		return isBiomeHellish;
+		return BiomeHelper.isBiomeHellish(biomeGen);
 	}
 
 	/**
-	 * Determines if a given biomeID is of HELLISH temperature, since it is treated seperatly from actual temperature values.
+	 * Determines if a given biomeID is of HELLISH temperature, since it is treated separately from actual temperature values.
 	 * Uses the BiomeDictionary.
 	 * @param biomeID ID of the BiomeGenBase in question
 	 * @return true, if the biomeID is a Nether-type biome; false otherwise.
+	 * @deprecated since 3.2. Use BiomeHelper.isBiomeHellish(int biomeID)
 	 */
+	@Deprecated
 	public static boolean isBiomeHellish(int biomeID) {
-		return BiomeDictionary.isBiomeRegistered(biomeID) && BiomeDictionary.isBiomeOfType(BiomeGenBase.getBiome(biomeID), BiomeDictionary.Type.NETHER);
+		return BiomeHelper.isBiomeHellish(biomeID);
 	}
 
 	/**
 	 * Determines the EnumTemperature given a floating point representation of
 	 * Minecraft temperature. Hellish biomes are handled based on their biome
-	 * type - check isBiomeHellish.
+	 * type - check BiomeHelper.isBiomeHellish.
 	 * @param rawTemp raw temperature value
 	 * @return EnumTemperature corresponding to value of rawTemp
 	 */
 	public static EnumTemperature getFromValue(float rawTemp) {
-		EnumTemperature value = EnumTemperature.ICY;
-
 		if (rawTemp > 1.00f) {
-			value = EnumTemperature.HOT;
+			return HOT;
 		}
 		else if (rawTemp > 0.80f) {
-			value = EnumTemperature.WARM;
+			return WARM;
 		}
 		else if (rawTemp > 0.30f) {
-			value = EnumTemperature.NORMAL;
+			return NORMAL;
 		}
 		else if (rawTemp > 0.0f) {
-			value = EnumTemperature.COLD;
+			return COLD;
 		}
+		else {
+			return ICY;
+		}
+	}
 
-		return value;
+	public static EnumTemperature getFromBiome(BiomeGenBase biomeGenBase) {
+		if (BiomeHelper.isBiomeHellish(biomeGenBase)) {
+			return HELLISH;
+		}
+		return getFromValue(biomeGenBase.temperature);
+	}
+
+	public static EnumTemperature getFromBiome(int biomeID) {
+		if (BiomeDictionary.isBiomeRegistered(biomeID))
+			throw new InvalidParameterException("BiomeID is not registered: " + biomeID);
+		return getFromBiome(BiomeGenBase.getBiome(biomeID));
 	}
 
 }
