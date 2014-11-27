@@ -5,14 +5,13 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
-import forestry.api.core.EnumErrorCode;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-
 import com.mojang.authlib.GameProfile;
-
+import forestry.api.core.EnumErrorCode;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 
 /**
  * Any housing, hatchery or nest which is a fixed location in the world.
@@ -32,17 +31,28 @@ public interface IHousing {
 
 	int getZCoord();
 
+	/**
+	 * @deprecated since 3.2. Use getBiome().
+	 */
+	@Deprecated
 	int getBiomeId();
+	BiomeGenBase getBiome();
 
 	EnumTemperature getTemperature();
 
 	EnumHumidity getHumidity();
 
-	@Deprecated // Deprecated since Forestry 3.2.0. Use EnumErrorCode version instead.
+	/**
+	 * @deprecated since Forestry 3.2.0. Use EnumErrorCode version instead.
+	 */
+	@Deprecated
 	void setErrorState(int state);
 	void setErrorState(EnumErrorCode state);
 
-	@Deprecated // Deprecated since Forestry 3.2.0. Use getErrorState instead.
+	/**
+	 * @deprecated since Forestry 3.2.0. Use getErrorState instead.
+	 */
+	@Deprecated
 	int getErrorOrdinal();
 	EnumErrorCode getErrorState();
 
@@ -52,6 +62,7 @@ public interface IHousing {
 	 * @param product
 	 *            ItemStack with the product to add.
 	 * @param all
+	 *            if true, success requires that all products are added
 	 * @return Boolean indicating success or failure.
 	 */
 	boolean addProduct(ItemStack product, boolean all);
