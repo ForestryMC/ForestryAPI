@@ -5,7 +5,7 @@
  ******************************************************************************/
 package forestry.api.apiculture;
 
-import forestry.api.core.EnumErrorCode;
+import forestry.api.core.IErrorState;
 import forestry.api.genetics.IEffectData;
 import forestry.api.genetics.IIndividual;
 import forestry.api.genetics.IIndividualLiving;
@@ -76,7 +76,7 @@ public interface IBee extends IIndividualLiving {
 	 * @param housing the {@link IBeeHousing} the bee currently resides in.
 	 * @return the error code encountered.
 	 */
-	EnumErrorCode canWork(IBeeHousing housing);
+	IErrorState canWork(IBeeHousing housing);
 
 	boolean hasFlower(IBeeHousing housing);
 

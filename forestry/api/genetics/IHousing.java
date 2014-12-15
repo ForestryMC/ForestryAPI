@@ -6,9 +6,9 @@
 package forestry.api.genetics;
 
 import com.mojang.authlib.GameProfile;
-import forestry.api.core.EnumErrorCode;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
+import forestry.api.core.IErrorState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -47,14 +47,14 @@ public interface IHousing {
 	 */
 	@Deprecated
 	void setErrorState(int state);
-	void setErrorState(EnumErrorCode state);
+	void setErrorState(IErrorState state);
 
 	/**
 	 * @deprecated since Forestry 3.2.0. Use getErrorState instead.
 	 */
 	@Deprecated
 	int getErrorOrdinal();
-	EnumErrorCode getErrorState();
+	IErrorState getErrorState();
 
 	/**
 	 * Adds products to the housing's inventory.
