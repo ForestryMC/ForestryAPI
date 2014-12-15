@@ -21,6 +21,10 @@ public interface IPostRegistry {
 	IMailAddress getMailAddress(GameProfile gameProfile);
 	IMailAddress getMailAddress(String traderName);
 
+	// These also check that the address is valid. Returns null for invalid addresses.
+	IMailAddress getValidMailAddress(World world, GameProfile gameProfile);
+	IMailAddress getValidMailAddress(World world, String traderName);
+
 	/* LETTERS */
 	boolean isLetter(ItemStack itemstack);
 
