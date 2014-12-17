@@ -16,6 +16,11 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import net.minecraft.client.renderer.texture.IIconRegister;
 
 /**
@@ -25,17 +30,40 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 public class ErrorStateRegistry {
 
 	private static final BiMap<Short, IErrorState> states = HashBiMap.create();
+	private static final Map<String, IErrorState> stateNames = new HashMap<String, IErrorState>();
+	private static final Set<IErrorState> stateView = Collections.unmodifiableSet(states.inverse().keySet());
 
 	public static void registerErrorState(IErrorState state) {
+		if (states.containsKey(state.getID()))
+			throw new RuntimeException("Forestry Error State does not possess a unique id.");
 		states.put(state.getID(), state);
+		addStateName(state, state.getUniqueName());
 	}
 
-	public static short getErrorStateCode(IErrorState state) {
-		return states.inverse().get(state);
+	public static void addAlias(IErrorState state, String name) {
+		if (!states.values().contains(state))
+			throw new RuntimeException("Forestry Error State did not exist while trying to register alias.");
+		addStateName(state, name);
 	}
-	
+
+	private static void addStateName(IErrorState state, String name) {
+		if (!name.contains(":"))
+			throw new RuntimeException("Forestry Error State name must be in the format <modid>:<name>.");
+		if (stateNames.containsKey(name))
+			throw new RuntimeException("Forestry Error State does not possess a unique name.");
+		stateNames.put(name, state);
+	}
+
 	public static IErrorState getErrorStateFromCode(short id) {
 		return states.get(id);
+	}
+
+	public static IErrorState getErrorStateFromName(String name) {
+		return stateNames.get(name);
+	}
+
+	public static Set<IErrorState> getErrorStates() {
+		return stateView;
 	}
 
 	@SideOnly(Side.CLIENT)

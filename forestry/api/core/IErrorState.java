@@ -24,6 +24,8 @@ import net.minecraft.util.IIcon;
 public interface IErrorState {
 	
 	short getID();
+	
+	String getUniqueName();
 
 	String getDescription();
 
