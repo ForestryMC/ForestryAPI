@@ -18,7 +18,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -54,11 +53,11 @@ public class ErrorStateRegistry {
 		stateNames.put(name, state);
 	}
 
-	public static IErrorState getErrorStateFromCode(short id) {
+	public static IErrorState getErrorState(short id) {
 		return states.get(id);
 	}
 
-	public static IErrorState getErrorStateFromName(String name) {
+	public static IErrorState getErrorState(String name) {
 		return stateNames.get(name);
 	}
 
