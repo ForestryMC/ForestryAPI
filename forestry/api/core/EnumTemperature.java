@@ -5,17 +5,15 @@
  ******************************************************************************/
 package forestry.api.core;
 
+import java.security.InvalidParameterException;
+
 import net.minecraft.util.IIcon;
 import net.minecraft.world.biome.BiomeGenBase;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraftforge.common.BiomeDictionary;
 
-import java.security.InvalidParameterException;
-import java.util.HashMap;
-import java.util.Map;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  *  Many things Forestry use temperature and humidity of a biome to determine whether they can or how they can work or spawn at a given location.
