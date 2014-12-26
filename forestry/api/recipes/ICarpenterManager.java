@@ -68,4 +68,6 @@ public interface ICarpenterManager extends ICraftingProvider {
 	public void addCrating(String toCrate, ItemStack unpack, ItemStack crated);
 
 	public void addCrating(ItemStack itemStack);
+
+	public void addCratingWithOreDict(ItemStack itemStack);
 }
