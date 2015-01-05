@@ -49,7 +49,9 @@ public interface IBee extends IIndividualLiving {
 
 	/**
 	 * @return true if the bee is mated with another whose isNatural() doesn't match.
+	 * @deprecated since Forestry 3.4.0. Only princesses have isNatural() so this is always false
 	 */
+	@Deprecated
 	boolean isIrregularMating();
 
 	IEffectData[] doEffect(IEffectData[] storedData, IBeeHousing housing);
