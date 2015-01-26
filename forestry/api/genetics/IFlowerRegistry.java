@@ -5,14 +5,15 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
+import java.util.List;
 import java.util.Random;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
 public interface IFlowerRegistry {
-	
-	ItemStack[] getAcceptableFlowers(String flowerType);
+
+	List<IFlower> getAcceptableFlowers(String flowerType);
 	
 	boolean growFlower(String flowerType, World world, IIndividual individual, int x, int y, int z);
 	
@@ -23,7 +24,7 @@ public interface IFlowerRegistry {
 	 *
 	 * @param flowerTypes See {@link forestry.api.apiculture.FlowerManager}.FlowerTypeXXX
 	 */
-	void registerAcceptableFlower(ItemStack flower, String... flowerTypes);
+	void registerAcceptableFlower(Block flowerBlock, int flowerMeta, String... flowerTypes);
 	
 	void registerGrowthRule(IFlowerGrowthRule rule, String... flowerTypes);
 	
@@ -34,8 +35,8 @@ public interface IFlowerRegistry {
 	 * @param weight Weight for the Flower (Vanilla = 1.0, Modded flowers < 1.0)
 	 * @param flowerTypes See {@link forestry.api.apiculture.FlowerManager}.FlowerTypeXXX
 	 */
-	void registerPlantableFlower(ItemStack flower, double weight, String... flowerTypes);
+	void registerPlantableFlower(Block flowerBlock, int flowerMeta, double weight, String... flowerTypes);
 
-	ItemStack getRandomPlantableFlower(String flowerType, Random rand);
+	IFlower getRandomPlantableFlower(String flowerType, Random rand);
 
 }

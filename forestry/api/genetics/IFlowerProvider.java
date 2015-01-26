@@ -5,6 +5,8 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
+import java.util.List;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -34,8 +36,8 @@ public interface IFlowerProvider {
 	ItemStack[] affectProducts(World world, IIndividual individual, int x, int y, int z, ItemStack[] products);
 
 	/**
-	 * @return Array of itemstacks representing valid flowers for the flower provider. The first in the array is for use as an icon Return null or an empty
-	 *         array if the flower does not have an itemstack
+	 * @return List of valid flowers for the flower provider. The first in the array is for use as an icon.
+	 *  Returns an empty list if the flower provider does not have any valid flowers.
 	 */
-	ItemStack[] getItemStacks();
+	List<IFlower> getFlowers();
 }
