@@ -5,8 +5,8 @@
  ******************************************************************************/
 package forestry.api.core;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * Forestry's API is divided into several subcategories to make it easier to understand.

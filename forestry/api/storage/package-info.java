@@ -5,4 +5,4 @@
  ******************************************************************************/
 @API(apiVersion="2.3.0", owner="ForestryAPI|core", provides="ForestryAPI|storage")
 package forestry.api.storage;
-import cpw.mods.fml.common.API;
+import net.minecraftforge.fml.common.API;

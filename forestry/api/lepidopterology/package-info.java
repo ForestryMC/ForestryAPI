@@ -5,4 +5,4 @@
  ******************************************************************************/
 @API(apiVersion="1.1", owner="ForestryAPI|core", provides="ForestryAPI|lepidopterology")
 package forestry.api.lepidopterology;
-import cpw.mods.fml.common.API;
+import net.minecraftforge.fml.common.API;

@@ -8,7 +8,7 @@ package forestry.api.storage;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 
-import cpw.mods.fml.common.eventhandler.Event;
+import net.minecraftforge.fml.common.eventhandler.Event;
 
 
 public abstract class BackpackEvent extends Event {

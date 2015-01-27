@@ -5,4 +5,4 @@
  ******************************************************************************/
 @API(apiVersion="4.0.0", owner="ForestryAPI|apiculture", provides="ForestryAPI|hives")
 package forestry.api.apiculture.hives;
-import cpw.mods.fml.common.API;
+import net.minecraftforge.fml.common.API;

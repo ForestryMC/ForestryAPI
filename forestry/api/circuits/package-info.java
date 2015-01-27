@@ -5,4 +5,4 @@
  ******************************************************************************/
 @API(apiVersion="1.1.0", owner="ForestryAPI|core", provides="ForestryAPI|circuits")
 package forestry.api.circuits;
-import cpw.mods.fml.common.API;
+import net.minecraftforge.fml.common.API;
