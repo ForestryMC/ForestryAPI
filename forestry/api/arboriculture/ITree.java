@@ -8,6 +8,7 @@ package forestry.api.arboriculture;
 import java.util.EnumSet;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -20,9 +21,9 @@ public interface ITree extends IIndividual {
 
 	void mate(ITree other);
 
-	IEffectData[] doEffect(IEffectData[] storedData, World world, int biomeid, int x, int y, int z);
+	IEffectData[] doEffect(IEffectData[] storedData, World world, int biomeid, BlockPos pos);
 
-	IEffectData[] doFX(IEffectData[] storedData, World world, int biomeid, int x, int y, int z);
+	IEffectData[] doFX(IEffectData[] storedData, World world, int biomeid, BlockPos pos);
 
 	ITreeGenome getGenome();
 
@@ -30,33 +31,29 @@ public interface ITree extends IIndividual {
 
 	EnumSet<EnumPlantType> getPlantTypes();
 
-	ITree[] getSaplings(World world, int x, int y, int z, float modifier);
+	ITree[] getSaplings(World world, BlockPos pos, float modifier);
 
 	ItemStack[] getProduceList();
 
 	ItemStack[] getSpecialtyList();
 
-	ItemStack[] produceStacks(World world, int x, int y, int z, int ripeningTime);
+	ItemStack[] produceStacks(World world, BlockPos pos, int ripeningTime);
 
 	/**
 	 * 
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @return Boolean indicating whether a sapling can stay planted at the given position.
 	 */
-	boolean canStay(World world, int x, int y, int z);
+	boolean canStay(World world, BlockPos pos);
 
 	/**
 	 * 
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @return Boolean indicating whether a sapling at the given position can grow into a tree.
 	 */
-	boolean canGrow(World world, int x, int y, int z, int expectedGirth, int expectedHeight);
+	boolean canGrow(World world, BlockPos pos, int expectedGirth, int expectedHeight);
 
 	/**
 	 * @return Integer denoting the maturity (block ticks) required for a sapling to attempt to grow into a tree.
@@ -70,26 +67,22 @@ public interface ITree extends IIndividual {
 	
 	/**
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @return Integer denoting the size of the tree trunk.
 	 */
-	int getGirth(World world, int x, int y, int z);
+	int getGirth(World world, BlockPos pos);
 
 	
 	
 	/**
 	 * 
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @return Growth conditions at the given position.
 	 */
-	EnumGrowthConditions getGrowthCondition(World world, int x, int y, int z);
+	EnumGrowthConditions getGrowthCondition(World world, BlockPos pos);
 
-	WorldGenerator getTreeGenerator(World world, int x, int y, int z, boolean wasBonemealed);
+	WorldGenerator getTreeGenerator(World world, BlockPos pos, boolean wasBonemealed);
 
 	ITree copy();
 

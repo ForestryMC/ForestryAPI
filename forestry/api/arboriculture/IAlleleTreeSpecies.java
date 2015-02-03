@@ -8,14 +8,14 @@ package forestry.api.arboriculture;
 import java.util.Collection;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
+import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import net.minecraftforge.common.EnumPlantType;
 
 import forestry.api.genetics.IAlleleSpecies;
 import forestry.api.genetics.IFruitFamily;
@@ -37,12 +37,10 @@ public interface IAlleleTreeSpecies extends IAlleleSpecies {
 	/**
 	 * @param tree
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @return Tree generator for the tree at the given location.
 	 */
-	WorldGenerator getGenerator(ITree tree, World world, int x, int y, int z);
+	WorldGenerator getGenerator(ITree tree, World world, BlockPos pos);
 
 	/**
 	 * @return All available generator classes for this species.

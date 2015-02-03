@@ -6,6 +6,7 @@
 package forestry.api.apiculture.hives;
 
 import net.minecraft.block.Block;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -44,5 +45,5 @@ public interface IHiveDescription {
 	 * Called after successful hive generation.
 	 * world, x, y, z give the location of the new hive.
 	 **/
-	void postGen(World world, int x, int y, int z);
+	void postGen(World world, BlockPos pos);
 }

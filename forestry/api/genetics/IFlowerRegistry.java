@@ -9,15 +9,16 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public interface IFlowerRegistry {
 
 	List<IFlower> getAcceptableFlowers(String flowerType);
 	
-	boolean growFlower(String flowerType, World world, IIndividual individual, int x, int y, int z);
+	boolean growFlower(String flowerType, World world, IIndividual individual, BlockPos pos);
 	
-	boolean isAcceptedFlower(String flowerType, World world, IIndividual individual, int x, int y, int z);
+	boolean isAcceptedFlower(String flowerType, World world, IIndividual individual, BlockPos pos);
 	
 	/**
 	 * Registers a non-plantable flower, but bees accept them.

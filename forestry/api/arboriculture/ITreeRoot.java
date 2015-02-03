@@ -10,6 +10,7 @@ import java.util.Collection;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import com.mojang.authlib.GameProfile;
@@ -57,17 +58,17 @@ public interface ITreeRoot extends ISpeciesRoot {
 	 */
 	EnumGermlingType getType(ItemStack stack);
 
-	ITree getTree(World world, int x, int y, int z);
+	ITree getTree(World world, BlockPos pos);
 
 	ITree getTree(World world, ITreeGenome genome);
 
-	boolean plantSapling(World world, ITree tree, GameProfile owner, int x, int y, int z);
+	boolean plantSapling(World world, ITree tree, GameProfile owner, BlockPos pos);
 
 	// decorative=true for creative and player-placed leaves. No decay, pollination, or drops.
-	boolean setLeaves(World world, IIndividual tree, GameProfile owner, int x, int y, int z, boolean decorative);
+	boolean setLeaves(World world, IIndividual tree, GameProfile owner, BlockPos pos, boolean decorative);
 
 	// set normal leaves created as worldgen
-	boolean setLeaves(World world, IIndividual tree, GameProfile owner, int x, int y, int z);
+	boolean setLeaves(World world, IIndividual tree, GameProfile owner, BlockPos pos);
 
 	@Override
 	IChromosome[] templateAsChromosomes(IAllele[] template);
@@ -75,7 +76,7 @@ public interface ITreeRoot extends ISpeciesRoot {
 	@Override
 	IChromosome[] templateAsChromosomes(IAllele[] templateActive, IAllele[] templateInactive);
 
-	boolean setFruitBlock(World world, IAlleleFruit allele, float sappiness, short[] indices, int x, int y, int z);
+	boolean setFruitBlock(World world, IAlleleFruit allele, float sappiness, short[] indices, BlockPos pos);
 
 	/* GAME MODE */
 	ArrayList<ITreekeepingMode> getTreekeepingModes();

@@ -7,6 +7,7 @@ package forestry.api.farming;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 /**
@@ -16,21 +17,17 @@ public interface IFarmable {
 
 	/**
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @return true if the block at the given location is a "sapling" for this type, i.e. a non-harvestable immature version of the crop.
 	 */
-	boolean isSaplingAt(World world, int x, int y, int z);
+	boolean isSaplingAt(World world, BlockPos pos);
 
 	/**
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @return {@link ICrop} if the block at the given location is a harvestable and mature crop, null otherwise.
 	 */
-	ICrop getCropAt(World world, int x, int y, int z);
+	ICrop getCropAt(World world, BlockPos pos);
 
 	/**
 	 * @param itemstack
@@ -50,11 +47,9 @@ public interface IFarmable {
 	 * 
 	 * @param germling
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @return true on success, false otherwise.
 	 */
-	boolean plantSaplingAt(EntityPlayer player, ItemStack germling, World world, int x, int y, int z);
+	boolean plantSaplingAt(EntityPlayer player, ItemStack germling, World world, BlockPos pos);
 
 }

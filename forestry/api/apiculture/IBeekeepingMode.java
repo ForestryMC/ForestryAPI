@@ -7,6 +7,7 @@ package forestry.api.apiculture;
 
 import java.util.ArrayList;
 
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public interface IBeekeepingMode extends IBeeModifier {
@@ -30,7 +31,7 @@ public interface IBeekeepingMode extends IBeeModifier {
 	 * @param queen
 	 * @return fertility taking into account the birthing queen and surroundings.
 	 */
-	int getFinalFertility(IBee queen, World world, int x, int y, int z);
+	int getFinalFertility(IBee queen, World world, BlockPos pos);
 
 	/**
 	 * @param queen

@@ -7,6 +7,7 @@ package forestry.api.arboriculture;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -19,9 +20,9 @@ public interface IFruitProvider {
 
 	IFruitFamily getFamily();
 
-	int getColour(ITreeGenome genome, IBlockAccess world, int x, int y, int z, int ripeningTime);
+	int getColour(ITreeGenome genome, IBlockAccess world, BlockPos pos, int ripeningTime);
 
-	boolean markAsFruitLeaf(ITreeGenome genome, World world, int x, int y, int z);
+	boolean markAsFruitLeaf(ITreeGenome genome, World world, BlockPos pos);
 
 	int getRipeningPeriod();
 
@@ -31,7 +32,7 @@ public interface IFruitProvider {
 	// / Specialty, Chance
 	ItemStack[] getSpecialty();
 
-	ItemStack[] getFruits(ITreeGenome genome, World world, int x, int y, int z, int ripeningTime);
+	ItemStack[] getFruits(ITreeGenome genome, World world, BlockPos pos, int ripeningTime);
 
 	/**
 	 * @return Short, human-readable identifier used in the treealyzer.
@@ -42,15 +43,13 @@ public interface IFruitProvider {
 	/**
 	 * @param genome
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @param ripeningTime
 	 *            Elapsed ripening time for the fruit.
 	 * @param fancy
 	 * @return IIcon index of the texture to overlay on the leaf block.
 	 */
-	short getIconIndex(ITreeGenome genome, IBlockAccess world, int x, int y, int z, int ripeningTime, boolean fancy);
+	short getIconIndex(ITreeGenome genome, IBlockAccess world, BlockPos pos, int ripeningTime, boolean fancy);
 
 	/**
 	 * @return true if this fruit provider requires fruit blocks to spawn, false otherwise.
@@ -62,12 +61,10 @@ public interface IFruitProvider {
 	 * 
 	 * @param genome
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @return true if a fruit block was spawned, false otherwise.
 	 */
-	boolean trySpawnFruitBlock(ITreeGenome genome, World world, int x, int y, int z);
+	boolean trySpawnFruitBlock(ITreeGenome genome, World world, BlockPos pos);
 
 	@SideOnly(Side.CLIENT)
 	void registerIcons(IIconRegister register);

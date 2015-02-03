@@ -8,13 +8,13 @@ package forestry.api.farming;
 import java.util.Collection;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 
+import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import net.minecraftforge.common.util.ForgeDirection;
 
 public interface IFarmLogic {
 
@@ -28,9 +28,9 @@ public interface IFarmLogic {
 
 	Collection<ItemStack> collect();
 
-	boolean cultivate(int x, int y, int z, ForgeDirection direction, int extent);
+	boolean cultivate(BlockPos pos, ForgeDirection direction, int extent);
 
-	Collection<ICrop> harvest(int x, int y, int z, ForgeDirection direction, int extent);
+	Collection<ICrop> harvest(BlockPos pos, ForgeDirection direction, int extent);
 
 	IFarmLogic setManual(boolean manual);
 

@@ -5,11 +5,12 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 /**
  * Basic condition for flower growing
  */
 public interface IFlowerGrowthRule {	
-	boolean growFlower(IFlowerRegistry fr, String flowerType, World world, IIndividual individual, int x, int y, int z);
+	boolean growFlower(IFlowerRegistry fr, String flowerType, World world, IIndividual individual, BlockPos pos);
 }

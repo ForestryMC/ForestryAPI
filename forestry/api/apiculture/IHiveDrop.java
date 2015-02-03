@@ -8,7 +8,8 @@ package forestry.api.apiculture;
 import java.util.Collection;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.IBlockAccess;
 
 /**
  * Bees can be seeded either as hive drops or as mutation results.
@@ -19,20 +20,18 @@ import net.minecraft.world.World;
  */
 public interface IHiveDrop {
 
-	ItemStack getPrincess(World world, int x, int y, int z, int fortune);
+	ItemStack getPrincess(IBlockAccess world, BlockPos pos, int fortune);
 
-	Collection<ItemStack> getDrones(World world, int x, int y, int z, int fortune);
+	Collection<ItemStack> getDrones(IBlockAccess world, BlockPos pos, int fortune);
 
-	Collection<ItemStack> getAdditional(World world, int x, int y, int z, int fortune);
+	Collection<ItemStack> getAdditional(IBlockAccess world, BlockPos pos, int fortune);
 
 	/**
 	 * Chance to drop. Default drops have 80 (= 80 %).
 	 * 
 	 * @param world Minecraft world this is called for.
-	 * @param x x-Coordinate of the broken hive.
-	 * @param y y-Coordinate of the broken hive.
-	 * @param z z-Coordinate of the broken hive.
+	 * @param pos Coordinates of the broken hive.
 	 * @return Chance for drop as an integer of 0 - 100.
 	 */
-	int getChance(World world, int x, int y, int z);
+	int getChance(IBlockAccess world, BlockPos pos);
 }

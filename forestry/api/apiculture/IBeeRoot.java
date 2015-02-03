@@ -10,6 +10,7 @@ import java.util.Collection;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.mojang.authlib.GameProfile;
@@ -76,7 +77,7 @@ public interface IBeeRoot extends ISpeciesRoot {
 	 *            Valid {@link IBeeGenome}
 	 * @return {@link IBee} from the passed genome
 	 */
-	IBee getBee(World world, IBeeGenome genome);
+	IBee getBee(IBlockAccess world, IBeeGenome genome);
 
 	/**
 	 * Creates an IBee suitable for a queen containing the necessary second genome for the mate.

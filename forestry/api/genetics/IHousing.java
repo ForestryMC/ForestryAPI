@@ -5,13 +5,16 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+
 import com.mojang.authlib.GameProfile;
+
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.core.IErrorState;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 
 /**
  * Any housing, hatchery or nest which is a fixed location in the world.
@@ -25,11 +28,7 @@ public interface IHousing {
 
 	World getWorld();
 
-	int getXCoord();
-
-	int getYCoord();
-
-	int getZCoord();
+	BlockPos getCoords();
 
 	/**
 	 * @deprecated since 3.2. Use getBiome().
