@@ -5,10 +5,13 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
+import java.util.EnumSet;
 import java.util.List;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import net.minecraftforge.common.EnumPlantType;
 
 public interface IFlowerProvider {
 	/**
@@ -17,6 +20,7 @@ public interface IFlowerProvider {
 	boolean isAcceptedFlower(World world, IIndividual individual, int x, int y, int z);
 
 	boolean isAcceptedPollinatable(World world, IPollinatable pollinatable);
+	boolean isAcceptedPollinatable(World world, EnumSet<EnumPlantType> plantTypes);
 
 	/**
 	 * @return True if a flower was planted.
