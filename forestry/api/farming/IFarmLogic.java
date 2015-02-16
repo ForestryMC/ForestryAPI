@@ -9,6 +9,7 @@ import java.util.Collection;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 
@@ -28,9 +29,9 @@ public interface IFarmLogic {
 
 	Collection<ItemStack> collect();
 
-	boolean cultivate(BlockPos pos, ForgeDirection direction, int extent);
+	boolean cultivate(BlockPos pos, EnumFacing direction, int extent);
 
-	Collection<ICrop> harvest(BlockPos pos, ForgeDirection direction, int extent);
+	Collection<ICrop> harvest(BlockPos pos, EnumFacing direction, int extent);
 
 	IFarmLogic setManual(boolean manual);
 

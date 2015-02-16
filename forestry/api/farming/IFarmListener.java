@@ -9,8 +9,7 @@ import java.util.Collection;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
-
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.util.EnumFacing;
 
 public interface IFarmListener {
 
@@ -50,7 +49,7 @@ public interface IFarmListener {
 	 * @param direction
 	 * @param extent
 	 */
-	void hasCultivated(IFarmLogic logic, BlockPos pos, ForgeDirection direction, int extent);
+	void hasCultivated(IFarmLogic logic, BlockPos pos, EnumFacing direction, int extent);
 
 	/**
 	 * Called after the stack of harvested crops has been returned by the farm logic, but before it is added to the farm's pending queue.
@@ -61,7 +60,7 @@ public interface IFarmListener {
 	 * @param direction
 	 * @param extent
 	 */
-	void hasScheduledHarvest(Collection<ICrop> harvested, IFarmLogic logic, BlockPos pos, ForgeDirection direction, int extent);
+	void hasScheduledHarvest(Collection<ICrop> harvested, IFarmLogic logic, BlockPos pos, EnumFacing direction, int extent);
 
 	/**
 	 * Can be used to cancel farm task on a per side/{@link IFarmLogic} basis.
@@ -70,5 +69,5 @@ public interface IFarmListener {
 	 * @param direction
 	 * @return true to skip any work action on the given logic and direction for this work cycle.
 	 */
-	boolean cancelTask(IFarmLogic logic, ForgeDirection direction);
+	boolean cancelTask(IFarmLogic logic, EnumFacing direction);
 }

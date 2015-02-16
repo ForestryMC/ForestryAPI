@@ -7,9 +7,9 @@ package forestry.api.farming;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
 
 public interface IFarmHousing {
@@ -62,12 +62,12 @@ public interface IFarmHousing {
 	 * @param direction
 	 * @param logic
 	 */
-	void setFarmLogic(ForgeDirection direction, IFarmLogic logic);
+	void setFarmLogic(EnumFacing direction, IFarmLogic logic);
 
 	/**
 	 * Reset the farm logic for the given direction to default. UP/DOWN/UNKNOWN are invalid!
 	 * 
 	 * @param direction
 	 */
-	void resetFarmLogic(ForgeDirection direction);
+	void resetFarmLogic(EnumFacing direction);
 }
