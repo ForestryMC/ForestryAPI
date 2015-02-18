@@ -24,6 +24,7 @@ public interface IFlowerRegistry {
 	 *
 	 * @param flowerTypes See {@link forestry.api.apiculture.FlowerManager}.FlowerTypeXXX
 	 */
+	void registerAcceptableFlower(Block flowerBlock, String... flowerTypes);
 	void registerAcceptableFlower(Block flowerBlock, int flowerMeta, String... flowerTypes);
 	
 	void registerGrowthRule(IFlowerGrowthRule rule, String... flowerTypes);
