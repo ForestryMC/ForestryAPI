@@ -1,10 +1,11 @@
 package forestry.api.core;
 
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.BiomeDictionary;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import net.minecraft.world.biome.BiomeGenBase;
+
+import net.minecraftforge.common.BiomeDictionary;
 
 public class BiomeHelper {
 
@@ -15,14 +16,6 @@ public class BiomeHelper {
 	 */
 	public static boolean canRainOrSnow(BiomeGenBase biomeGenBase) {
 		return biomeGenBase.getEnableSnow() || biomeGenBase.canSpawnLightningBolt();
-	}
-
-	/**
-	 * @deprecated since Forestry 3.2. Use canRainOrSnow(BiomeGenBase biomeGenBase)
-	 */
-	@Deprecated
-	public static boolean canRainOrSnow(int biomeID) {
-		return BiomeDictionary.isBiomeRegistered(biomeID) && canRainOrSnow(BiomeGenBase.getBiome(biomeID));
 	}
 
 	/**
@@ -40,13 +33,4 @@ public class BiomeHelper {
 		isBiomeHellishCache.put(biomeGen, isBiomeHellish);
 		return isBiomeHellish;
 	}
-
-	/**
-	 * @deprecated since Forestry 3.2. Use isBiomeHellish(BiomeGenBase biomeGen)
-	 */
-	@Deprecated
-	public static boolean isBiomeHellish(int biomeID) {
-		return BiomeDictionary.isBiomeRegistered(biomeID) && isBiomeHellish(BiomeGenBase.getBiome(biomeID));
-	}
-
 }

@@ -8,10 +8,10 @@ package forestry.api.genetics;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import com.mojang.authlib.GameProfile;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
-import com.mojang.authlib.GameProfile;
 
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;

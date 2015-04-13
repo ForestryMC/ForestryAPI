@@ -14,13 +14,16 @@ package forestry.api.core;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  *
