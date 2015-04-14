@@ -7,7 +7,9 @@ package forestry.api.genetics;
 
 /**
  * AlleleManager.alleleRegistry can be cast to this type.
+ * @deprecated Since Forestry 3.6. Use IAlleleRegistry.
  */
+@Deprecated
 public interface ILegacyHandler {
 	void registerLegacyMapping(int id, String uid);
 
