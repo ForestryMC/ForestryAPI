@@ -1,8 +1,15 @@
 /*******************************************************************************
  * Copyright 2011-2014 SirSengir
- * 
+ *
  * This work (the API) is licensed under the "MIT" License, see LICENSE.txt for details.
  ******************************************************************************/
-@API(apiVersion="3.1.0", owner="ForestryAPI|core", provides="ForestryAPI|apiculture")
 package forestry.api.apiculture;
-import cpw.mods.fml.common.API;
+
+public interface IJubilanceProvider {
+
+	/**
+	 * Returns true when conditions are right to make this species Jubilant.
+	 * Jubilant bees can produce their Specialty products.
+	 */
+	boolean isJubilant(IAlleleBeeSpecies species, IBeeGenome genome, IBeeHousing housing);
+}

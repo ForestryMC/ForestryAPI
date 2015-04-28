@@ -47,7 +47,9 @@ public interface IAlleleBeeSpecies extends IAlleleSpecies {
 	IIcon getIcon(EnumBeeType type, int renderPass);
 
 	/**
+	 * @deprecated since Forestry 3.6.
 	 * @return Path of the texture to use for entity rendering.
 	 */
+	@Deprecated
 	String getEntityTexture();
 }

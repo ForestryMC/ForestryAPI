@@ -26,4 +26,24 @@ public class BeeManager {
 	 * List of items that can induce swarming. Integer denotes x in 1000 chance.
 	 */
 	public static HashMap<ItemStack, Integer> inducers = new HashMap<ItemStack, Integer>();
+
+	/**
+	 * Convenient access to AlleleManager.alleleRegistry.getSpeciesRoot("rootBees")
+	 */
+	public static IBeeRoot beeRoot;
+
+	/**
+	 * Used to create new bees.
+	 */
+	public static IBeeFactory beeFactory;
+
+	/**
+	 * Used to create new bee mutations.
+	 */
+	public static IBeeMutationFactory beeMutationFactory;
+
+	/**
+	 * Used to get Forestry's jubilance implementations.
+	 */
+	public static IJubilanceFactory jubilanceFactory;
 }
