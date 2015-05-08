@@ -11,10 +11,23 @@ import forestry.api.genetics.IAlleleSpeciesCustom;
 
 public interface IAlleleBeeSpeciesCustom extends IAlleleBeeSpecies, IAlleleSpeciesCustom {
 
-	IAlleleBeeSpeciesCustom addProduct(ItemStack product, int chance);
+	/**
+	 * Add a product for this bee species.
+	 * Chance is between 0 and 1.
+	 */
+	IAlleleBeeSpeciesCustom addProduct(ItemStack product, Float chance);
 
-	IAlleleBeeSpeciesCustom addSpecialty(ItemStack specialty, int chance);
+	/**
+	 * Add a specialty product for this bee species.
+	 * Bees only produce their specialty when they are Jubilant (see IJubilanceProvider)
+	 * Chance is between 0 and 1.
+	 */
+	IAlleleBeeSpeciesCustom addSpecialty(ItemStack specialty, Float chance);
 
+	/**
+	 * Set the Jubilance Provider for this bee species.
+	 * Bees only produce their specialty when they are Jubilant (see IJubilanceProvider)
+	 */
 	IAlleleBeeSpeciesCustom setJubilanceProvider(IJubilanceProvider provider);
 
 	/** Use this if you have custom icons for bees. */
