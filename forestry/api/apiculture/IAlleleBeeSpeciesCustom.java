@@ -30,6 +30,11 @@ public interface IAlleleBeeSpeciesCustom extends IAlleleBeeSpecies, IAlleleSpeci
 	 */
 	IAlleleBeeSpeciesCustom setJubilanceProvider(IJubilanceProvider provider);
 
+	/**
+	 * Make this species only active at night.
+	 */
+	IAlleleBeeSpeciesCustom setNocturnal();
+
 	/** Use this if you have custom icons for bees. */
 	IAlleleBeeSpeciesCustom setCustomBeeIconProvider(IBeeIconProvider beeIconProvider);
 }
