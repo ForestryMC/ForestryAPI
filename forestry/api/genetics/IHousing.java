@@ -5,6 +5,8 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
+import java.util.Set;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -39,9 +41,16 @@ public interface IHousing {
 
 	EnumHumidity getHumidity();
 
-	void setErrorState(IErrorState state);
+	/**
+	 * Sets the errorState when condition is true, and unsets it when condition is false.
+	 * @return condition
+	 */
+	boolean setErrorCondition(boolean condition, IErrorState errorState);
 
-	IErrorState getErrorState();
+	/**
+	 * @return the error states for this housing. An empty Set indicates no errors.
+	 */
+	Set<IErrorState> getErrorStates();
 
 	/**
 	 * Adds products to the housing's inventory.
@@ -53,5 +62,17 @@ public interface IHousing {
 	 * @return Boolean indicating success or failure.
 	 */
 	boolean addProduct(ItemStack product, boolean all);
+
+	/**
+	 * @deprecated since Forestry 3.6. use setErrorCondition()
+	 */
+	@Deprecated
+	void setErrorState(IErrorState state);
+
+	/**
+	 * @deprecated since Forestry 3.6. use getErrorStates()
+	 */
+	@Deprecated
+	IErrorState getErrorState();
 
 }
