@@ -68,4 +68,12 @@ public enum EnumTemperature {
 		}
 		return getFromValue(biomeGenBase.temperature);
 	}
+
+	public static EnumTemperature getFromBiome(BiomeGenBase biomeGenBase, int x, int y, int z) {
+		if (BiomeHelper.isBiomeHellish(biomeGenBase)) {
+			return HELLISH;
+		}
+		float temperature = biomeGenBase.getFloatTemperature(x, y, z);
+		return getFromValue(temperature);
+	}
 }
