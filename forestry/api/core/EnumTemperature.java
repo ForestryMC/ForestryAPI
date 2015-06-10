@@ -48,10 +48,10 @@ public enum EnumTemperature {
 		if (rawTemp > 1.00f) {
 			return HOT;
 		}
-		else if (rawTemp > 0.80f) {
+		else if (rawTemp > 0.85f) {
 			return WARM;
 		}
-		else if (rawTemp > 0.30f) {
+		else if (rawTemp > 0.35f) {
 			return NORMAL;
 		}
 		else if (rawTemp > 0.0f) {
