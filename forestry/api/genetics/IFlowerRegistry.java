@@ -5,6 +5,7 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
@@ -40,4 +41,6 @@ public interface IFlowerRegistry {
 
 	IFlower getRandomPlantableFlower(String flowerType, Random rand);
 
+	/** Returns all known flower types. */
+	Collection<String> getFlowerTypes();
 }
