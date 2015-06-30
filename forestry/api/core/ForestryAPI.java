@@ -57,4 +57,10 @@ public class ForestryAPI {
 	 * ForestryAPI.enabledPlugins.contains("APICULTURE")
 	 */
 	public static Set<String> enabledPlugins;
+
+	/**
+	 * Instance of the errorStateRegistry for registering errors.
+	 * Also creates new instances of IErrorLogic.
+	 */
+	public static IErrorStateRegistry errorStateRegistry;
 }

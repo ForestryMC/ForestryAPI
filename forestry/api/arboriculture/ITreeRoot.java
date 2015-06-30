@@ -69,20 +69,6 @@ public interface ITreeRoot extends ISpeciesRoot {
 
 	boolean plantSapling(World world, ITree tree, GameProfile owner, int x, int y, int z);
 
-	/**
-	 * @deprecated since Forestry 3.5.0. Use ITreeGenData setLeavesDecorative.
-	 */
-	@Deprecated
-	// decorative=true for creative and player-placed leaves. No decay, pollination, or drops.
-	boolean setLeaves(World world, IIndividual tree, GameProfile owner, int x, int y, int z, boolean decorative);
-
-	/**
-	 * @deprecated since Forestry 3.5.0. Use ITreeGenData setLeaves.
-	 */
-	@Deprecated
-	// set normal leaves created as worldgen
-	boolean setLeaves(World world, IIndividual tree, GameProfile owner, int x, int y, int z);
-
 	@Override
 	IChromosome[] templateAsChromosomes(IAllele[] template);
 

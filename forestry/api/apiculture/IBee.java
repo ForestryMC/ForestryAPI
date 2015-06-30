@@ -5,7 +5,7 @@
  ******************************************************************************/
 package forestry.api.apiculture;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import net.minecraft.item.ItemStack;
@@ -65,9 +65,7 @@ public interface IBee extends IIndividualLiving {
 	 */
 	Set<IErrorState> getCanWork(IBeeHousing housing);
 
-	boolean hasFlower(IBeeHousing housing);
-
-	ArrayList<BiomeGenBase> getSuitableBiomes();
+	List<BiomeGenBase> getSuitableBiomes();
 
 	ItemStack[] getProduceList();
 
@@ -84,15 +82,5 @@ public interface IBee extends IIndividualLiving {
 	IIndividual retrievePollen(IBeeHousing housing);
 
 	boolean pollinateRandom(IBeeHousing housing, IIndividual pollen);
-
-	/**
-	 * Determines whether the queen can work.
-	 *
-	 * @param housing the {@link IBeeHousing} the bee currently resides in.
-	 * @return the error code encountered.
-	 * @deprecated since Forestry 3.6. Use getCanWork
-	 */
-	@Deprecated
-	IErrorState canWork(IBeeHousing housing);
 
 }

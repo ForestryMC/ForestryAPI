@@ -6,19 +6,28 @@
 package forestry.api.genetics;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import net.minecraft.block.Block;
+import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
+
+import forestry.api.apiculture.IBee;
+import forestry.api.apiculture.IBeeHousing;
 
 public interface IFlowerRegistry {
 
-	List<IFlower> getAcceptableFlowers(String flowerType);
+	Set<IFlower> getAcceptableFlowers(String flowerType);
 	
 	boolean growFlower(String flowerType, World world, IIndividual individual, int x, int y, int z);
-	
-	boolean isAcceptedFlower(String flowerType, World world, IIndividual individual, int x, int y, int z);
+
+	/**
+	 * @return the coordinates of a nearby accepted flower or null if there is none.
+	 */
+	ChunkCoordinates getAcceptedFlowerCoordinates(IBeeHousing beeHousing, IBee bee, String flowerType);
+
+	boolean isAcceptedFlower(String flowerType, World world, int x, int y, int z);
 	
 	/**
 	 * Registers a non-plantable flower, but bees accept them.

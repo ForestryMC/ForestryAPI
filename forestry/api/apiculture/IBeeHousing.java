@@ -5,23 +5,30 @@
  ******************************************************************************/
 package forestry.api.apiculture;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 
+import com.mojang.authlib.GameProfile;
+
+import forestry.api.core.EnumHumidity;
+import forestry.api.core.EnumTemperature;
+import forestry.api.core.IErrorLogicSource;
 import forestry.api.genetics.IHousing;
 
-public interface IBeeHousing extends IBeeModifier, IBeeListener, IHousing {
+public interface IBeeHousing extends IHousing, IErrorLogicSource {
 
-	ItemStack getQueen();
+	Iterable<IBeeModifier> getBeeModifiers();
+	Iterable<IBeeListener> getBeeListeners();
 
-	ItemStack getDrone();
+	IBeeHousingInventory getBeeInventory();
+	IBeekeepingLogic getBeekeepingLogic();
 
-	void setQueen(ItemStack itemstack);
+	EnumTemperature getTemperature();
+	EnumHumidity getHumidity();
+	int getBlockLightValue();
+	boolean canBlockSeeTheSky();
 
-	void setDrone(ItemStack itemstack);
-
-	/**
-	 * @return true if princesses and drones can (currently) mate in this housing to generate queens.
-	 */
-	boolean canBreed();
-
+	World getWorld();
+	BiomeGenBase getBiome();
+	GameProfile getOwner();
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import net.minecraft.world.World;
 
-public interface IBeekeepingMode extends IBeeModifier {
+public interface IBeekeepingMode {
 
 	/**
 	 * @return Localized name of this beekeeping mode.
@@ -66,5 +66,8 @@ public interface IBeekeepingMode extends IBeeModifier {
 	 */
 	boolean mayMultiplyPrincess(IBee queen);
 
-
+	/**
+	 * @return the bee modifier for this mode
+	 */
+	IBeeModifier getBeeModifier();
 }

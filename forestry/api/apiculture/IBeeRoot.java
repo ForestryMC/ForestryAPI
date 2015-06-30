@@ -118,11 +118,4 @@ public interface IBeeRoot extends ISpeciesRoot {
 	 */
 	IBeekeepingLogic createBeekeepingLogic(IBeeHousing housing);
 
-	/**
-	 * TileEntities wanting to function as alveary components need to implement structure logic for validation.
-	 * 
-	 * @return IStructureLogic for alvearies.
-	 */
-	IStructureLogic createAlvearyStructureLogic(IAlvearyComponent structure);
-
 }

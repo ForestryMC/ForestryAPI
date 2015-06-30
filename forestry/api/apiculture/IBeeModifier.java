@@ -1,12 +1,11 @@
 /*******************************************************************************
  * Copyright 2011-2014 SirSengir
- * 
+ *
  * This work (the API) is licensed under the "MIT" License, see LICENSE.txt for details.
  ******************************************************************************/
 package forestry.api.apiculture;
 
 public interface IBeeModifier {
-
 	/**
 	 * @param genome Genome of the bee this modifier is called for.
 	 * @param currentModifier Current modifier.
@@ -16,7 +15,7 @@ public interface IBeeModifier {
 
 	/**
 	 * @param genome Genome of the bee this modifier is called for.
-	 * @param mate
+	 * @param mate Genome of the bee mate this modifier is called for.
 	 * @param currentModifier Current modifier.
 	 * @return Float used to modify the base mutation chance.
 	 */
@@ -47,7 +46,7 @@ public interface IBeeModifier {
 	 * @return Float modifying the chance for a swarmer queen to die off.
 	 */
 	float getGeneticDecay(IBeeGenome genome, float currentModifier);
-	
+
 	/**
 	 * @return Boolean indicating if housing can ignore rain
 	 */

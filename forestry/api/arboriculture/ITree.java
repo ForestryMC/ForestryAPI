@@ -23,9 +23,9 @@ public interface ITree extends IIndividual, ITreeGenData {
 
 	void mate(ITree other);
 
-	IEffectData[] doEffect(IEffectData[] storedData, World world, int biomeid, int x, int y, int z);
+	IEffectData[] doEffect(IEffectData[] storedData, World world, int x, int y, int z);
 
-	IEffectData[] doFX(IEffectData[] storedData, World world, int biomeid, int x, int y, int z);
+	IEffectData[] doFX(IEffectData[] storedData, World world, int x, int y, int z);
 
 	ITreeGenome getGenome();
 
@@ -34,13 +34,7 @@ public interface ITree extends IIndividual, ITreeGenData {
 	EnumSet<EnumPlantType> getPlantTypes();
 
 	/**
-	 * @deprecated since Forestry 3.7. Use the version with GameProfile to get a mutation boost when they are researched
-	 */
-	@Deprecated
-	ITree[] getSaplings(World world, int x, int y, int z, float modifier);
-
-	/**
-	 * @since Forestry 3.7
+	 * @since Forestry 4.0
 	 */
 	ITree[] getSaplings(World world, GameProfile playerProfile, int x, int y, int z, float modifier);
 

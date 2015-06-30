@@ -53,17 +53,4 @@ public interface IAlleleBeeSpecies extends IAlleleSpecies {
 	@Deprecated
 	String getEntityTexture();
 
-	/**
-	 * @deprecated Since Forestry 3.6 use getProductChances()
-	 * @return Map of possible products with the chance for drop each bee cycle. (0 - 100)
-	 */
-	@Deprecated
-	Map<ItemStack, Integer> getProducts();
-
-	/**
-	 * @deprecated Since Forestry 3.6 use getSpecialtyChances()
-	 * @return Map of possible specialities with the chance for drop each bee cycle. (0 - 100)
-	 */
-	@Deprecated
-	Map<ItemStack, Integer> getSpecialty();
 }
