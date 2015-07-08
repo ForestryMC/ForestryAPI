@@ -29,6 +29,13 @@ public interface ITreeMutation extends IMutation {
 	 * @param genome0
 	 * @param genome1
 	 * @return float representing the chance for mutation to occur. note that this is 0 - 100 based, since it was an integer previously!
+	 * @deprecated Since Forestry 3.7
 	 */
+	@Deprecated
 	float getChance(World world, int x, int y, int z, IAllele allele0, IAllele allele1, IGenome genome0, IGenome genome1);
+
+	/**
+	 * @since Forestry 3.7
+	 */
+	float getChance(World world, int x, int y, int z, IAlleleTreeSpecies allele0, IAlleleTreeSpecies allele1, ITreeGenome genome0, ITreeGenome genome1);
 }

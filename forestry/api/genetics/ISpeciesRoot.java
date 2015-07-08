@@ -7,6 +7,7 @@ package forestry.api.genetics;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -135,6 +136,12 @@ public interface ISpeciesRoot {
 	 * @return All registered mutations the given allele is part of.
 	 */
 	Collection<? extends IMutation> getCombinations(IAllele other);
+
+	/**
+	 * @since Forestry 3.7
+	 * @return all possible mutations that result from breeding two species
+	 */
+	List<IMutation> getCombinations(IAlleleSpecies parentSpecies0, IAlleleSpecies parentSpecies1, boolean shuffle);
 
 	Collection<? extends IMutation> getPaths(IAllele result, IChromosomeType chromosomeType);
 

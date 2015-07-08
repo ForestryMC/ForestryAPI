@@ -11,6 +11,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
+import com.mojang.authlib.GameProfile;
+
 import net.minecraftforge.common.EnumPlantType;
 
 import forestry.api.genetics.IEffectData;
@@ -31,7 +33,16 @@ public interface ITree extends IIndividual, ITreeGenData {
 
 	EnumSet<EnumPlantType> getPlantTypes();
 
+	/**
+	 * @deprecated since Forestry 3.7. Use the version with GameProfile to get a mutation boost when they are researched
+	 */
+	@Deprecated
 	ITree[] getSaplings(World world, int x, int y, int z, float modifier);
+
+	/**
+	 * @since Forestry 3.7
+	 */
+	ITree[] getSaplings(World world, GameProfile playerProfile, int x, int y, int z, float modifier);
 
 	ItemStack[] getProduceList();
 
