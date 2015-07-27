@@ -9,6 +9,8 @@ import net.minecraft.world.World;
 
 import com.mojang.authlib.GameProfile;
 
+import net.minecraftforge.common.util.ForgeDirection;
+
 import forestry.api.arboriculture.ITreeGenome;
 
 public interface ITreeGenData {
@@ -21,6 +23,8 @@ public interface ITreeGenData {
 
 	void setLeaves(World world, GameProfile owner, int x, int y, int z);
 	void setLeavesDecorative(World world, GameProfile owner, int x, int y, int z);
+
+	void setLogBlock(World world, int x, int y, int z, ForgeDirection facing);
 
 	boolean allowsFruitBlocks();
 

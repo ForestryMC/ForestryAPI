@@ -7,15 +7,12 @@ package forestry.api.arboriculture;
 
 import java.util.Collection;
 
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
+
+import net.minecraftforge.common.EnumPlantType;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
-import net.minecraftforge.common.EnumPlantType;
 
 import forestry.api.genetics.IAlleleSpecies;
 import forestry.api.genetics.IFruitFamily;
@@ -35,35 +32,20 @@ public interface IAlleleTreeSpecies extends IAlleleSpecies {
 	Collection<IFruitFamily> getSuitableFruit();
 
 	/**
-	 * @param tree
-	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
-	 * @return Tree generator for the tree at the given location.
+	 * @return Tree generator for this species.
 	 */
-	WorldGenerator getGenerator(ITree tree, World world, int x, int y, int z);
-
-	/**
-	 * @return All available generator classes for this species.
-	 */
-	Class<? extends WorldGenerator>[] getGeneratorClasses();
+	ITreeGenerator getGenerator();
 
 	/* TEXTURES AND OVERRIDES */
-	int getLeafColour(ITree tree);
+	int getLeafColour(boolean pollinated);
 
-	short getLeafIconIndex(ITree tree, boolean fancy);
+	@SideOnly(Side.CLIENT)
+	IIcon getLeafIcon(boolean pollinated, boolean fancy);
 
 	@SideOnly(Side.CLIENT)
 	IIcon getGermlingIcon(EnumGermlingType type, int renderPass);
 	
 	@SideOnly(Side.CLIENT)
 	int getGermlingColour(EnumGermlingType type, int renderPass);
-	
-	/**
-	 * 
-	 * @return Array of ItemStacks representing logs that these tree produces, the first one being the primary one
-	 */
-	ItemStack[] getLogStacks();
 
 }

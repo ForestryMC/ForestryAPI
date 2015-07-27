@@ -45,21 +45,11 @@ public interface ITree extends IIndividual, ITreeGenData {
 	ItemStack[] produceStacks(World world, int x, int y, int z, int ripeningTime);
 
 	/**
-	 * 
-	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
 	 * @return Boolean indicating whether a sapling can stay planted at the given position.
 	 */
 	boolean canStay(World world, int x, int y, int z);
 
 	/**
-	 * 
-	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
 	 * @return Boolean indicating whether a sapling at the given position can grow into a tree.
 	 */
 	boolean canGrow(World world, int x, int y, int z, int expectedGirth, int expectedHeight);
@@ -75,22 +65,11 @@ public interface ITree extends IIndividual, ITreeGenData {
 	int getResilience();
 	
 	/**
-	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
 	 * @return Integer denoting the size of the tree trunk.
 	 */
 	int getGirth(World world, int x, int y, int z);
 
-	
-	
 	/**
-	 * 
-	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
 	 * @return Growth conditions at the given position.
 	 */
 	EnumGrowthConditions getGrowthCondition(World world, int x, int y, int z);
