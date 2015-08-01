@@ -31,6 +31,12 @@ public interface IBeekeepingLogic extends INBTTagable {
 	/* CLIENT */
 
 	/**
+	 * Call this when the housing comes into view of the client.
+	 * (i.e. when tile.getDescriptionPacket() is called)
+	 */
+	void syncToClient();
+
+	/**
 	 * Get the progress bar for breeding and production.
 	 * To avoid network spam, this is only available server-side,
 	 * and must be synced manually to the client when a GUI is open.
