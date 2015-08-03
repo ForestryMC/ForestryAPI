@@ -16,7 +16,6 @@ import com.mojang.authlib.GameProfile;
 
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IChromosome;
-import forestry.api.genetics.IIndividual;
 import forestry.api.genetics.ISpeciesRoot;
 
 public interface ITreeRoot extends ISpeciesRoot {

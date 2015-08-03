@@ -5,8 +5,6 @@
  ******************************************************************************/
 package forestry.api.farming;
 
-import forestry.api.core.ITileStructure;
-
 /**
  * Needs to be implemented by TileEntities that want to be part of a farm.
  */

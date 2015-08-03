@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 
 import com.mojang.authlib.GameProfile;
 
-import forestry.api.core.IStructureLogic;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.ISpeciesRoot;
 
