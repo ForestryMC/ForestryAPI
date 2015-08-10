@@ -5,6 +5,8 @@
  ******************************************************************************/
 package forestry.api.lepidopterology;
 
+import java.util.Locale;
+
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IAlleleArea;
@@ -88,7 +90,7 @@ public enum EnumButterflyChromosome implements IChromosomeType {
 
 	@Override
 	public String getName() {
-		return this.toString().toLowerCase();
+		return this.toString().toLowerCase(Locale.ENGLISH);
 	}
 
 	@Override
