@@ -34,6 +34,21 @@ public interface IFabricatorRecipe {
 	Object[] getIngredients();
 
 	/**
+	 * @return the width of ingredients in the crafting grid to create this recipe.
+	 */
+	int getWidth();
+
+	/**
+	 * @return the height of ingredients in the crafting grid to create this recipe.
+	 */
+	int getHeight();
+
+	/**
+	 * @return true if this recipe copies the NBT from input items to output items
+	 */
+	boolean preservesNbt();
+
+	/**
 	 * @return the plan for this recipe (the item in the top right slot).
 	 */
 	@Nullable
