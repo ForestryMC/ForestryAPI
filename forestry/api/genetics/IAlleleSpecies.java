@@ -16,6 +16,7 @@ import com.mojang.authlib.GameProfile;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.core.IIconProvider;
+import forestry.api.core.IModelProvider;
 
 /**
  * Basic species allele.
@@ -104,12 +105,12 @@ public interface IAlleleSpecies extends IAllele {
 
 	/* APPEARANCE */
 	/**
-	 * @param renderPass Render pass to get the colour for.
+	 * @param layer Render pass to get the colour for.
 	 * @return Colour to use for the render pass.
 	 */
-	int getIconColour(int renderPass);
+	int getIconColour(int layer);
 
 	@SideOnly(Side.CLIENT)
-	IIconProvider getIconProvider();
+	IModelProvider getModelProvider();
 
 }

@@ -35,8 +35,6 @@ public interface IFarmLogic {
 
 	@SideOnly(Side.CLIENT)
 	TextureAtlasSprite getIcon();
-
-	ResourceLocation getSpriteSheet();
 	
 	String getName();
 }

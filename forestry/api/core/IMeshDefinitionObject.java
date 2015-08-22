@@ -9,6 +9,6 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 
 public interface IMeshDefinitionObject {
 	
-	ItemMeshDefinition getDefinition();
+	ItemMeshDefinition getMeshDefinition();
 	
 }
