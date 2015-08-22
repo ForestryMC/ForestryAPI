@@ -7,13 +7,11 @@ package forestry.api.apiculture;
 
 import java.util.Map;
 
+import forestry.api.genetics.IAlleleSpecies;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import forestry.api.genetics.IAlleleSpecies;
 
 public interface IAlleleBeeSpecies extends IAlleleSpecies {
 
@@ -44,7 +42,7 @@ public interface IAlleleBeeSpecies extends IAlleleSpecies {
 	boolean isJubilant(IBeeGenome genome, IBeeHousing housing);
 
 	@SideOnly(Side.CLIENT)
-	IIcon getIcon(EnumBeeType type, int renderPass);
+	TextureAtlasSprite getIcon(EnumBeeType type, int renderPass);
 
 	/**
 	 * @return Path of the texture to use for entity rendering.

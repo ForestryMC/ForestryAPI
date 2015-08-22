@@ -5,16 +5,14 @@
  ******************************************************************************/
 package forestry.api.arboriculture;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
+import forestry.api.genetics.IFruitFamily;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import forestry.api.genetics.IFruitFamily;
 
 public interface IFruitProvider {
 
@@ -67,5 +65,5 @@ public interface IFruitProvider {
 	boolean trySpawnFruitBlock(ITreeGenome genome, World world, BlockPos pos);
 
 	@SideOnly(Side.CLIENT)
-	void registerIcons(IIconRegister register);
+	void registerIcons(TextureMap map);
 }

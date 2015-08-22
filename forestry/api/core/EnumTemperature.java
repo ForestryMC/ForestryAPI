@@ -7,11 +7,9 @@ package forestry.api.core;
 
 import java.security.InvalidParameterException;
 
-import net.minecraft.util.IIcon;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.world.biome.BiomeGenBase;
-
 import net.minecraftforge.common.BiomeDictionary;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -37,7 +35,7 @@ public enum EnumTemperature {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon() {
+	public TextureAtlasSprite getIcon() {
 		return ForestryAPI.textureManager.getDefault(iconIndex);
 	}
 

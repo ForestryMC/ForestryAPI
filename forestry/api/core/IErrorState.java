@@ -12,10 +12,10 @@
  */
 package forestry.api.core;
 
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.util.IIcon;
 
 /**
  *
@@ -32,9 +32,9 @@ public interface IErrorState {
 	String getHelp();
 
 	@SideOnly(Side.CLIENT)
-	void registerIcons(IIconRegister register);
+	void registerIcons(TextureMap map);
 
 	@SideOnly(value = Side.CLIENT)
-	IIcon getIcon();
+	TextureAtlasSprite getIcon();
 
 }

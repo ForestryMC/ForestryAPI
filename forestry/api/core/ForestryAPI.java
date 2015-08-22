@@ -38,6 +38,12 @@ public class ForestryAPI {
 	 */
 	@SideOnly(Side.CLIENT)
 	public static ITextureManager textureManager;
+	
+	/**
+	 * A {@link IModelManager} needed for some things in the API.
+	 */
+	@SideOnly(Side.CLIENT)
+	public static IModelManager modleManager;
 
 	/**
 	 * The currently active {@link IGameMode}.

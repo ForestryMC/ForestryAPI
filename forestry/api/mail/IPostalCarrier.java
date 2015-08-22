@@ -5,10 +5,9 @@
  ******************************************************************************/
 package forestry.api.mail;
 
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -32,7 +31,7 @@ public interface IPostalCarrier {
 	String getName();
 
 	@SideOnly(Side.CLIENT)
-	IIcon getIcon();
+	TextureAtlasSprite getIcon();
 
 	/**
 	 * Handle delivery of a letter addressed to this carrier.

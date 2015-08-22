@@ -12,7 +12,7 @@ package forestry.api.core;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.util.EnumFacing;
 
 /**
  * Taken from BuildCraft 5.0.x
@@ -32,7 +32,7 @@ public interface ISpecialInventory extends IInventory {
 	 * @return Amount of items used from the passed stack.
 	 */
 	@Deprecated
-	int addItem(ItemStack stack, boolean doAdd, ForgeDirection from);
+	int addItem(ItemStack stack, boolean doAdd, EnumFacing from);
 
 	/**
 	 * Requests items to be extracted from the inventory
@@ -47,6 +47,6 @@ public interface ISpecialInventory extends IInventory {
 	 * @return Array of item stacks that were/would be extracted from the inventory
 	 */
 	@Deprecated
-	ItemStack[] extractItem(boolean doRemove, ForgeDirection from, int maxItemCount);
+	ItemStack[] extractItem(boolean doRemove, EnumFacing from, int maxItemCount);
 
 }

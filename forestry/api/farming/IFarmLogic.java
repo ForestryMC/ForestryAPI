@@ -7,13 +7,11 @@ package forestry.api.farming;
 
 import java.util.Collection;
 
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
-
-import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -36,7 +34,7 @@ public interface IFarmLogic {
 	IFarmLogic setManual(boolean manual);
 
 	@SideOnly(Side.CLIENT)
-	IIcon getIcon();
+	TextureAtlasSprite getIcon();
 
 	ResourceLocation getSpriteSheet();
 	

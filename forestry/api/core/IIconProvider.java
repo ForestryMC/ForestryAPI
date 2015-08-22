@@ -5,9 +5,8 @@
  ******************************************************************************/
 package forestry.api.core;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.util.IIcon;
-
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -17,9 +16,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public interface IIconProvider {
 	
 	@SideOnly(Side.CLIENT)
-	IIcon getIcon(short texUID);
+	TextureAtlasSprite getIcon(short texUID);
 	
 	@SideOnly(Side.CLIENT)
-	void registerIcons(IIconRegister register);
+	void registerIcons(TextureMap map);
 
 }

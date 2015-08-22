@@ -12,15 +12,17 @@
  */
 package forestry.api.core;
 
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import net.minecraft.client.renderer.texture.IIconRegister;
+
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+
+import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  *
@@ -66,9 +68,9 @@ public class ErrorStateRegistry {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void initIcons(IIconRegister register) {
+	public static void initIcons(TextureMap map) {
 		for (IErrorState code : states.values()) {
-			code.registerIcons(register);
+			code.registerIcons(map);
 		}
 	}
 }
