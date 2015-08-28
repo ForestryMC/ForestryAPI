@@ -5,17 +5,13 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
-import java.util.List;
+import java.util.Set;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public interface IFlowerProvider {
-	/**
-	 * @return True if the block at the passed coordinates is a valid flower for the species.
-	 */
-	boolean isAcceptedFlower(World world, IIndividual individual, BlockPos pos);
 
 	boolean isAcceptedPollinatable(World world, IPollinatable pollinatable);
 
@@ -23,6 +19,12 @@ public interface IFlowerProvider {
 	 * @return True if a flower was planted.
 	 */
 	boolean growFlower(World world, IIndividual individual, BlockPos pos);
+
+	/**
+	 * @return The unique type used for the IFlowerRegistry
+	 * @since Forestry 4.0.0
+	 */
+	String getFlowerType();
 
 	/**
 	 * @return Short, human-readable identifier used in the beealyzer.
@@ -37,8 +39,8 @@ public interface IFlowerProvider {
 	ItemStack[] affectProducts(World world, IIndividual individual, BlockPos pos, ItemStack[] products);
 
 	/**
-	 * @return List of valid flowers for the flower provider. The first in the array is for use as an icon.
-	 *  Returns an empty list if the flower provider does not have any valid flowers.
+	 * @return Set of valid flowers for the flower provider.
+	 *  Returns an empty set if the flower provider does not have any valid flowers.
 	 */
-	List<IFlower> getFlowers();
+	Set<IFlower> getFlowers();
 }

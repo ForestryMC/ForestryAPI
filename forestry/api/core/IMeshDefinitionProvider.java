@@ -5,16 +5,10 @@
  ******************************************************************************/
 package forestry.api.core;
 
-public interface IStructureLogic extends INBTTagable {
+import net.minecraft.client.renderer.ItemMeshDefinition;
 
-	/**
-	 * @return String unique to the type of structure controlled by this structure logic.
-	 */
-	String getTypeUID();
-
-	/**
-	 * Called by {@link ITileStructure}'s validateStructure().
-	 */
-	void validateStructure();
-
+public interface IMeshDefinitionProvider {
+	
+	ItemMeshDefinition getMeshDefinition();
+	
 }

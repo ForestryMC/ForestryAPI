@@ -5,20 +5,24 @@
  ******************************************************************************/
 package forestry.api.core;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemMeshDefinition;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.item.Item;
+import forestry.api.core.sprite.ISprite;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public interface ITextureManager {
 
-	void registerIconProvider(IIconProvider provider);
+	void registerIconProvider(ISpriteProvider provider);
 
-	TextureAtlasSprite getIcon(short texUID);
+	ISprite getIcon(short texUID);
 
-	TextureAtlasSprite getDefault(String ident);
+	ISprite getDefault(String ident);
+	
+	ISprite getFarmSprite(String identifierSprite, String modifier, String identifier);
+	
+	ISprite registerFarmSprite(String identifierSprite, String modifier, String identifier);
+	
+	ISprite getFarmSprite(String identifierSprite, String modID, String modifier, String identifier);
+	
+	ISprite registerFarmSprite(String identifierSprite, String modID, String modifier, String identifier);
 }

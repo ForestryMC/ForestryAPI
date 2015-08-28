@@ -16,7 +16,9 @@ public interface IToolGrafter {
 	 * 
 	 * @param stack ItemStack containing the grafter.
 	 * @param world Minecraft world the player and the target block inhabit.
-	 * @param pos Coordinates of the broken leaf block.
+	 * @param x x-Coordinate of the broken leaf block.
+	 * @param y y-Coordinate of the broken leaf block.
+	 * @param z z-Coordinate of the broken leaf block.
 	 * @return Float representing the factor the usual drop chance is to be multiplied by.
 	 */
 	float getSaplingModifier(ItemStack stack, World world, EntityPlayer player, BlockPos pos);

@@ -64,14 +64,4 @@ public interface ICarpenterManager extends ICraftingProvider {
 	 *            Materials needed in the crafting matrix. This gets passed directly to {@link ShapedRecipes}. Notation is the same.
 	 */
 	public void addRecipe(int packagingTime, FluidStack liquid, ItemStack box, ItemStack product, Object... materials);
-
-	/** @deprecated since Forestry 3.4, use the ICrateRegistry */
-	@Deprecated
-	public void addCrating(String toCrate, ItemStack unpack, ItemStack crated);
-	/** @deprecated since Forestry 3.4, use the ICrateRegistry */
-	@Deprecated
-	public void addCrating(ItemStack itemStack);
-	/** @deprecated since Forestry 3.4, use the ICrateRegistry */
-	@Deprecated
-	public void addCratingWithOreDict(ItemStack itemStack);
 }

@@ -1,18 +1,15 @@
 /*******************************************************************************
  * Copyright 2011-2014 SirSengir
- * 
+ *
  * This work (the API) is licensed under the "MIT" License, see LICENSE.txt for details.
  ******************************************************************************/
-package forestry.api.recipes;
+package forestry.api.core;
 
-import net.minecraft.item.ItemStack;
+import com.google.common.collect.ImmutableSet;
 
-/** @deprecated since Forestry 3.4. Use ICrateRegistry */
-@Deprecated
-public interface IGenericCrate {
-
-	void setContained(ItemStack crate, ItemStack contained);
-
-	ItemStack getContained(ItemStack crate);
-
+public interface IErrorSource {
+	/**
+	 * @return the active error states. An empty Set indicates no errors.
+	 */
+	ImmutableSet<IErrorState> getErrorStates();
 }

@@ -10,12 +10,10 @@ import java.util.Collection;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.mojang.authlib.GameProfile;
 
-import forestry.api.core.IStructureLogic;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.ISpeciesRoot;
 
@@ -77,7 +75,7 @@ public interface IBeeRoot extends ISpeciesRoot {
 	 *            Valid {@link IBeeGenome}
 	 * @return {@link IBee} from the passed genome
 	 */
-	IBee getBee(IBlockAccess world, IBeeGenome genome);
+	IBee getBee(World world, IBeeGenome genome);
 
 	/**
 	 * Creates an IBee suitable for a queen containing the necessary second genome for the mate.
@@ -118,12 +116,5 @@ public interface IBeeRoot extends ISpeciesRoot {
 	 * @return IBeekeepingLogic
 	 */
 	IBeekeepingLogic createBeekeepingLogic(IBeeHousing housing);
-
-	/**
-	 * TileEntities wanting to function as alveary components need to implement structure logic for validation.
-	 * 
-	 * @return IStructureLogic for alvearies.
-	 */
-	IStructureLogic createAlvearyStructureLogic(IAlvearyComponent structure);
 
 }

@@ -5,28 +5,45 @@
  ******************************************************************************/
 package forestry.api.apiculture;
 
-import forestry.api.core.ITileStructure;
+import forestry.api.core.IClimateControlled;
 
 /**
  * Needs to be implemented by TileEntities that want to be part of an alveary.
  */
-public interface IAlvearyComponent extends ITileStructure {
-
-	void registerBeeModifier(IBeeModifier modifier);
-
-	void removeBeeModifier(IBeeModifier modifier);
-
-	void registerBeeListener(IBeeListener event);
-
-	void removeBeeListener(IBeeListener event);
-
-	void addTemperatureChange(float change, float boundaryDown, float boundaryUp);
-
-	void addHumidityChange(float change, float boundaryDown, float boundaryUp);
+public interface IAlvearyComponent {
 
 	/**
-	 * @return true if this TE has a function other than a plain alveary block. Returning true prevents the TE from becoming master.
+	 * Implemented by alveary parts to apply a beeListener to the completed structure.
 	 */
-	boolean hasFunction();
+	interface BeeListener extends IAlvearyComponent {
+		IBeeListener getBeeListener();
+	}
+
+	/**
+	 * Implemented by alveary parts to apply a beeModifier to the completed structure.
+	 */
+	interface BeeModifier extends IAlvearyComponent {
+		IBeeModifier getBeeModifier();
+	}
+
+	/**
+	 * Implemented by alveary parts to apply a climate change to the completed structure.
+	 */
+	interface Climatiser extends IAlvearyComponent {
+		/**
+		 * Called every tick by the alveary.
+		 * @param tickCount the number of ticks in the world
+		 * @param alveary the climate controlled alveary
+		 */
+		void changeClimate(int tickCount, IClimateControlled alveary);
+	}
+
+	/**
+	 * Implemented by alveary parts to receive ticks from the completed structure.
+	 */
+	interface Active extends IAlvearyComponent {
+		void updateServer(int tickCount);
+		void updateClient(int tickCount);
+	}
 
 }

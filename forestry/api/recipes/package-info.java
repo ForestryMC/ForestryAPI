@@ -3,6 +3,6 @@
  * 
  * This work (the API) is licensed under the "MIT" License, see LICENSE.txt for details.
  ******************************************************************************/
-@API(apiVersion="2.1.0", owner="ForestryAPI|core", provides="ForestryAPI|recipes")
+@API(apiVersion="5.0.0", owner="ForestryAPI|core", provides="ForestryAPI|recipes")
 package forestry.api.recipes;
 import net.minecraftforge.fml.common.API;

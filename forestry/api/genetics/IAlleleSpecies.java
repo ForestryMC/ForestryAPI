@@ -7,7 +7,6 @@ package forestry.api.genetics;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -15,8 +14,8 @@ import com.mojang.authlib.GameProfile;
 
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
-import forestry.api.core.IIconProvider;
 import forestry.api.core.IModelProvider;
+import forestry.api.core.ISpriteProvider;
 
 /**
  * Basic species allele.
@@ -105,12 +104,16 @@ public interface IAlleleSpecies extends IAllele {
 
 	/* APPEARANCE */
 	/**
-	 * @param layer Render pass to get the colour for.
+	 * @param renderPass Render pass to get the colour for.
 	 * @return Colour to use for the render pass.
 	 */
-	int getIconColour(int layer);
+	int getIconColour(int renderPass);
 
+	/*@SideOnly(Side.CLIENT)
+	ISpriteProvider getIconProvider();*/
+	
 	@SideOnly(Side.CLIENT)
 	IModelProvider getModelProvider();
+	
 
 }

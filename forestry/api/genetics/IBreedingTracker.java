@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import forestry.api.apiculture.IBeekeepingMode;
 
 /**
- * Keeps track of who bred and/or discovered which species in a world.
+ * Keeps track of who bred, discovered, and researched which species in a world.
  * 
  * @author SirSengir
  */
@@ -77,6 +77,19 @@ public interface IBreedingTracker {
 	 * @return true if the species has been bred.
 	 */
 	boolean isDiscovered(IAlleleSpecies species);
+
+	/**
+	 * Register a successfully researched mutation.
+	 * Mutations are normally researched in the Escritoire.
+	 * Researched mutations may have bonuses such as occurring at a higher rate.
+	 * Researched mutations count as discovered.
+	 */
+	void researchMutation(IMutation mutation);
+
+	/**
+	 * @return true if the mutation has been researched.
+	 */
+	boolean isResearched(IMutation mutation);
 
 	/**
 	 * Synchronizes the tracker to the client side. Should be called before opening any gui needing that information.

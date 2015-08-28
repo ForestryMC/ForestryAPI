@@ -21,6 +21,6 @@ public interface IModelProvider {
 	ModelResourceLocation getModel();
 	
 	@SideOnly(Side.CLIENT)
-	void registerModels();
+	void registerModels(IModelManager manager);
 
 }

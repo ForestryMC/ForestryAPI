@@ -21,12 +21,6 @@ public interface ICircuitRegistry {
 
 	ICircuitLibrary getCircuitLibrary(World world, String playername);
 
-	@Deprecated
-	void registerLegacyMapping(int id, String uid);
-
-	@Deprecated
-	ICircuit getFromLegacyMap(int id);
-
 	/* LAYOUTS */
 	Map<String, ICircuitLayout> getRegisteredLayouts();
 

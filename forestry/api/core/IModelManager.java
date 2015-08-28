@@ -5,6 +5,7 @@
  ******************************************************************************/
 package forestry.api.core;
 
+import forestry.core.utils.StringUtil;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -15,11 +16,27 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public interface IModelManager {
 	
-	void registerModel(Item item, int meta, String identifier);
+	void registerItemModel(Item item, int meta, String modifier, String identifier);
+	
+	void registerItemModel(Item item, int meta, String identifier);
+	
+	void registerItemModel(Item item, int meta);
 	
 	ModelResourceLocation getModelLocation(String identifier);
 	
-	void registerModel(Item item, ItemMeshDefinition definition);
+	ModelResourceLocation getModelLocation(Item item);
+	
+	ModelResourceLocation getModelLocation(Item item, String identifier);
+	
+	ModelResourceLocation getModelLocation(Item item, String modifier, String identifier);
+	
+	ModelResourceLocation getModelLocation(Item item, int meta);
+	
+	ModelResourceLocation getModelLocation(Item item, int meta, String identifier);
+	
+	ModelResourceLocation getModelLocation(Item item, int meta, String modifier, String identifier);
+	
+	void registerItemModel(Item item, ItemMeshDefinition definition);
 	
 	void registerVariant(Item item, String... names);
 	

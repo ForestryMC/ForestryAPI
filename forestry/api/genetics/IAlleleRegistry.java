@@ -137,6 +137,7 @@ public interface IAlleleRegistry {
 	 * @return Created {@link IClassification} for easier chaining.
 	 */
 	IClassification createAndRegisterClassification(EnumClassLevel level, String uid, String scientific);
+	IClassification createAndRegisterClassification(EnumClassLevel level, String uid, String scientific, IClassification... members);
 
 	/**
 	 * Gets a classification.

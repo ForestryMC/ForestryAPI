@@ -13,5 +13,5 @@ public interface ICraftingProvider {
 	 * 
 	 * @return List of the given format where the first array represents inputs and the second outputs. Objects can be either ItemStack or LiquidStack.
 	 */
-	public Map<Object[], Object[]> getRecipes();
+	Map<Object[], Object[]> getRecipes();
 }
