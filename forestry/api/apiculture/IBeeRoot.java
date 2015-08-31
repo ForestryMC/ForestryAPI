@@ -52,6 +52,7 @@ public interface IBeeRoot extends ISpeciesRoot {
 	 * @param world
 	 * @return {@link IApiaristTracker} associated with the passed world.
 	 */
+	@Override
 	IApiaristTracker getBreedingTracker(World world, GameProfile player);
 
 	/* BEE SPECIFIC */

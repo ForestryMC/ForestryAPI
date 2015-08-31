@@ -15,7 +15,6 @@ import com.mojang.authlib.GameProfile;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.core.IModelProvider;
-import forestry.api.core.ISpriteProvider;
 
 /**
  * Basic species allele.

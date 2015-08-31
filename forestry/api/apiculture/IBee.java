@@ -26,11 +26,13 @@ public interface IBee extends IIndividualLiving {
 	/**
 	 * @return Bee's genetic information.
 	 */
+	@Override
 	IBeeGenome getGenome();
 
 	/**
 	 * @return Genetic information of the bee's mate, null if unmated.
 	 */
+	@Override
 	IBeeGenome getMate();
 
 	/**

@@ -7,8 +7,6 @@ package forestry.api.circuits;
 
 import java.util.List;
 
-import net.minecraft.tileentity.TileEntity;
-
 import forestry.api.core.INBTTagable;
 
 public interface ICircuitBoard extends INBTTagable {

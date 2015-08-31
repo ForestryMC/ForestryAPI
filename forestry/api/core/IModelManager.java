@@ -5,9 +5,7 @@
  ******************************************************************************/
 package forestry.api.core;
 
-import forestry.core.utils.StringUtil;
 import net.minecraft.client.renderer.ItemMeshDefinition;
-import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
@@ -23,6 +21,8 @@ public interface IModelManager {
 	void registerItemModel(Item item, int meta);
 	
 	ModelResourceLocation getModelLocation(String identifier);
+	
+	ModelResourceLocation getModelLocation(String modID, String identifier);
 	
 	ModelResourceLocation getModelLocation(Item item);
 	

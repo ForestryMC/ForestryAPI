@@ -5,9 +5,6 @@
  ******************************************************************************/
 package forestry.api.core;
 
-import forestry.api.apiculture.EnumBeeType;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

@@ -16,6 +16,7 @@ public interface ITreeMutation extends IMutation {
 	/**
 	 * @return {@link ISpeciesRoot} this mutation is associated with.
 	 */
+	@Override
 	ITreeRoot getRoot();
 
 	/**

@@ -3,12 +3,12 @@
  *
  * This work (the API) is licensed under the "MIT" License, see LICENSE.txt for details.
  ******************************************************************************/
-package forestry.api.apiculture;
+package forestry.api.arboriculture;
 
 import forestry.api.core.IModelManager;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 
-public interface IBeeModelProvider {
+public interface IGermlingModelProvider {
 	void registerModels(IModelManager manager);
-	ModelResourceLocation getModel(EnumBeeType type);
+	ModelResourceLocation getModel(EnumGermlingType type);
 }

@@ -11,7 +11,6 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import forestry.api.core.sprite.ISprite;
 import forestry.api.genetics.IAlleleSpecies;
 
 public interface IAlleleBeeSpecies extends IAlleleSpecies {
@@ -19,6 +18,7 @@ public interface IAlleleBeeSpecies extends IAlleleSpecies {
 	/**
 	 * @return the IBeeRoot
 	 */
+	@Override
 	IBeeRoot getRoot();
 
 	/**
@@ -44,6 +44,9 @@ public interface IAlleleBeeSpecies extends IAlleleSpecies {
 
 	/*@SideOnly(Side.CLIENT)
 	ISprite getIcon(EnumBeeType type, int renderPass);*/
+	
+	@SideOnly(Side.CLIENT)
+	ModelResourceLocation getModel(EnumBeeType type);
 
 	/**
 	 * @deprecated since Forestry 3.6.

@@ -17,53 +17,52 @@ public class Sprite implements ISprite {
 	
 	@Override
 	public int getSpriteWidth() {
-		return 0;
+		return sprite.getIconWidth();
 	}
 
 	@Override
 	public int getSpriteHeight() {
-		return 0;
+		return sprite.getIconHeight();
 	}
 
 	@Override
 	public float getMinV() {
-		return 0;
+		return sprite.getMinV();
 	}
 
 	@Override
 	public float getMinU() {
-		return 0;
+		return sprite.getMinU();
 	}
 
 	@Override
 	public float getMaxU() {
-		return 0;
+		return sprite.getMaxU();
 	}
 
 	@Override
 	public float getMaxV() {
-		return 0;
+		return sprite.getMaxV();
 	}
 
 	@Override
 	public float getInterpolatedU(double px) {
-		return 0;
+		return sprite.getInterpolatedU(px);
 	}
 
 	@Override
 	public float getInterpolatedV(double px) {
-		return 0;
+		return sprite.getInterpolatedV(px);
 	}
 
 	@Override
 	public String getSpriteName() {
-		return null;
+		return sprite.getIconName();
 	}
 
 	@Override
 	public TextureAtlasSprite getSprite() {
-		// TODO Auto-generated method stub
-		return null;
+		return sprite;
 	}
 
 }

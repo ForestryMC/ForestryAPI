@@ -7,15 +7,18 @@ package forestry.api.arboriculture;
 
 import java.util.Collection;
 
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import forestry.api.core.IModelManager;
 import forestry.api.core.sprite.ISprite;
 import forestry.api.genetics.IAlleleSpecies;
 import forestry.api.genetics.IFruitFamily;
 
 public interface IAlleleTreeSpecies extends IAlleleSpecies {
 
+	@Override
 	ITreeRoot getRoot();
 	
 	/**
@@ -41,6 +44,12 @@ public interface IAlleleTreeSpecies extends IAlleleSpecies {
 
 	@SideOnly(Side.CLIENT)
 	ISprite getGermlingIcon(EnumGermlingType type, int renderPass);
+	
+	@SideOnly(Side.CLIENT)
+	ModelResourceLocation getGermlingModel(EnumGermlingType type);
+	
+	@SideOnly(Side.CLIENT)
+	void registerModels(IModelManager manager);
 	
 	@SideOnly(Side.CLIENT)
 	int getGermlingColour(EnumGermlingType type, int renderPass);

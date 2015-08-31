@@ -12,42 +12,52 @@ package forestry.api.apiculture;
  */
 public class DefaultBeeModifier implements IBeeModifier {
 
+	@Override
 	public float getTerritoryModifier(IBeeGenome genome, float currentModifier) {
 		return 1.0f;
 	}
 
+	@Override
 	public float getMutationModifier(IBeeGenome genome, IBeeGenome mate, float currentModifier) {
 		return 1.0f;
 	}
 
+	@Override
 	public float getLifespanModifier(IBeeGenome genome, IBeeGenome mate, float currentModifier) {
 		return 1.0f;
 	}
 
+	@Override
 	public float getProductionModifier(IBeeGenome genome, float currentModifier) {
 		return 1.0f;
 	}
 
+	@Override
 	public float getFloweringModifier(IBeeGenome genome, float currentModifier) {
 		return 1.0f;
 	}
 
+	@Override
 	public float getGeneticDecay(IBeeGenome genome, float currentModifier) {
 		return 1.0f;
 	}
 
+	@Override
 	public boolean isSealed() {
 		return false;
 	}
 
+	@Override
 	public boolean isSelfLighted() {
 		return false;
 	}
 
+	@Override
 	public boolean isSunlightSimulated() {
 		return false;
 	}
 
+	@Override
 	public boolean isHellish() {
 		return false;
 	}

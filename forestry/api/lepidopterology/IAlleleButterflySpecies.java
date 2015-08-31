@@ -19,6 +19,7 @@ public interface IAlleleButterflySpecies extends IAlleleSpecies {
 	/**
 	 * @return the IBeeRoot
 	 */
+	@Override
 	IButterflyRoot getRoot();
 
 	/**
