@@ -11,7 +11,7 @@ import net.minecraft.util.BlockPos;
  * Any housing, hatchery or nest with a location in the world.
  */
 public interface IHousing {
-
-	BlockPos getPos();
+	
+	BlockPos getCoordinates();
 
 }

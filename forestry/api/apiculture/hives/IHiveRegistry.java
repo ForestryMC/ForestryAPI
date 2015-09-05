@@ -29,9 +29,14 @@ public interface IHiveRegistry {
 
 		public String name;
 		
+		public String getHiveName()
+		{
+			return name;
+		}
+		
 		@Override
 		public String getName() {
-			return name;
+			return name().toLowerCase();
 		}
 		
 	}

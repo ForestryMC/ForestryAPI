@@ -17,12 +17,4 @@ public interface ITextureManager {
 	ISprite getIcon(short texUID);
 
 	ISprite getDefault(String ident);
-	
-	ISprite getFarmSprite(String identifierSprite, String modifier, String identifier);
-	
-	ISprite registerFarmSprite(String identifierSprite, String modifier, String identifier);
-	
-	ISprite getFarmSprite(String identifierSprite, String modID, String modifier, String identifier);
-	
-	ISprite registerFarmSprite(String identifierSprite, String modID, String modifier, String identifier);
 }

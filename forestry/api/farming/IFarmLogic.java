@@ -34,5 +34,8 @@ public interface IFarmLogic {
 	@SideOnly(Side.CLIENT)
 	ISprite getIcon();
 	
+	@SideOnly(Side.CLIENT)
+	ItemStack getIconStack();
+	
 	String getName();
 }
