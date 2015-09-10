@@ -27,7 +27,7 @@ public interface ITreeFactory {
 	 * @param generator The tree generator
 	 * @return a new bee species allele.
 	 */
-	IAlleleTreeSpeciesCustom createSpecies(String uid, String unlocalizedName, String authority, String unlocalizedDescription, boolean dominant, IClassification branch, String binomial, ILeafIconProvider leafIconProvider, IGermlingModelProvider germlingIconProvider, ITreeGenerator generator);
+	IAlleleTreeSpeciesCustom createSpecies(String uid, String unlocalizedName, String authority, String unlocalizedDescription, boolean dominant, IClassification branch, String binomial, ILeafIconProvider leafIconProvider, IGermlingModelProvider germlingModelProvider, IGermlingIconProvider germlingIconProvider, ITreeGenerator generator);
 
 	/** Get one of the built-in Forestry leaf types. Default type is deciduous. */
 	ILeafIconProvider getLeafIconProvider(EnumLeafType enumLeafType, Color color, Color colorPollinated);

@@ -14,6 +14,8 @@ import forestry.api.core.sprite.ISprite;
  * There is no default implementation because every sapling has a unique icon.
  */
 public interface IGermlingIconProvider {
-	void registerIcons(ITextureManager register);
+	
+	void registerIcons();
+	
 	ISprite getIcon(EnumGermlingType type, int renderPass);
 }

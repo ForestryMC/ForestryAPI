@@ -40,4 +40,6 @@ public interface IModelManager {
 	
 	void registerVariant(Item item, String... names);
 	
+	IModelRenderer createNewRenderer();
+	
 }

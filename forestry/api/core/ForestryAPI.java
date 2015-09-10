@@ -46,12 +46,6 @@ public class ForestryAPI {
 	 */
 	@SideOnly(Side.CLIENT)
 	public static IModelManager modleManager;
-	
-	/**
-	 * A {@link IModelRenderer} needed for some things in the API.
-	 */
-	@SideOnly(Side.CLIENT)
-	public static IModelRenderer modleRenderer;
 
 	/**
 	 * The currently active {@link IGameMode}.
