@@ -5,7 +5,6 @@
  ******************************************************************************/
 package forestry.api.arboriculture;
 
-import forestry.api.core.ITextureManager;
 import forestry.api.core.sprite.ISprite;
 
 /**
