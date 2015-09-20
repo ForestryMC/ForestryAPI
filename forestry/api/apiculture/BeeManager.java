@@ -46,4 +46,9 @@ public class BeeManager {
 	 * Used to get Forestry's jubilance implementations.
 	 */
 	public static IJubilanceFactory jubilanceFactory;
+
+	/**
+	 * Used to check whether a player is wearing Apiarist Armor.
+	 */
+	public static IArmorApiaristHelper armorApiaristHelper;
 }
