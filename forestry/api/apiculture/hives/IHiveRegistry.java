@@ -8,17 +8,38 @@ package forestry.api.apiculture.hives;
 import java.util.List;
 
 import forestry.api.apiculture.IHiveDrop;
+import net.minecraft.util.IStringSerializable;
 
 public interface IHiveRegistry {
 
 	/* Forestry Hive Names */
-	public static final String forest = "Forestry:forest";
-	public static final String meadows = "Forestry:meadows";
-	public static final String desert = "Forestry:desert";
-	public static final String jungle = "Forestry:jungle";
-	public static final String end = "Forestry:end";
-	public static final String snow = "Forestry:snow";
-	public static final String swamp = "Forestry:swamp";
+	
+	public static enum HiveType implements IStringSerializable{
+		FOREST("Forestry:forest"),
+		MEADOWS("Forestry:meadows"),
+		DESERT("Forestry:desert"),
+		JUNGLE("Forestry:jungle"),
+		END("Forestry:end"),
+		SNOW("Forestry:snow"),
+		SWAMP("Forestry:swamp");
+		
+		private HiveType(String name) {
+			this.name = name;
+		}
+
+		public String name;
+		
+		public String getHiveName()
+		{
+			return name;
+		}
+		
+		@Override
+		public String getName() {
+			return name().toLowerCase();
+		}
+		
+	}
 
 	/**
 	 * Adds a new hive to be generated in the world.
@@ -28,5 +49,6 @@ public interface IHiveRegistry {
 	/**
 	 * Add drops to a registered hive.
 	 */
+	void addDrops(String hiveName, IHiveDrop... drops);
 	void addDrops(String hiveName, List<IHiveDrop> drop);
 }

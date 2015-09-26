@@ -20,16 +20,16 @@ public interface IMutation {
 	 * @return {@link ISpeciesRoot} this mutation is associated with.
 	 */
 	ISpeciesRoot getRoot();
-	
+
 	/**
 	 * @return first of the alleles implementing IAlleleSpecies required for this mutation.
 	 */
-	IAllele getAllele0();
+	IAlleleSpecies getAllele0();
 
 	/**
 	 * @return second of the alleles implementing IAlleleSpecies required for this mutation.
 	 */
-	IAllele getAllele1();
+	IAlleleSpecies getAllele1();
 
 	/**
 	 * @return Array of {@link IAllele} representing the full default genome of the mutated side.

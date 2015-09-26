@@ -8,8 +8,6 @@ package forestry.api.arboriculture;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
-import forestry.api.genetics.IAllele;
-import forestry.api.genetics.IGenome;
 import forestry.api.genetics.IMutation;
 import forestry.api.genetics.ISpeciesRoot;
 
@@ -18,16 +16,12 @@ public interface ITreeMutation extends IMutation {
 	/**
 	 * @return {@link ISpeciesRoot} this mutation is associated with.
 	 */
+	@Override
 	ITreeRoot getRoot();
-	
+
 	/**
-	 * @param world
-	 * @param pos
-	 * @param allele0
-	 * @param allele1
-	 * @param genome0
-	 * @param genome1
-	 * @return float representing the chance for mutation to occur. note that this is 0 - 100 based, since it was an integer previously!
+	 * @return float representing the percent chance for mutation to occur, from 0.0 to 100.0.
+	 * @since Forestry 4.0
 	 */
-	float getChance(World world, BlockPos pos, IAllele allele0, IAllele allele1, IGenome genome0, IGenome genome1);
+	float getChance(World world, BlockPos pos, IAlleleTreeSpecies allele0, IAlleleTreeSpecies allele1, ITreeGenome genome0, ITreeGenome genome1);
 }

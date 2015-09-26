@@ -20,6 +20,7 @@ public enum EnumAddressee {
 		return null;
 	}
 
+	@Override
 	public String toString() {
 		return super.toString().toLowerCase(Locale.ENGLISH);
 	}

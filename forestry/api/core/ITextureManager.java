@@ -5,17 +5,16 @@
  ******************************************************************************/
 package forestry.api.core;
 
-import net.minecraft.util.IIcon;
-
+import forestry.api.core.sprite.ISprite;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public interface ITextureManager {
 
-	void registerIconProvider(IIconProvider provider);
+	void registerIconProvider(ISpriteProvider provider);
 
-	IIcon getIcon(short texUID);
+	ISprite getIcon(short texUID);
 
-	IIcon getDefault(String ident);
+	ISprite getDefault(String ident);
 }

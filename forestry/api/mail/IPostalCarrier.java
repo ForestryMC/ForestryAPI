@@ -6,11 +6,10 @@
 package forestry.api.mail;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import forestry.api.core.sprite.ISprite;
 
 /**
  *  Postal Carriers are systems which can be hooked into Forestry's mail system to handle mail delivery.
@@ -32,7 +31,7 @@ public interface IPostalCarrier {
 	String getName();
 
 	@SideOnly(Side.CLIENT)
-	IIcon getIcon();
+	ISprite getSprirte();
 
 	/**
 	 * Handle delivery of a letter addressed to this carrier.

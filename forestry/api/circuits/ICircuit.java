@@ -7,8 +7,6 @@ package forestry.api.circuits;
 
 import java.util.List;
 
-import net.minecraft.tileentity.TileEntity;
-
 public interface ICircuit {
 	String getUID();
 
@@ -18,15 +16,15 @@ public interface ICircuit {
 
 	String getName();
 
-	boolean isCircuitable(TileEntity tile);
+	boolean isCircuitable(Object tile);
 
-	void onInsertion(int slot, TileEntity tile);
+	void onInsertion(int slot, Object tile);
 
-	void onLoad(int slot, TileEntity tile);
+	void onLoad(int slot, Object tile);
 
-	void onRemoval(int slot, TileEntity tile);
+	void onRemoval(int slot, Object tile);
 
-	void onTick(int slot, TileEntity tile);
+	void onTick(int slot, Object tile);
 
 	void addTooltip(List<String> list);
 }

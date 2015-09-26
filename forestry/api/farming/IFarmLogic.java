@@ -7,13 +7,9 @@ package forestry.api.farming;
 
 import java.util.Collection;
 
+import forestry.api.core.sprite.ISprite;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.ResourceLocation;
-
-import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -29,16 +25,17 @@ public interface IFarmLogic {
 
 	Collection<ItemStack> collect();
 
-	boolean cultivate(BlockPos pos, EnumFacing direction, int extent);
+	boolean cultivate(BlockPos pos, FarmDirection direction, int extent);
 
-	Collection<ICrop> harvest(BlockPos pos, EnumFacing direction, int extent);
+	Collection<ICrop> harvest(BlockPos pos, FarmDirection direction, int extent);
 
 	IFarmLogic setManual(boolean manual);
 
 	@SideOnly(Side.CLIENT)
-	IIcon getIcon();
-
-	ResourceLocation getSpriteSheet();
+	ISprite getIcon();
+	
+	@SideOnly(Side.CLIENT)
+	ItemStack getIconStack();
 	
 	String getName();
 }

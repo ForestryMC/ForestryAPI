@@ -5,6 +5,8 @@
  ******************************************************************************/
 package forestry.api.arboriculture;
 
+import java.util.Locale;
+
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IAlleleArea;
@@ -85,7 +87,7 @@ public enum EnumTreeChromosome implements IChromosomeType {
 
 	@Override
 	public String getName() {
-		return this.toString().toLowerCase();
+		return this.toString().toLowerCase(Locale.ENGLISH);
 	}
 
 	@Override

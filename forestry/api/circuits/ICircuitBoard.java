@@ -7,8 +7,6 @@ package forestry.api.circuits;
 
 import java.util.List;
 
-import net.minecraft.tileentity.TileEntity;
-
 import forestry.api.core.INBTTagable;
 
 public interface ICircuitBoard extends INBTTagable {
@@ -19,13 +17,13 @@ public interface ICircuitBoard extends INBTTagable {
 
 	void addTooltip(List<String> list);
 
-	void onInsertion(TileEntity tile);
+	void onInsertion(Object tile);
 
-	void onLoad(TileEntity tile);
+	void onLoad(Object tile);
 
-	void onRemoval(TileEntity tile);
+	void onRemoval(Object tile);
 
-	void onTick(TileEntity tile);
+	void onTick(Object tile);
 	
 	ICircuit[] getCircuits();
 

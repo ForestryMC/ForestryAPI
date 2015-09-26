@@ -5,13 +5,23 @@
  ******************************************************************************/
 package forestry.api.farming;
 
-import forestry.api.core.ITileStructure;
+/**
+ * Needs to be implemented by TileEntities that want to be part of a farm.
+ */
+public interface IFarmComponent {
 
-public interface IFarmComponent extends ITileStructure {
+	/**
+	 * Implemented by farm parts to apply a farmListener to the completed structure.
+	 */
+	interface Listener extends IFarmComponent {
+		IFarmListener getFarmListener();
+	}
 
-	boolean hasFunction();
-
-	void registerListener(IFarmListener listener);
-
-	void removeListener(IFarmListener listener);
+	/**
+	 * Implemented by farm parts to receive ticks from the completed structure.
+	 */
+	interface Active extends IFarmComponent {
+		void updateServer(int tickCount);
+		void updateClient(int tickCount);
+	}
 }

@@ -5,15 +5,12 @@
  ******************************************************************************/
 package forestry.api.arboriculture;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
 import forestry.api.genetics.IFruitFamily;
 
 public interface IFruitProvider {
@@ -43,7 +40,9 @@ public interface IFruitProvider {
 	/**
 	 * @param genome
 	 * @param world
-	 * @param pos
+	 * @param x
+	 * @param y
+	 * @param z
 	 * @param ripeningTime
 	 *            Elapsed ripening time for the fruit.
 	 * @param fancy
@@ -61,11 +60,13 @@ public interface IFruitProvider {
 	 * 
 	 * @param genome
 	 * @param world
-	 * @param pos
+	 * @param x
+	 * @param y
+	 * @param z
 	 * @return true if a fruit block was spawned, false otherwise.
 	 */
 	boolean trySpawnFruitBlock(ITreeGenome genome, World world, BlockPos pos);
 
 	@SideOnly(Side.CLIENT)
-	void registerIcons(IIconRegister register);
+	void registerIcons();
 }

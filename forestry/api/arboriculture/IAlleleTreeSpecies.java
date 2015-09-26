@@ -7,21 +7,19 @@ package forestry.api.arboriculture;
 
 import java.util.Collection;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
-
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
+import forestry.api.core.IModelManager;
+import forestry.api.core.ISpriteProvider;
+import forestry.api.core.sprite.ISprite;
 import forestry.api.genetics.IAlleleSpecies;
 import forestry.api.genetics.IFruitFamily;
 
 public interface IAlleleTreeSpecies extends IAlleleSpecies {
 
+	@Override
 	ITreeRoot getRoot();
 	
 	/**
@@ -35,33 +33,29 @@ public interface IAlleleTreeSpecies extends IAlleleSpecies {
 	Collection<IFruitFamily> getSuitableFruit();
 
 	/**
-	 * @param tree
-	 * @param world
-	 * @param pos
-	 * @return Tree generator for the tree at the given location.
+	 * @return Tree generator for this species.
 	 */
-	WorldGenerator getGenerator(ITree tree, World world, BlockPos pos);
-
-	/**
-	 * @return All available generator classes for this species.
-	 */
-	Class<? extends WorldGenerator>[] getGeneratorClasses();
+	ITreeGenerator getGenerator();
 
 	/* TEXTURES AND OVERRIDES */
-	int getLeafColour(ITree tree);
-
-	short getLeafIconIndex(ITree tree, boolean fancy);
+	int getLeafColour(boolean pollinated);
 
 	@SideOnly(Side.CLIENT)
-	IIcon getGermlingIcon(EnumGermlingType type, int renderPass);
+	ISprite getLeafIcon(boolean pollinated, boolean fancy);
+
+	@SideOnly(Side.CLIENT)
+	ISprite getGermlingIcon(EnumGermlingType type, int renderPass);
+	
+	@SideOnly(Side.CLIENT)
+	ModelResourceLocation getGermlingModel(EnumGermlingType type);
+	
+	@SideOnly(Side.CLIENT)
+	void registerModels(IModelManager manager);
 	
 	@SideOnly(Side.CLIENT)
 	int getGermlingColour(EnumGermlingType type, int renderPass);
 	
-	/**
-	 * 
-	 * @return Array of ItemStacks representing logs that these tree produces, the first one being the primary one
-	 */
-	ItemStack[] getLogStacks();
+	@SideOnly(Side.CLIENT)
+	ISpriteProvider getSpriteProvider();
 
 }

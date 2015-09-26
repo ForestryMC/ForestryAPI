@@ -5,26 +5,36 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Random;
+import java.util.Set;
 
 import net.minecraft.block.Block;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
+import forestry.api.apiculture.IBee;
+import forestry.api.apiculture.IBeeHousing;
+
 public interface IFlowerRegistry {
 
-	List<IFlower> getAcceptableFlowers(String flowerType);
+	Set<IFlower> getAcceptableFlowers(String flowerType);
 	
 	boolean growFlower(String flowerType, World world, IIndividual individual, BlockPos pos);
-	
-	boolean isAcceptedFlower(String flowerType, World world, IIndividual individual, BlockPos pos);
+
+	/**
+	 * @return the coordinates of a nearby accepted flower or null if there is none.
+	 */
+	BlockPos getAcceptedFlowerCoordinates(IBeeHousing beeHousing, IBee bee, String flowerType);
+
+	boolean isAcceptedFlower(String flowerType, World world, BlockPos pos);
 	
 	/**
 	 * Registers a non-plantable flower, but bees accept them.
 	 *
 	 * @param flowerTypes See {@link forestry.api.apiculture.FlowerManager}.FlowerTypeXXX
 	 */
+	void registerAcceptableFlower(Block flowerBlock, String... flowerTypes);
 	void registerAcceptableFlower(Block flowerBlock, int flowerMeta, String... flowerTypes);
 	
 	void registerGrowthRule(IFlowerGrowthRule rule, String... flowerTypes);
@@ -40,4 +50,6 @@ public interface IFlowerRegistry {
 
 	IFlower getRandomPlantableFlower(String flowerType, Random rand);
 
+	/** Returns all known flower types. */
+	Collection<String> getFlowerTypes();
 }
