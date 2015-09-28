@@ -13,6 +13,11 @@ public class TreeManager {
 	public static ITreeRoot treeRoot;
 
 	/**
+	 * Convenient access to wood items.
+	 */
+	public static IWoodItemAccess woodItemAccess;
+
+	/**
 	 * Used to create new trees.
 	 */
 	public static ITreeFactory treeFactory;
