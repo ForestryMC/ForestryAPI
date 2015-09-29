@@ -23,13 +23,15 @@ public interface IMutation {
 
 	/**
 	 * @return first of the alleles implementing IAlleleSpecies required for this mutation.
+	 * @since Forestry 4.0
 	 */
-	IAlleleSpecies getAllele0();
+	IAlleleSpecies getSpecies0();
 
 	/**
 	 * @return second of the alleles implementing IAlleleSpecies required for this mutation.
+	 * @since Forestry 4.0
 	 */
-	IAlleleSpecies getAllele1();
+	IAlleleSpecies getSpecies1();
 
 	/**
 	 * @return Array of {@link IAllele} representing the full default genome of the mutated side.
@@ -65,4 +67,17 @@ public interface IMutation {
 	 */
 	boolean isSecret();
 
+	/**
+	 * @return first of the alleles implementing IAlleleSpecies required for this mutation.
+	 * @deprecated Since Forestry 4.0. Use getSpecies0()
+	 */
+	@Deprecated
+	IAllele getAllele0();
+
+	/**
+	 * @return second of the alleles implementing IAlleleSpecies required for this mutation.
+	 * @deprecated Since Forestry 4.0. Use getSpecies1()
+	 */
+	@Deprecated
+	IAllele getAllele1();
 }
