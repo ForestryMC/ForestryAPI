@@ -17,7 +17,18 @@ import forestry.api.genetics.IHousing;
 
 public interface IBeeHousing extends IHousing, IErrorLogicSource {
 
+	/**
+	 * Used by BeeManager.beeRoot.createBeeHousingModifier(IBeeHousing housing)
+	 * to combine bee modifiers from several sources that can change over time.
+	 * @return IBeeModifiers from the housing, frames, etc.
+	 */
 	Iterable<IBeeModifier> getBeeModifiers();
+
+	/**
+	 * Used by BeeManager.beeRoot.createBeeHousingListener(IBeeHousing housing)
+	 * to combine bee listeners from several sources that can change over time.
+	 * @return IBeeListeners from the housing, multiblock parts, etc.
+	 */
 	Iterable<IBeeListener> getBeeListeners();
 
 	IBeeHousingInventory getBeeInventory();

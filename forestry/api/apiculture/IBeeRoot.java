@@ -111,10 +111,21 @@ public interface IBeeRoot extends ISpeciesRoot {
 
 	/* MISC */
 	/**
-	 * @param housing
-	 *            Object implementing IBeeHousing.
-	 * @return IBeekeepingLogic
+	 * Creates beekeepingLogic for a housing.
+	 * Should be used when the housing is created, see IBeekeepingLogic
 	 */
 	IBeekeepingLogic createBeekeepingLogic(IBeeHousing housing);
+
+	/**
+	 * Combines multiple modifiers from an IBeeHousing into one.
+	 * Stays up to date with changes to the housing's modifiers.
+	 */
+	IBeeModifier createBeeHousingModifier(IBeeHousing housing);
+
+	/**
+	 * Combines multiple listeners from an IBeeHousing into one.
+	 * Stays up to date with changes to the housing's listeners.
+	 */
+	IBeeListener createBeeHousingListener(IBeeHousing housing);
 
 }
