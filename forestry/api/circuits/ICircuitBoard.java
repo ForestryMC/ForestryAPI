@@ -7,8 +7,6 @@ package forestry.api.circuits;
 
 import java.util.List;
 
-import net.minecraft.tileentity.TileEntity;
-
 import forestry.api.core.INBTTagable;
 
 public interface ICircuitBoard extends INBTTagable {
@@ -28,5 +26,11 @@ public interface ICircuitBoard extends INBTTagable {
 	void onTick(Object tile);
 	
 	ICircuit[] getCircuits();
+
+	/**
+	 * Specifies where a circuit can be used.
+	 * @since Forestry 4.0
+	 */
+	ICircuitSocketType getSocketType();
 
 }
