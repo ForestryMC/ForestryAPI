@@ -5,20 +5,12 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
-import net.minecraft.block.Block;
+import net.minecraft.world.World;
 
-/**
- * @deprecated since Forestry 4.0. Use alternative methods in IFlowerRegistry.
- */
-@Deprecated
-public interface IFlower extends Comparable<IFlower> {
-
-	Block getBlock();
-	int getMeta();
-
-	double getWeight();
-	void setWeight(double weight);
-
-	boolean isPlantable();
-
+public interface IFlowerGrowthHelper {
+	/**
+	 * Plants a random flower from flowerType at the specified position.
+	 * @return true if successful, false if it could not be planted.
+	 */
+	boolean plantRandomFlower(String flowerType, World world, int x, int y, int z);
 }
