@@ -58,8 +58,9 @@ public interface ITreeRoot extends ISpeciesRoot {
 	Collection<ILeafTickHandler> getLeafTickHandlers();
 
 	/**
-	 * @return type of tree encoded on the itemstack. EnumBeeType.NONE if it isn't a tree.
+	 * @return type of tree encoded on the itemstack. EnumGermlingType.NONE if it isn't a tree.
 	 */
+	@Override
 	EnumGermlingType getType(ItemStack stack);
 
 	ITree getTree(World world, int x, int y, int z);

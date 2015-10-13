@@ -63,6 +63,8 @@ public interface ISpeciesRoot {
 
 	IIndividual getMember(NBTTagCompound compound);
 
+	ISpeciesType getType(ItemStack itemStack);
+
 	ItemStack getMemberStack(IIndividual individual, int type);
 
 	/* BREEDING TRACKER */

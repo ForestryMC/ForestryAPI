@@ -69,6 +69,7 @@ public interface IButterflyRoot extends ISpeciesRoot {
 	@Override
 	Collection<IButterflyMutation> getMutations(boolean shuffle);
 
+	@Override
 	EnumFlutterType getType(ItemStack stack);
 
 }

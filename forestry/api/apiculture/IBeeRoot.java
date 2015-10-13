@@ -58,6 +58,7 @@ public interface IBeeRoot extends ISpeciesRoot {
 	/**
 	 * @return type of bee encoded on the itemstack. EnumBeeType.NONE if it isn't a bee.
 	 */
+	@Override
 	EnumBeeType getType(ItemStack stack);
 
 	/**
