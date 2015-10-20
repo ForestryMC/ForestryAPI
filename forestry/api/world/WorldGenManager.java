@@ -5,6 +5,10 @@
  ******************************************************************************/
 package forestry.api.world;
 
+/**
+ * @deprecated since Forestry 4.1.0. Unused
+ */
+@Deprecated
 public class WorldGenManager {
 	public static IWorldGenInterface worldgenInterface;
 }

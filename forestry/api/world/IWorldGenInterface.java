@@ -7,6 +7,10 @@ package forestry.api.world;
 
 import net.minecraft.world.gen.feature.WorldGenerator;
 
+/**
+ * @deprecated since Forestry 4.1.0. Unused
+ */
+@Deprecated
 public interface IWorldGenInterface {
 
 	/**
