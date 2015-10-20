@@ -8,13 +8,11 @@ package forestry.api.recipes;
 import javax.annotation.Nullable;
 
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import net.minecraftforge.fluids.FluidStack;
 
-public interface IFabricatorRecipe {
+public interface IFabricatorRecipe extends IForestryRecipe {
 
 	/**
 	 * @param plan The Fabricator plan, the item in the top right slot.

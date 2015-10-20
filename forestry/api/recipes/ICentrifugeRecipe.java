@@ -11,7 +11,7 @@ import java.util.Random;
 
 import net.minecraft.item.ItemStack;
 
-public interface ICentrifugeRecipe {
+public interface ICentrifugeRecipe extends IForestryRecipe {
 
 	/** The item for this recipe to match against. **/
 	ItemStack getInput();

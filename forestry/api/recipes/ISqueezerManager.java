@@ -21,7 +21,7 @@ import net.minecraftforge.fluids.FluidStack;
  * 
  * @author SirSengir
  */
-public interface ISqueezerManager extends ICraftingProvider {
+public interface ISqueezerManager extends ICraftingProvider<ISqueezerRecipe> {
 
 	/**
 	 * Add a recipe to the squeezer.

@@ -19,13 +19,7 @@ import net.minecraft.item.ItemStack;
  * 
  * @author SirSengir
  */
-public interface ICentrifugeManager extends ICraftingProvider {
-
-	/**
-	 * Add a recipe to the centrifuge.
-	 * Gives fine-grained control over the outputs.
-	 */
-	void addRecipe(ICentrifugeRecipe recipe);
+public interface ICentrifugeManager extends ICraftingProvider<ICentrifugeRecipe> {
 
 	/**
 	 * Add a recipe to the centrifuge

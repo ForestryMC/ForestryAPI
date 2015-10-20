@@ -9,9 +9,8 @@ import net.minecraft.item.ItemStack;
 
 import net.minecraftforge.fluids.FluidStack;
 
-public interface IFabricatorManager extends ICraftingProvider {
+public interface IFabricatorManager extends ICraftingProvider<IFabricatorRecipe> {
 
-	void addRecipe(IFabricatorRecipe recipe);
 	void addRecipe(ItemStack plan, FluidStack molten, ItemStack result, Object[] pattern);
 
 	void addSmelting(ItemStack resource, FluidStack molten, int meltingPoint);
