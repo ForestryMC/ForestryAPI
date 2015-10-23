@@ -25,7 +25,7 @@ public interface ITreeFactory {
 	 * @param leafIconProvider The leaf icon provider for this species
 	 * @param germlingIconProvider The germling icon provider for this species
 	 * @param generator The tree generator
-	 * @return a new bee species allele.
+	 * @return a new tree species allele.
 	 */
 	IAlleleTreeSpeciesCustom createSpecies(String uid, String unlocalizedName, String authority, String unlocalizedDescription, boolean dominant, IClassification branch, String binomial, ILeafIconProvider leafIconProvider, IGermlingIconProvider germlingIconProvider, ITreeGenerator generator);
 

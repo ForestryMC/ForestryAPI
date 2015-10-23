@@ -7,7 +7,8 @@ package forestry.api.arboriculture;
 
 import java.util.Locale;
 
-import forestry.api.genetics.AlleleManager;
+import net.minecraftforge.common.EnumPlantType;
+
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IAlleleArea;
 import forestry.api.genetics.IAlleleBoolean;
@@ -17,7 +18,6 @@ import forestry.api.genetics.IAllelePlantType;
 import forestry.api.genetics.IChromosomeType;
 import forestry.api.genetics.IFruitFamily;
 import forestry.api.genetics.ISpeciesRoot;
-import net.minecraftforge.common.EnumPlantType;
 
 public enum EnumTreeChromosome implements IChromosomeType {
 
@@ -92,7 +92,7 @@ public enum EnumTreeChromosome implements IChromosomeType {
 
 	@Override
 	public ISpeciesRoot getSpeciesRoot() {
-		return AlleleManager.alleleRegistry.getSpeciesRoot("rootTrees");
+		return TreeManager.treeRoot;
 	}
 
 }

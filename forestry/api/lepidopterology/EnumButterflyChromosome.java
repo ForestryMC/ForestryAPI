@@ -7,7 +7,6 @@ package forestry.api.lepidopterology;
 
 import java.util.Locale;
 
-import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IAlleleArea;
 import forestry.api.genetics.IAlleleBoolean;
@@ -95,6 +94,6 @@ public enum EnumButterflyChromosome implements IChromosomeType {
 
 	@Override
 	public ISpeciesRoot getSpeciesRoot() {
-		return AlleleManager.alleleRegistry.getSpeciesRoot("rootButterflies");
+		return ButterflyManager.butterflyRoot;
 	}
 }
