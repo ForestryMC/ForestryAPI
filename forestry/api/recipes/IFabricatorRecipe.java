@@ -46,11 +46,16 @@ public interface IFabricatorRecipe extends IForestryRecipe {
 	ItemStack getPlan();
 
 	/**
-	 * Returns an Item that is the result of this recipe
+	 * @return the result of this recipe
 	 */
-	ItemStack getCraftingResult(IInventory craftingInventory);
-
 	ItemStack getRecipeOutput();
+
+	/**
+	 * Returns an Item that is the result of this recipe
+	 * @deprecated since Forestry 4.1. Forestry uses getRecipeOutput() and preservesNbt() to determine the result.
+	 */
+	@Deprecated
+	ItemStack getCraftingResult(IInventory craftingInventory);
 
 	/**
 	 * @param plan The Fabricator plan, the item in the top right slot.

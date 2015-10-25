@@ -17,11 +17,6 @@ import net.minecraft.world.World;
 public interface IDescriptiveRecipe extends IRecipe {
 
 	/**
-	 * Used to check if a recipe matches current crafting inventory
-	 */
-	boolean matches(IInventory inventoryCrafting, World world);
-
-	/**
 	 * @return width of the crafting ingredients in the crafting table
 	 */
 	int getWidth();
@@ -37,4 +32,16 @@ public interface IDescriptiveRecipe extends IRecipe {
 	 */
 	Object[] getIngredients();
 
+	/**
+	 * @return true if the recipe manager should copy NBT from input items to the output item.
+	 * If true, all input items must have the same NBT for it to succeed.
+	 */
+	boolean preserveNBT();
+
+	/**
+	 * Used to check if a recipe matches current crafting inventory
+	 * @deprecated Since Forestry 4.1. This is handled by Forestry.
+	 */
+	@Deprecated
+	boolean matches(IInventory inventoryCrafting, World world);
 }
