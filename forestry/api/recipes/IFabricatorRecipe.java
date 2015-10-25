@@ -15,13 +15,6 @@ import net.minecraftforge.fluids.FluidStack;
 public interface IFabricatorRecipe extends IForestryRecipe {
 
 	/**
-	 * @param plan The Fabricator plan, the item in the top right slot.
-	 * @param resources The resources in the crafting grid.
-	 * @return true if the plan and resources match this recipe.
-	 */
-	boolean matches(@Nullable ItemStack plan, ItemStack[][] resources);
-
-	/**
 	 * @return the molten liquid (and amount) required for this recipe.
 	 */
 	FluidStack getLiquid();
@@ -58,4 +51,13 @@ public interface IFabricatorRecipe extends IForestryRecipe {
 	ItemStack getCraftingResult(IInventory craftingInventory);
 
 	ItemStack getRecipeOutput();
+
+	/**
+	 * @param plan The Fabricator plan, the item in the top right slot.
+	 * @param resources The resources in the crafting grid.
+	 * @return true if the plan and resources match this recipe.
+	 * @deprecated since Forestry 4.1. This is handled by Forestry instead.
+	 */
+	@Deprecated
+	boolean matches(@Nullable ItemStack plan, ItemStack[][] resources);
 }
