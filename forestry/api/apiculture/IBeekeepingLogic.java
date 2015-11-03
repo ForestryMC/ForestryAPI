@@ -5,6 +5,8 @@
  ******************************************************************************/
 package forestry.api.apiculture;
 
+import net.minecraft.entity.player.EntityPlayerMP;
+
 import forestry.api.core.INBTTagable;
 
 /**
@@ -35,6 +37,7 @@ public interface IBeekeepingLogic extends INBTTagable {
 	 * (i.e. when tile.getDescriptionPacket() is called)
 	 */
 	void syncToClient();
+	void syncToClient(EntityPlayerMP player);
 
 	/**
 	 * Get the progress bar for breeding and production.

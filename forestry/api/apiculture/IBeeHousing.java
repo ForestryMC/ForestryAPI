@@ -5,6 +5,7 @@
  ******************************************************************************/
 package forestry.api.apiculture;
 
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -42,4 +43,10 @@ public interface IBeeHousing extends IHousing, IErrorLogicSource {
 	World getWorld();
 	BiomeGenBase getBiome();
 	GameProfile getOwner();
+
+	/**
+	 * @since Forestry 4.2
+	 * @return exact coordinates where bee FX should spawn from
+	 */
+	Vec3 getBeeFXCoordinates();
 }
