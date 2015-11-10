@@ -9,7 +9,9 @@ import net.minecraft.world.World;
 
 import net.minecraftforge.fluids.FluidStack;
 
-public interface IFarmHousing {
+import forestry.api.core.IErrorLogicSource;
+
+public interface IFarmHousing extends IErrorLogicSource {
 
 	int[] getCoords();
 	int[] getArea();
