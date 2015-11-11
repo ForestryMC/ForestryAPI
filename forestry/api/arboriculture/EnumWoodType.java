@@ -35,10 +35,18 @@ public enum EnumWoodType {
 		return hardness;
 	}
 
+	/**
+	 * @deprecated since Forestry 4.2. Woods use itemDamage instead of NBT now
+	 */
+	@Deprecated
 	public void saveToCompound(NBTTagCompound compound) {
 		compound.setInteger("WoodType", ordinal());
 	}
 
+	/**
+	 * @deprecated since Forestry 4.2. Woods use itemDamage instead of NBT now
+	 */
+	@Deprecated
 	public static EnumWoodType getFromCompound(NBTTagCompound compound) {
 		if (compound != null) {
 			int typeOrdinal = compound.getInteger("WoodType");

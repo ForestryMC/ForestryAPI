@@ -35,7 +35,9 @@ public interface IDescriptiveRecipe extends IRecipe {
 	/**
 	 * @return true if the recipe manager should copy NBT from input items to the output item.
 	 * If true, all input items must have the same NBT for it to succeed.
+	 * @deprecated since Forestry 4.2 wood itemStacks use item damage (meta) instead of NBT
 	 */
+	@Deprecated
 	boolean preserveNBT();
 
 	/**

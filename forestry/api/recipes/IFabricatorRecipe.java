@@ -36,7 +36,9 @@ public interface IFabricatorRecipe extends IForestryRecipe {
 
 	/**
 	 * @return true if this recipe copies the NBT from input items to output items
+	 * @deprecated since Forestry 4.2 wood itemStacks use item damage (meta) instead of NBT
 	 */
+	@Deprecated
 	boolean preservesNbt();
 
 	/**
