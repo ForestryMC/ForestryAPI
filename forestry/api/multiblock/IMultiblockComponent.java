@@ -25,11 +25,6 @@ public interface IMultiblockComponent {
 	IMultiblockLogic getMultiblockLogic();
 
 	/**
-	 * returns true if tile entity is invalid, false otherwise
-	 */
-	boolean isInvalid();
-
-	/**
 	 * Called when a machine is fully assembled from the disassembled state, meaning
 	 * it was constructed by a player/entity action, not by chunks loading.
 	 * Note that, for non-square machines, the min/max coordinates may not actually be part
