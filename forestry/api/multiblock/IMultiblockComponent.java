@@ -7,6 +7,8 @@ package forestry.api.multiblock;
 
 import net.minecraft.util.ChunkCoordinates;
 
+import com.mojang.authlib.GameProfile;
+
 /**
  * Basic interface for a multiblock machine component.
  * Implemented by TileEntities.
@@ -18,6 +20,11 @@ public interface IMultiblockComponent {
 	 * @return ChunkCoordinates set to the location of this tile entity in the world.
 	 */
 	ChunkCoordinates getCoordinates();
+
+	/**
+	 * @return the gameProfile of the player who owns this single component (not the entire multiblock)
+	 */
+	GameProfile getOwner();
 
 	/**
 	 * @return the multiblock logic for this part
