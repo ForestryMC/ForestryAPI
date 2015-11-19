@@ -19,6 +19,20 @@ import forestry.api.world.ITreeGenData;
  */
 public interface ITreeGenerator {
 	WorldGenerator getWorldGenerator(ITreeGenData tree);
+
+	void setLogBlock(ITreeGenome genome, World world, int x, int y, int z, ForgeDirection facing);
+
+	void setLeaves(ITreeGenome genome, World world, GameProfile owner, int x, int y, int z, boolean decorative);
+
+	/**
+	 * @deprecated since Forestry 4.2. use the genome version
+	 */
+	@Deprecated
 	void setLogBlock(World world, int x, int y, int z, ForgeDirection facing);
+
+	/**
+	 * @deprecated since Forestry 4.2. use the genome version
+	 */
+	@Deprecated
 	void setLeaves(World world, GameProfile owner, int x, int y, int z, boolean decorative);
 }
