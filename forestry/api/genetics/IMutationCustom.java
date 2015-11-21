@@ -41,6 +41,7 @@ public interface IMutationCustom extends IMutation {
 
 	/** Require a specific resource to be under the location of the mutation */
 	IMutationCustom requireResource(Block block, int meta);
+	IMutationCustom requireResource(String oreDictName);
 
 	/** Require some other custom mutation condition */
 	IMutationCustom addMutationCondition(IMutationCondition mutationCondition);
