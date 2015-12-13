@@ -92,9 +92,9 @@ public interface IBreedingTracker {
 	boolean isResearched(IMutation mutation);
 
 	/**
-	 * Synchronizes the tracker to the client side. Should be called before opening any gui needing that information.
-	 * 
-	 * @param player
+	 * Synchronizes the tracker to the client side.
+	 * Before Forestry 4.2.1: Should be called before opening any gui needing that information.
+	 * Since Forestry 4.2.1: Breeding tracker should be automatically synced, only Forestry should need to call this.
 	 */
 	void synchToPlayer(EntityPlayer player);
 

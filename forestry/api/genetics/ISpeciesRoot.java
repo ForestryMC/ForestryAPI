@@ -71,6 +71,10 @@ public interface ISpeciesRoot {
 	/* BREEDING TRACKER */
 	IBreedingTracker getBreedingTracker(World world, GameProfile player);
 
+	/**
+	 * @deprecated since Forestry 4.2.1. Breeding tracker should be automatically synced.
+	 */
+	@Deprecated
 	void syncBreedingTrackerToPlayer(EntityPlayer player);
 
 	/* GENOME MANIPULATION */
