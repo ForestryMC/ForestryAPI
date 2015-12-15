@@ -12,18 +12,21 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
+import com.mojang.authlib.GameProfile;
+
 import net.minecraftforge.common.EnumPlantType;
 
 import forestry.api.genetics.IEffectData;
 import forestry.api.genetics.IIndividual;
+import forestry.api.world.ITreeGenData;
 
-public interface ITree extends IIndividual {
+public interface ITree extends IIndividual, ITreeGenData {
 
 	void mate(ITree other);
 
-	IEffectData[] doEffect(IEffectData[] storedData, World world, int biomeid, BlockPos pos);
+	IEffectData[] doEffect(IEffectData[] storedData, World world, BlockPos pos);
 
-	IEffectData[] doFX(IEffectData[] storedData, World world, int biomeid, BlockPos pos);
+	IEffectData[] doFX(IEffectData[] storedData, World world, BlockPos pos);
 
 	ITreeGenome getGenome();
 
@@ -31,7 +34,10 @@ public interface ITree extends IIndividual {
 
 	EnumSet<EnumPlantType> getPlantTypes();
 
-	ITree[] getSaplings(World world, BlockPos pos, float modifier);
+	/**
+	 * @since Forestry 4.0
+	 */
+	ITree[] getSaplings(World world, GameProfile playerProfile, BlockPos pos, float modifier);
 
 	ItemStack[] getProduceList();
 
@@ -40,17 +46,11 @@ public interface ITree extends IIndividual {
 	ItemStack[] produceStacks(World world, BlockPos pos, int ripeningTime);
 
 	/**
-	 * 
-	 * @param world
-	 * @param pos
 	 * @return Boolean indicating whether a sapling can stay planted at the given position.
 	 */
 	boolean canStay(World world, BlockPos pos);
 
 	/**
-	 * 
-	 * @param world
-	 * @param pos
 	 * @return Boolean indicating whether a sapling at the given position can grow into a tree.
 	 */
 	boolean canGrow(World world, BlockPos pos, int expectedGirth, int expectedHeight);
@@ -66,18 +66,11 @@ public interface ITree extends IIndividual {
 	int getResilience();
 	
 	/**
-	 * @param world
-	 * @param pos
 	 * @return Integer denoting the size of the tree trunk.
 	 */
 	int getGirth(World world, BlockPos pos);
 
-	
-	
 	/**
-	 * 
-	 * @param world
-	 * @param pos
 	 * @return Growth conditions at the given position.
 	 */
 	EnumGrowthConditions getGrowthCondition(World world, BlockPos pos);

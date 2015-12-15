@@ -5,10 +5,8 @@
  ******************************************************************************/
 package forestry.api.core;
 
-import forestry.api.apiculture.EnumBeeType;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -21,6 +19,6 @@ public interface IModelProvider {
 	ModelResourceLocation getModel();
 	
 	@SideOnly(Side.CLIENT)
-	void registerModels();
+	void registerModels(Item item, IModelManager manager);
 
 }

@@ -28,5 +28,6 @@ public interface IHiveRegistry {
 	/**
 	 * Add drops to a registered hive.
 	 */
+	void addDrops(String hiveName, IHiveDrop... drops);
 	void addDrops(String hiveName, List<IHiveDrop> drop);
 }

@@ -7,14 +7,16 @@ package forestry.api.apiculture;
 
 import java.util.Locale;
 
-public enum EnumBeeType {
+import forestry.api.genetics.ISpeciesType;
+
+public enum EnumBeeType implements ISpeciesType {
 	DRONE, PRINCESS, QUEEN, LARVAE, NONE;
 
 	public static final EnumBeeType[] VALUES = values();
 
 	String name;
 
-	private EnumBeeType() {
+	EnumBeeType() {
 		this.name = this.toString().toLowerCase(Locale.ENGLISH);
 	}
 

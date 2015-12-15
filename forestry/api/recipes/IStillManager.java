@@ -19,16 +19,16 @@ import net.minecraftforge.fluids.FluidStack;
  * 
  * @author SirSengir
  */
-public interface IStillManager extends ICraftingProvider {
+public interface IStillManager extends ICraftingProvider<IStillRecipe> {
 	/**
 	 * Add a recipe to the still
 	 * 
 	 * @param cyclesPerUnit
 	 *            Amount of work cycles required to run through the conversion once.
 	 * @param input
-	 *            ItemStack representing the input liquid.
+	 *            FluidStack representing the input liquid.
 	 * @param output
-	 *            ItemStack representing the output liquid
+	 *            FluidStack representing the output liquid
 	 */
 	public void addRecipe(int cyclesPerUnit, FluidStack input, FluidStack output);
 }

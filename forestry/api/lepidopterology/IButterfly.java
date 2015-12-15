@@ -6,6 +6,7 @@
 package forestry.api.lepidopterology;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import forestry.api.genetics.IIndividualLiving;
@@ -26,30 +27,24 @@ public interface IButterfly extends IIndividualLiving {
 	
 	/**
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @return true if the butterfly can naturally spawn at the given location at this time. (Used to auto-spawn butterflies from tree leaves.)
 	 */
-	boolean canSpawn(World world, double x, double y, double z);
+	boolean canSpawn(World world, BlockPos pos);
 
 	/**
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @return true if the butterfly can take flight at the given location at this time. (Used to auto-spawn butterflies from dropped items.)
 	 */
-	boolean canTakeFlight(World world, double x, double y, double z);
+	boolean canTakeFlight(World world, BlockPos pos);
 
 	/**
 	 * @param world
-	 * @param x
-	 * @param y
-	 * @param z
+	 * @param pos
 	 * @return true if the environment (temperature, humidity) is valid for the butterfly at the given location.
 	 */
-	boolean isAcceptedEnvironment(World world, double x, double y, double z);
+	boolean isAcceptedEnvironment(World world, BlockPos pos);
 
 	IButterfly spawnCaterpillar(IButterflyNursery nursery);
 	

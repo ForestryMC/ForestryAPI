@@ -11,6 +11,7 @@ import java.util.Collection;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import com.mojang.authlib.GameProfile;
@@ -54,7 +55,7 @@ public interface IButterflyRoot extends ISpeciesRoot {
 	 * @param butterfly
 	 * @return butterfly entity on success, null otherwise.
 	 */
-	EntityLiving spawnButterflyInWorld(World world, IButterfly butterfly, double x, double y, double z);
+	EntityLiving spawnButterflyInWorld(World world, IButterfly butterfly, BlockPos pos);
 
 	/**
 	 * @return true if passed item is mated.
@@ -69,6 +70,7 @@ public interface IButterflyRoot extends ISpeciesRoot {
 	@Override
 	Collection<IButterflyMutation> getMutations(boolean shuffle);
 
+	@Override
 	EnumFlutterType getType(ItemStack stack);
 
 }

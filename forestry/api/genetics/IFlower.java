@@ -7,6 +7,10 @@ package forestry.api.genetics;
 
 import net.minecraft.block.Block;
 
+/**
+ * @deprecated since Forestry 4.0. Use alternative methods in IFlowerRegistry.
+ */
+@Deprecated
 public interface IFlower extends Comparable<IFlower> {
 
 	Block getBlock();

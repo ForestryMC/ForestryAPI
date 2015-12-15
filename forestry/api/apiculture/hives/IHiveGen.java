@@ -11,10 +11,10 @@ import net.minecraft.world.World;
 public interface IHiveGen {
 
 	/**
-	 * return the passed in BlockPos with an adjusted Y value, representing where the hive should try to generate at.
-	 * sets the Y value to negative if the hive can't be placed anywhere.
+	 * return a Y value that the hive should try to generate at.
+	 * returns negative if the hive can't be placed anywhere.
 	 */
-	BlockPos getYForHive(World world, BlockPos pos);
+	int getYForHive(World world, int x, int z);
 
 	/**
 	 * returns true if the hive can be generated at this location.

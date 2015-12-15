@@ -43,7 +43,7 @@ public interface IHiveDescription {
 
 	/**
 	 * Called after successful hive generation.
-	 * world, x, y, z give the location of the new hive.
+	 * world, pos give the location of the new hive.
 	 **/
 	void postGen(World world, BlockPos pos);
 }
