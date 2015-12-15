@@ -5,6 +5,8 @@
  ******************************************************************************/
 package forestry.api.core;
 
+import java.util.Set;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -40,6 +42,12 @@ public class ForestryAPI {
 	public static ITextureManager textureManager;
 
 	/**
+	 * A {@link IModelManager} needed for some things in the API.
+	 */
+	@SideOnly(Side.CLIENT)
+	public static IModelManager modleManager;
+	
+	/**
 	 * The currently active {@link IGameMode}.
 	 */
 	public static IGameMode activeMode;
@@ -48,5 +56,17 @@ public class ForestryAPI {
 	 * Provides information on certain Forestry constants (Villager IDs, Chest gen keys, etc)
 	 */
 	public static IForestryConstants forestryConstants;
-	
+
+	/**
+	 * The currently enabled Forestry plugins.
+	 * Can be used to check if certain features are available, for example:
+	 * ForestryAPI.enabledPlugins.contains("APICULTURE")
+	 */
+	public static Set<String> enabledPlugins;
+
+	/**
+	 * Instance of the errorStateRegistry for registering errors.
+	 * Also creates new instances of IErrorLogic.
+	 */
+	public static IErrorStateRegistry errorStateRegistry;
 }

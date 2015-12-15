@@ -82,10 +82,23 @@ public interface IAlleleRegistry {
 	/**
 	 * Registers an allele.
 	 * 
-	 * @param allele
-	 *            IAllele to register.
+	 * @param allele IAllele to register.
+	 * @deprecated since Forestry 4.2. Use the IChromosomeType-specific version.
 	 */
+	@Deprecated
 	void registerAllele(IAllele allele);
+
+	/**
+	 * Registers an allele.
+	 *
+	 * NOTE: Where possible, it is recommended to use IAlleleFactory instead
+	 *   because it has built-in advanced localization support.
+	 *
+	 * @param allele IAllele to register.
+	 * @param chromosomeTypes valid chromosomeTypes for this allele.
+	 * @since Forestry 4.2
+	 */
+	void registerAllele(IAllele allele, IChromosomeType... chromosomeTypes);
 
 	/**
 	 * @return HashMap of all registered deprecated alleles and their corresponding replacements
@@ -110,6 +123,12 @@ public interface IAlleleRegistry {
 	 * @return IAllele if found or a replacement is found in the Deprecated Allele map, null otherwise.
 	 */
 	IAllele getAllele(String uid);
+
+	/**
+	 * @return unmodifiable collection of all the known allele variations for the given chromosome type.
+	 * @since Forestry 4.2
+	 */
+	Collection<IAllele> getRegisteredAlleles(IChromosomeType type);
 
 	/* CLASSIFICATIONS */
 	/**
@@ -137,6 +156,7 @@ public interface IAlleleRegistry {
 	 * @return Created {@link IClassification} for easier chaining.
 	 */
 	IClassification createAndRegisterClassification(EnumClassLevel level, String uid, String scientific);
+	IClassification createAndRegisterClassification(EnumClassLevel level, String uid, String scientific, IClassification... members);
 
 	/**
 	 * Gets a classification.

@@ -5,13 +5,9 @@
  ******************************************************************************/
 package forestry.api.core;
 
-import java.security.InvalidParameterException;
-
-import net.minecraft.util.IIcon;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import net.minecraftforge.common.BiomeDictionary;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -37,33 +33,8 @@ public enum EnumTemperature {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon() {
+	public TextureAtlasSprite getSprite() {
 		return ForestryAPI.textureManager.getDefault(iconIndex);
-	}
-
-	/**
-	 * Determines if a given BiomeGenBase is of HELLISH temperature, since it is treated separately from actual temperature values.
-	 * Uses the BiomeDictionary.
-	 * @param biomeGen BiomeGenBase of the biome in question
-	 * @return true, if the BiomeGenBase is a Nether-type biome; false otherwise.
-	 * @deprecated since 3.2. Use BiomeHelper.isBiomeHellish(BiomeGenBase biomeGen)
-	 */
-	@Deprecated
-	public static boolean isBiomeHellish(BiomeGenBase biomeGen) {
-		return BiomeHelper.isBiomeHellish(biomeGen);
-	}
-
-	/**
-	 * Determines if a given biomeID is of HELLISH temperature, since it is treated separately from actual temperature values.
-	 * Uses the BiomeDictionary.
-	 * @param biomeID ID of the BiomeGenBase in question
-	 * @return true, if the biomeID is a Nether-type biome; false otherwise.
-	 * @deprecated since 3.2. Use BiomeHelper.isBiomeHellish(BiomeGenBase biomeGen)
-	 */
-	@Deprecated
-	@SuppressWarnings("deprecated")
-	public static boolean isBiomeHellish(int biomeID) {
-		return BiomeHelper.isBiomeHellish(biomeID);
 	}
 
 	/**
@@ -77,10 +48,10 @@ public enum EnumTemperature {
 		if (rawTemp > 1.00f) {
 			return HOT;
 		}
-		else if (rawTemp > 0.80f) {
+		else if (rawTemp > 0.85f) {
 			return WARM;
 		}
-		else if (rawTemp > 0.30f) {
+		else if (rawTemp > 0.35f) {
 			return NORMAL;
 		}
 		else if (rawTemp > 0.0f) {
@@ -98,14 +69,11 @@ public enum EnumTemperature {
 		return getFromValue(biomeGenBase.temperature);
 	}
 
-	/**
-	 * @deprecated since Forestry 3.2. Use getFromBiome(BiomeGenBase biomeGenBase)
-	 */
-	@Deprecated
-	public static EnumTemperature getFromBiome(int biomeID) {
-		if (BiomeDictionary.isBiomeRegistered(biomeID))
-			throw new InvalidParameterException("BiomeID is not registered: " + biomeID);
-		return getFromBiome(BiomeGenBase.getBiome(biomeID));
+	public static EnumTemperature getFromBiome(BiomeGenBase biomeGenBase, BlockPos pos) {
+		if (BiomeHelper.isBiomeHellish(biomeGenBase)) {
+			return HELLISH;
+		}
+		float temperature = biomeGenBase.getFloatTemperature(pos);
+		return getFromValue(temperature);
 	}
-
 }

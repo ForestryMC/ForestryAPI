@@ -5,7 +5,7 @@
  ******************************************************************************/
 package forestry.api.recipes;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import net.minecraft.item.ItemStack;
 
@@ -19,61 +19,16 @@ import net.minecraft.item.ItemStack;
  * 
  * @author SirSengir
  */
-public interface ICentrifugeManager extends ICraftingProvider {
+public interface ICentrifugeManager extends ICraftingProvider<ICentrifugeRecipe> {
 
 	/**
 	 * Add a recipe to the centrifuge
-	 * 
-	 * @param timePerItem
-	 *            Time to centrifugate one item of the given type
-	 * @param resource
-	 *            ItemStack containing information on item id and damage. Stack size will be ignored.
-	 * @param products
-	 *            HashMap<ItemStack, Integer> specifying the possible products and the chances of them resulting from centrifugation.
+	 *
+	 * @param timePerItem Time to centrifugate one item of the given type. Default is 20.
+	 * @param input ItemStack containing information on item id and damage. Stack size will be ignored.
+	 * @param products Specifies the possible products and the chances of them resulting from centrifuging.
+	 *                 Chances are from (0.0 to 1.0]
 	 */
-	public void addRecipe(int timePerItem, ItemStack resource, HashMap<ItemStack, Integer> products);
-
-	/**
-	 * Add a recipe to the centrifuge
-	 * 
-	 * @param timePerItem
-	 *            Time to centrifugate one item of the given type
-	 * @param resource
-	 *            ItemStack containing information on item id and damage. Stack size will be ignored.
-	 * @param produce
-	 *            Array of ItemStacks that can be the result of this recipe.
-	 * @param chances
-	 *            Array of integers corresponding and matching to produce providing the chance (0-100) for the ItemStack at the given index to be
-	 *            produced.
-	 */
-	public void addRecipe(int timePerItem, ItemStack resource, ItemStack[] produce, int[] chances);
-
-	/**
-	 * Add a recipe to the centrifuge
-	 * 
-	 * @param timePerItem
-	 *            Time to centrifugate one item of the given type
-	 * @param resource
-	 *            ItemStack containing information on item id and damage. Stack size will be ignored.
-	 * @param primary
-	 *            Primary product produced by centrifugating one item. Yield 100 %.
-	 * @param secondary
-	 *            Secondary product that may be produced when centrifugating the given item. May be null.
-	 * @param chance
-	 *            Chance (1 - 100) for centrifugation to yield the secondary product.
-	 */
-	public void addRecipe(int timePerItem, ItemStack resource, ItemStack primary, ItemStack secondary, int chance);
-
-	/**
-	 * Add a recipe to the centrifuge
-	 * 
-	 * @param timePerItem
-	 *            Time to centrifugate one item of the given type
-	 * @param resource
-	 *            ItemStack containing information on item id and damage. Stack size will be ignored.
-	 * @param primary
-	 *            Primary product produced by centrifugating one item. Yield 100 %.
-	 */
-	public void addRecipe(int timePerItem, ItemStack resource, ItemStack primary);
+	void addRecipe(int timePerItem, ItemStack input, Map<ItemStack, Float> products);
 
 }
