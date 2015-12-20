@@ -15,7 +15,7 @@ public interface IGrowthProvider {
 	 * 
 	 * @param genome Genome of the tree this is called for.
 	 * @param world Minecraft world the tree will inhabit.
-	 * @param pos Coordinates to attempt growth at.
+	 * @param pos Coordinate to attempt growth at.
 	 * @param expectedGirth Trunk size of the tree to generate.
 	 * @param expectedHeight Height of the tree to generate.
 	 * @return true if the tree can grow at the given coordinates, false otherwise.

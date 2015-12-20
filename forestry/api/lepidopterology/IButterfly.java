@@ -6,6 +6,7 @@
 package forestry.api.lepidopterology;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import forestry.api.genetics.IIndividualLiving;

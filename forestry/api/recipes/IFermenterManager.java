@@ -20,7 +20,7 @@ import net.minecraftforge.fluids.FluidStack;
  *
  * @author SirSengir
  */
-public interface IFermenterManager extends ICraftingProvider {
+public interface IFermenterManager extends ICraftingProvider<IFermenterRecipe> {
 
 	/**
 	 * Add a recipe to the fermenter

@@ -6,6 +6,7 @@
 package forestry.api.world;
 
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 import com.mojang.authlib.GameProfile;
@@ -21,6 +22,9 @@ public interface ITreeGenData {
 	boolean canGrow(World world, BlockPos pos, int expectedGirth, int expectedHeight);
 
 	void setLeaves(World world, GameProfile owner, BlockPos pos);
+	void setLeavesDecorative(World world, GameProfile owner, BlockPos pos);
+
+	void setLogBlock(World world, BlockPos pos, EnumFacing facing);
 
 	boolean allowsFruitBlocks();
 
