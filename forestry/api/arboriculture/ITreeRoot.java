@@ -17,7 +17,6 @@ import com.mojang.authlib.GameProfile;
 
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IChromosome;
-import forestry.api.genetics.IIndividual;
 import forestry.api.genetics.ISpeciesRoot;
 
 public interface ITreeRoot extends ISpeciesRoot {
@@ -30,6 +29,12 @@ public interface ITreeRoot extends ISpeciesRoot {
 
 	@Override
 	ITree getMember(NBTTagCompound compound);
+
+	@Override
+	ITree templateAsIndividual(IAllele[] template);
+
+	@Override
+	ITree templateAsIndividual(IAllele[] templateActive, IAllele[] templateInactive);
 
 	@Override
 	ITreeGenome templateAsGenome(IAllele[] template);
@@ -54,8 +59,9 @@ public interface ITreeRoot extends ISpeciesRoot {
 	Collection<ILeafTickHandler> getLeafTickHandlers();
 
 	/**
-	 * @return type of tree encoded on the itemstack. EnumBeeType.NONE if it isn't a tree.
+	 * @return type of tree encoded on the itemstack. EnumGermlingType.NONE if it isn't a tree.
 	 */
+	@Override
 	EnumGermlingType getType(ItemStack stack);
 
 	ITree getTree(World world, BlockPos pos);
@@ -63,12 +69,6 @@ public interface ITreeRoot extends ISpeciesRoot {
 	ITree getTree(World world, ITreeGenome genome);
 
 	boolean plantSapling(World world, ITree tree, GameProfile owner, BlockPos pos);
-
-	// decorative=true for creative and player-placed leaves. No decay, pollination, or drops.
-	boolean setLeaves(World world, IIndividual tree, GameProfile owner, BlockPos pos, boolean decorative);
-
-	// set normal leaves created as worldgen
-	boolean setLeaves(World world, IIndividual tree, GameProfile owner, BlockPos pos);
 
 	@Override
 	IChromosome[] templateAsChromosomes(IAllele[] template);

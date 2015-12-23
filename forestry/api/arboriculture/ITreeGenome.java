@@ -13,8 +13,10 @@ import forestry.api.genetics.IGenome;
 
 public interface ITreeGenome extends IGenome {
 
+	@Override
 	IAlleleTreeSpecies getPrimary();
 
+	@Override
 	IAlleleTreeSpecies getSecondary();
 
 	IFruitProvider getFruitProvider();

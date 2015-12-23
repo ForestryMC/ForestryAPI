@@ -7,6 +7,7 @@ package forestry.api.genetics;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -61,6 +62,8 @@ public interface ISpeciesRoot {
 	IIndividual getMember(ItemStack stack);
 
 	IIndividual getMember(NBTTagCompound compound);
+
+	ISpeciesType getType(ItemStack itemStack);
 
 	ItemStack getMemberStack(IIndividual individual, int type);
 
@@ -137,12 +140,11 @@ public interface ISpeciesRoot {
 	Collection<? extends IMutation> getCombinations(IAllele other);
 
 	/**
-	 * @param result {@link IAllele} to search for.
-	 * @return All registered mutations the given {@link IAllele} is the result of.
-	 * @deprecated since Forestry 3.3. use IChromosomeType version
+	 * @since Forestry 3.7
+	 * @return all possible mutations that result from breeding two species
 	 */
-	@Deprecated
-	Collection<? extends IMutation> getPaths(IAllele result, int chromosomeOrdinal);
+	List<IMutation> getCombinations(IAlleleSpecies parentSpecies0, IAlleleSpecies parentSpecies1, boolean shuffle);
+
 	Collection<? extends IMutation> getPaths(IAllele result, IChromosomeType chromosomeType);
 
 	/* RESEARCH */

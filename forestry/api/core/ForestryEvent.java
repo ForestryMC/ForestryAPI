@@ -6,7 +6,6 @@
 package forestry.api.core;
 
 import net.minecraft.entity.player.EntityPlayer;
-
 import net.minecraftforge.fml.common.eventhandler.Event;
 
 import com.mojang.authlib.GameProfile;

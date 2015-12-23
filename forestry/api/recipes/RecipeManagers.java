@@ -14,6 +14,10 @@ import java.util.Collection;
  */
 public class RecipeManagers {
 
+	/**
+	 * @deprecated since Forestry 4.1.0. Use the specific recipe managers below instead.
+	 */
+	@Deprecated
 	public static Collection<ICraftingProvider> craftingProviders;
 	
 	/**
@@ -40,6 +44,12 @@ public class RecipeManagers {
 	 * Allows you to add recipes to the still. See {@link IStillManager} for details.
 	 */
 	public static IStillManager stillManager;
-
+	/**
+	 * Allows you to add recipes to the fabricator. See {@link IFabricatorManager} for details.
+	 */
 	public static IFabricatorManager fabricatorManager;
+	/**
+	 * Allows you to add smelting recipes to the fabricator. See {@link IFabricatorSmeltingManager} for details.
+	 */
+	public static IFabricatorSmeltingManager fabricatorSmeltingManager;
 }

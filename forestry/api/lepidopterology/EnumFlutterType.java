@@ -5,7 +5,9 @@
  ******************************************************************************/
 package forestry.api.lepidopterology;
 
-public enum EnumFlutterType {
+import forestry.api.genetics.ISpeciesType;
+
+public enum EnumFlutterType implements ISpeciesType {
 	BUTTERFLY,
 	SERUM,
 	CATERPILLAR,

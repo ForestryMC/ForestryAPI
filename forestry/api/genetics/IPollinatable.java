@@ -45,4 +45,9 @@ public interface IPollinatable {
 	 */
 	void mateWith(IIndividual pollen);
 
+	/**
+	 * @return true if this IPollinatable has already been pollinated.
+	 * @since Forestry 4.1.0
+	 */
+	boolean isPollinated();
 }

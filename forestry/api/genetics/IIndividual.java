@@ -47,14 +47,7 @@ public interface IIndividual extends INBTTagable {
 	 * @return A deep copy of this individual.
 	 */
 	IIndividual copy();
-	
-	/**
-	 * @param chromosomeOrdinal Ordinal of the chromosome to check.
-	 * @return true if both primary and secondary allele on the given chromosome match.
-	 * @deprecated since Forestry 3.3. Use the IChromosomeType version.
-	 */
-	@Deprecated
-	boolean isPureBred(int chromosomeOrdinal);
+
 	boolean isPureBred(IChromosomeType chromosomeType);
 
 }

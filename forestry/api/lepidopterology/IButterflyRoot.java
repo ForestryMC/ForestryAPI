@@ -47,6 +47,7 @@ public interface IButterflyRoot extends ISpeciesRoot {
 	IButterflyGenome templateAsGenome(IAllele[] templateActive, IAllele[] templateInactive);
 
 	/* BUTTERFLY SPECIFIC */
+	@Override
 	ILepidopteristTracker getBreedingTracker(World world, GameProfile player);
 
 	/**
@@ -69,6 +70,7 @@ public interface IButterflyRoot extends ISpeciesRoot {
 	@Override
 	Collection<IButterflyMutation> getMutations(boolean shuffle);
 
+	@Override
 	EnumFlutterType getType(ItemStack stack);
 
 }

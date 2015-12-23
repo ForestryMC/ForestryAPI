@@ -5,14 +5,16 @@
  ******************************************************************************/
 package forestry.api.arboriculture;
 
-public enum EnumGermlingType {
+import forestry.api.genetics.ISpeciesType;
+
+public enum EnumGermlingType implements ISpeciesType {
 	SAPLING("sapling"), BLOSSOM("blossom"), POLLEN("pollen"), GERMLING("germling"), NONE("none");
 
 	public static final EnumGermlingType[] VALUES = values();
 	
 	private final String name;
 
-	private EnumGermlingType(String name) {
+	EnumGermlingType(String name) {
 		this.name = name;
 	}
 

@@ -9,7 +9,7 @@ import java.util.Collection;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 /**
  * Bees can be seeded either as hive drops or as mutation results.
@@ -20,11 +20,11 @@ import net.minecraft.world.IBlockAccess;
  */
 public interface IHiveDrop {
 
-	ItemStack getPrincess(IBlockAccess world, BlockPos pos, int fortune);
+	ItemStack getPrincess(World world, BlockPos pos, int fortune);
 
-	Collection<ItemStack> getDrones(IBlockAccess world, BlockPos pos, int fortune);
+	Collection<ItemStack> getDrones(World world, BlockPos pos, int fortune);
 
-	Collection<ItemStack> getAdditional(IBlockAccess world, BlockPos pos, int fortune);
+	Collection<ItemStack> getAdditional(World world, BlockPos pos, int fortune);
 
 	/**
 	 * Chance to drop. Default drops have 80 (= 80 %).
@@ -33,5 +33,5 @@ public interface IHiveDrop {
 	 * @param pos Coordinates of the broken hive.
 	 * @return Chance for drop as an integer of 0 - 100.
 	 */
-	int getChance(IBlockAccess world, BlockPos pos);
+	int getChance(World world, BlockPos pos);
 }

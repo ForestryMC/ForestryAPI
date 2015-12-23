@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
  * 
  * @author SirSengir
  */
-public interface IMoistenerManager extends ICraftingProvider {
+public interface IMoistenerManager extends ICraftingProvider<IMoistenerRecipe> {
 
 	/**
 	 * Add a recipe to the moistener
