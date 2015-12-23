@@ -10,8 +10,12 @@ import forestry.api.genetics.IAllele;
 /**
  * Simple allele encapsulating an {@link IFruitProvider}.
  */
-public interface IAlleleFruit extends IAllele {
+public interface IAlleleFruit extends IAllele, Comparable<IAlleleFruit> {
 
 	IFruitProvider getProvider();
+	
+	String getTextureName();
+	
+	String getModID();
 
 }

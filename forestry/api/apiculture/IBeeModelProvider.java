@@ -6,7 +6,6 @@
 package forestry.api.apiculture;
 
 import forestry.api.core.IModelManager;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 

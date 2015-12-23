@@ -29,6 +29,7 @@ public interface ITree extends IIndividual, ITreeGenData {
 
 	IEffectData[] doFX(IEffectData[] storedData, World world, BlockPos pos);
 
+	@Override
 	ITreeGenome getGenome();
 
 	ITreeGenome getMate();
@@ -54,6 +55,7 @@ public interface ITree extends IIndividual, ITreeGenData {
 	/**
 	 * @return Boolean indicating whether a sapling at the given position can grow into a tree.
 	 */
+	@Override
 	boolean canGrow(World world, BlockPos pos, int expectedGirth, int expectedHeight);
 
 	/**
@@ -69,6 +71,7 @@ public interface ITree extends IIndividual, ITreeGenData {
 	/**
 	 * @return Integer denoting the size of the tree trunk.
 	 */
+	@Override
 	int getGirth(World world, BlockPos pos);
 
 	/**
@@ -78,6 +81,7 @@ public interface ITree extends IIndividual, ITreeGenData {
 
 	WorldGenerator getTreeGenerator(World world, BlockPos pos, boolean wasBonemealed);
 
+	@Override
 	ITree copy();
 
 	boolean isPureBred(EnumTreeChromosome chromosome);

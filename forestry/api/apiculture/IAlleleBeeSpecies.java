@@ -7,7 +7,6 @@ package forestry.api.apiculture;
 
 import java.util.Map;
 
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
@@ -19,6 +18,7 @@ public interface IAlleleBeeSpecies extends IAlleleSpecies {
 	/**
 	 * @return the IBeeRoot
 	 */
+	@Override
 	IBeeRoot getRoot();
 
 	/**

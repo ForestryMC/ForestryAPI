@@ -11,7 +11,6 @@ import java.util.Collection;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import com.mojang.authlib.GameProfile;
@@ -48,6 +47,7 @@ public interface IButterflyRoot extends ISpeciesRoot {
 	IButterflyGenome templateAsGenome(IAllele[] templateActive, IAllele[] templateInactive);
 
 	/* BUTTERFLY SPECIFIC */
+	@Override
 	ILepidopteristTracker getBreedingTracker(World world, GameProfile player);
 
 	/**

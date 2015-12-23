@@ -18,6 +18,7 @@ import forestry.api.genetics.IFruitFamily;
 
 public interface IAlleleTreeSpecies extends IAlleleSpecies, Comparable<IAlleleTreeSpecies> {
 
+	@Override
 	ITreeRoot getRoot();
 	
 	/**
@@ -36,6 +37,8 @@ public interface IAlleleTreeSpecies extends IAlleleSpecies, Comparable<IAlleleTr
 	ITreeGenerator getGenerator();
 	
 	String getModID();
+	
+	String getTextureName();
 
 	/* TEXTURES AND OVERRIDES */
 	int getLeafColour(boolean pollinated);

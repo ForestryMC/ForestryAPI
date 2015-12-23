@@ -27,7 +27,7 @@ public interface ITreeFactory {
 	 * @param generator The tree generator
 	 * @return a new tree species allele.
 	 */
-	IAlleleTreeSpeciesCustom createSpecies(String uid, String unlocalizedName, String authority, String unlocalizedDescription, boolean dominant, IClassification branch, String binomial, ILeafSpriteProvider leafIconProvider, IGermlingModelProvider germlingIconProvider, ITreeGenerator generator);
+	IAlleleTreeSpeciesCustom createSpecies(String uid, String unlocalizedName, String authority, String unlocalizedDescription, boolean dominant, IClassification branch, String binomial, String textureName, ILeafSpriteProvider leafIconProvider, IGermlingModelProvider germlingIconProvider, ITreeGenerator generator);
 
 	/** Get one of the built-in Forestry leaf types. Default type is deciduous. */
 	ILeafSpriteProvider getLeafIconProvider(EnumLeafType enumLeafType, Color color, Color colorPollinated);

@@ -9,7 +9,6 @@ import java.util.Locale;
 import java.util.Random;
 
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IStringSerializable;
 
 public enum EnumWoodType implements IStringSerializable {
@@ -20,7 +19,7 @@ public enum EnumWoodType implements IStringSerializable {
 	PINE(3.0f), PLUM, MAPLE, CITRUS, GIGANTEUM,
 	IPE, PADAUK, COCOBOLO, ZEBRAWOOD;
 
-	public static final PropertyEnum WOODTYPE = PropertyEnum.create("woodtype", EnumWoodType.class);
+	public static final PropertyEnum<EnumWoodType> WOODTYPE = PropertyEnum.create("woodtype", EnumWoodType.class);
 	
 	public static final float DEFAULT_HARDNESS = 2.0f;
 	public static final EnumWoodType[] VALUES = values();

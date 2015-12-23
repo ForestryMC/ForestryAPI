@@ -18,7 +18,7 @@ public interface IModelManager {
 	
 	void registerItemModel(Item item, int meta, String identifier);
 	
-	void registerItemModel(Item item, int meta);
+	void registerItemModel(Item item, int meta, boolean withMeta);
 	
 	ModelResourceLocation getModelLocation(String identifier);
 	
@@ -40,6 +40,6 @@ public interface IModelManager {
 	
 	void registerVariant(Item item, String... names);
 	
-	IModelRenderer createNewRenderer();
+	IModelBaker createNewRenderer();
 	
 }

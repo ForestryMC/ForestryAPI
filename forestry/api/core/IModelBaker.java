@@ -9,27 +9,14 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.IBakedModel;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
 
-public interface IModelRenderer {
+public interface IModelBaker {
 
 	void setRenderBoundsFromBlock(Block block);
 
 	void setRenderBounds(double d, double e, double f, double g, double h, double i );
-	
-	void setBrightness(int i);
 
-	void setColorRGBA_F(int r, int g, int b, float a );
-
-	void setColorOpaque_I(int whiteVariant);
-	
-	void setColorOpaque(int r, int g, int b);
-	
-	void setColorOpaque_F(int r, int g, int b);
-
-	void setColorOpaque_F(float rf, float bf, float gf );
-	
-	void addVertexWithUV(EnumFacing face, double x, double y, double z, double u, double v );
+	void setColor(int color);
 
 	boolean renderStandardBlock(Block block, BlockPos pos, TextureAtlasSprite[] sprites);
 	
@@ -51,7 +38,7 @@ public interface IModelRenderer {
 
 	void renderFaceXPos(BlockPos pos, TextureAtlasSprite sprite);
 
-	IBakedModel finalizeModel(boolean flip);
+	IBakedModel bakeModel(boolean flip);
 	
 	double getRenderMinX();
 	
