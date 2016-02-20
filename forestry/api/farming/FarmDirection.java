@@ -5,25 +5,25 @@
  ******************************************************************************/
 package forestry.api.farming;
 
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.util.EnumFacing;
 
 public enum FarmDirection {
-	NORTH(ForgeDirection.NORTH),
-	EAST(ForgeDirection.EAST),
-	SOUTH(ForgeDirection.SOUTH),
-	WEST(ForgeDirection.WEST);
+	NORTH(EnumFacing.NORTH),
+	EAST(EnumFacing.EAST),
+	SOUTH(EnumFacing.SOUTH),
+	WEST(EnumFacing.WEST);
 
-	private final ForgeDirection forgeDirection;
+	private final EnumFacing forgeDirection;
 
-	FarmDirection(ForgeDirection forgeDirection) {
+	FarmDirection(EnumFacing forgeDirection) {
 		this.forgeDirection = forgeDirection;
 	}
 
-	public ForgeDirection getForgeDirection() {
+	public EnumFacing getForgeDirection() {
 		return forgeDirection;
 	}
 
-	public static FarmDirection getFarmDirection(ForgeDirection forgeDirection) {
+	public static FarmDirection getFarmDirection(EnumFacing forgeDirection) {
 		switch (forgeDirection) {
 			case NORTH: return NORTH;
 			case EAST: return EAST;

@@ -11,8 +11,10 @@ import forestry.api.genetics.IGenome;
 
 public interface IButterflyGenome extends IGenome {
 	
+	@Override
 	IAlleleButterflySpecies getPrimary();
 
+	@Override
 	IAlleleButterflySpecies getSecondary();
 
 	float getSize();

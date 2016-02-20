@@ -22,13 +22,14 @@ public interface ITreeFactory {
 	 * @param dominant Whether this species is genetically dominant (false means it is recessive)
 	 * @param branch Classification of this species
 	 * @param binomial Binomial name of the species sans genus. "humboldti" will have the bee species flavour name be "Apis humboldti". Feel free to use fun names or null.
-	 * @param leafIconProvider The leaf icon provider for this species
-	 * @param germlingIconProvider The germling icon provider for this species
+	 * @param mdoelName The name of the model name for this species
+	 * @param leafSpriteProvider The leaf sprite provider for this species
+	 * @param germlingModelProvider The germling model provider for this species
 	 * @param generator The tree generator
 	 * @return a new tree species allele.
 	 */
-	IAlleleTreeSpeciesCustom createSpecies(String uid, String unlocalizedName, String authority, String unlocalizedDescription, boolean dominant, IClassification branch, String binomial, ILeafIconProvider leafIconProvider, IGermlingIconProvider germlingIconProvider, ITreeGenerator generator);
+	IAlleleTreeSpeciesCustom createSpecies(String uid, String unlocalizedName, String authority, String unlocalizedDescription, boolean dominant, IClassification branch, String binomial, String mdoelName, ILeafSpriteProvider leafSpriteProvider, IGermlingModelProvider germlingModelProvider, ITreeGenerator generator);
 
 	/** Get one of the built-in Forestry leaf types. Default type is deciduous. */
-	ILeafIconProvider getLeafIconProvider(EnumLeafType enumLeafType, Color color, Color colorPollinated);
+	ILeafSpriteProvider getLeafIconProvider(EnumLeafType enumLeafType, Color color, Color colorPollinated);
 }

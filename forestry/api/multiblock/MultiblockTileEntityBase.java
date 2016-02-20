@@ -5,12 +5,14 @@
  ******************************************************************************/
 package forestry.api.multiblock;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
 
 /**
  * Base logic class for Multiblock-connected tile entities.
@@ -25,8 +27,8 @@ public abstract class MultiblockTileEntityBase<T extends IMultiblockLogic> exten
 	}
 
 	@Override
-	public ChunkCoordinates getCoordinates() {
-		return new ChunkCoordinates(this.xCoord, this.yCoord, this.zCoord);
+	public BlockPos getCoordinates() {
+		return getPos();
 	}
 
 	@Override
@@ -35,7 +37,7 @@ public abstract class MultiblockTileEntityBase<T extends IMultiblockLogic> exten
 	}
 
 	@Override
-	public abstract void onMachineAssembled(IMultiblockController multiblockController, ChunkCoordinates minCoord, ChunkCoordinates maxCoord);
+	public abstract void onMachineAssembled(IMultiblockController multiblockController, BlockPos minCoord, BlockPos maxCoord);
 
 	@Override
 	public abstract void onMachineBroken();
@@ -50,17 +52,6 @@ public abstract class MultiblockTileEntityBase<T extends IMultiblockLogic> exten
 	public void writeToNBT(NBTTagCompound data) {
 		super.writeToNBT(data);
 		multiblockLogic.writeToNBT(data);
-	}
-
-	/**
-	 * Generally, TileEntities that are part of a multiblock should not subscribe to updates
-	 * from the main game loop. Instead, you should have lists of TileEntities which need to
-	 * be notified during an update() in your Controller and perform callbacks from there.
-	 * @see net.minecraft.tileentity.TileEntity#canUpdate()
-	 */
-	@Override
-	public boolean canUpdate() {
-		return false;
 	}
 
 	@Override
@@ -80,6 +71,12 @@ public abstract class MultiblockTileEntityBase<T extends IMultiblockLogic> exten
 		super.validate();
 		multiblockLogic.validate(worldObj, this);
 	}
+	
+	@Override
+    public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate)
+    {
+        return oldState.getBlock() != newSate.getBlock();
+    }
 
 	/* Network Communication */
 
@@ -88,12 +85,12 @@ public abstract class MultiblockTileEntityBase<T extends IMultiblockLogic> exten
 		NBTTagCompound packetData = new NBTTagCompound();
 		multiblockLogic.encodeDescriptionPacket(packetData);
 		this.encodeDescriptionPacket(packetData);
-		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, packetData);
+		return new S35PacketUpdateTileEntity(getPos(), 0, packetData);
 	}
 	
 	@Override
 	public final void onDataPacket(NetworkManager network, S35PacketUpdateTileEntity packet) {
-		NBTTagCompound nbtData = packet.func_148857_g();
+		NBTTagCompound nbtData = packet.getNbtCompound();
 		multiblockLogic.decodeDescriptionPacket(nbtData);
 		this.decodeDescriptionPacket(nbtData);
 	}

@@ -5,6 +5,7 @@
  ******************************************************************************/
 package forestry.api.apiculture.hives;
 
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public interface IHiveGen {
@@ -19,11 +20,11 @@ public interface IHiveGen {
 	 * returns true if the hive can be generated at this location.
 	 * Used for advanced conditions, like checking that the ground below the hive is a certain type.
 	 */
-	boolean isValidLocation(World world, int x, int y, int z);
+	boolean isValidLocation(World world, BlockPos pos);
 
 	/**
 	 * returns true if the hive can safely replace the block at this location.
 	 */
-	boolean canReplace(World world, int x, int y, int z);
+	boolean canReplace(World world, BlockPos pos);
 
 }

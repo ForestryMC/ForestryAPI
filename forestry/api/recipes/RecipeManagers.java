@@ -17,6 +17,7 @@ public class RecipeManagers {
 	/**
 	 * @deprecated since Forestry 4.1.0. Use the specific recipe managers below instead.
 	 */
+	@Deprecated
 	public static Collection<ICraftingProvider> craftingProviders;
 	
 	/**

@@ -36,8 +36,8 @@ public interface IAlleleBeeSpeciesCustom extends IAlleleBeeSpecies, IAlleleSpeci
 	IAlleleBeeSpeciesCustom setNocturnal();
 
 	/** Use this if you have custom icons for bees. */
-	IAlleleBeeSpeciesCustom setCustomBeeIconProvider(IBeeIconProvider beeIconProvider);
+	IAlleleBeeSpeciesCustom setCustomBeeModelProvider(IBeeModelProvider beeIconProvider);
 
 	/** Use this if you have custom icon colours for bees (other than the default static primary + secondary colours). */
-	IAlleleBeeSpeciesCustom setCustomBeeIconColourProvider(IBeeIconColourProvider beeIconColourProvider);
+	IAlleleBeeSpeciesCustom setCustomBeeSpriteColourProvider(IBeeSpriteColourProvider beeIconColourProvider);
 }

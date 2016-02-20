@@ -5,4 +5,5 @@
  ******************************************************************************/
 @API(apiVersion="2.0.1", owner="ForestryAPI|core", provides="ForestryAPI|fuels")
 package forestry.api.fuels;
-import cpw.mods.fml.common.API;
+
+import net.minecraftforge.fml.common.API;

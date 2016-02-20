@@ -27,10 +27,4 @@ public class FlowerManager {
 	public static final String FlowerTypeWheat = "flowersWheat";
 	public static final String FlowerTypeGourd = "flowersGourd";
 
-	/**
-	 * @deprecated since Forestry 3.4. Use IFlowerRegistry.registerPlantableFlower instead.
-	 * Completely unused since Forestry 4.0, kept for backward compatibility with older mods.
-	 */
-	@Deprecated
-	public static ArrayList<ItemStack> plainFlowers = new ArrayList<ItemStack>();
 }

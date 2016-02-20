@@ -12,11 +12,13 @@ import forestry.api.genetics.IIndividualLiving;
 
 public interface IButterfly extends IIndividualLiving {
 
+	@Override
 	IButterflyGenome getGenome();
 
 	/**
 	 * @return Genetic information of the mate, null if unmated.
 	 */
+	@Override
 	IButterflyGenome getMate();
 
 	/**
@@ -72,6 +74,7 @@ public interface IButterfly extends IIndividualLiving {
 	/**
 	 * Create an exact copy of this butterfly.
 	 */
+	@Override
 	IButterfly copy();
 
 }

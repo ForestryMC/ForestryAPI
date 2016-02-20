@@ -5,13 +5,13 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
-import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.BlockPos;
 
 /**
  * Any housing, hatchery or nest with a location in the world.
  */
 public interface IHousing {
 
-	ChunkCoordinates getCoordinates();
+	BlockPos getCoordinates();
 
 }

@@ -8,8 +8,7 @@ package forestry.api.farming;
 import java.util.Collection;
 
 import net.minecraft.item.ItemStack;
-
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.util.BlockPos;
 
 public interface IFarmListener {
 
@@ -39,12 +38,12 @@ public interface IFarmListener {
 	/**
 	 * Called after farmland has successfully been cultivated by a farm logic.
 	 */
-	void hasCultivated(IFarmLogic logic, int x, int y, int z, FarmDirection direction, int extent);
+	void hasCultivated(IFarmLogic logic, BlockPos pos, FarmDirection direction, int extent);
 
 	/**
 	 * Called after the stack of harvested crops has been returned by the farm logic, but before it is added to the farm's pending queue.
 	 */
-	void hasScheduledHarvest(Collection<ICrop> harvested, IFarmLogic logic, int x, int y, int z, FarmDirection direction, int extent);
+	void hasScheduledHarvest(Collection<ICrop> harvested, IFarmLogic logic, BlockPos pos, FarmDirection direction, int extent);
 
 	/**
 	 * Can be used to cancel farm task on a per side/{@link IFarmLogic} basis.

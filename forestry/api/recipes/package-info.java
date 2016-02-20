@@ -5,4 +5,5 @@
  ******************************************************************************/
 @API(apiVersion="5.4.0", owner="ForestryAPI|core", provides="ForestryAPI|recipes")
 package forestry.api.recipes;
-import cpw.mods.fml.common.API;
+
+import net.minecraftforge.fml.common.API;

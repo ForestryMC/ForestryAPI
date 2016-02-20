@@ -5,17 +5,16 @@
  ******************************************************************************/
 package forestry.api.core;
 
-import net.minecraft.util.IIcon;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
 
 @SideOnly(Side.CLIENT)
 public interface ITextureManager {
 
-	void registerIconProvider(IIconProvider provider);
+	void registerIconProvider(ISpriteProvider provider);
 
-	IIcon getIcon(short texUID);
+	TextureAtlasSprite getSprite(short texUID);
 
-	IIcon getDefault(String ident);
+	TextureAtlasSprite getDefault(String ident);
 }

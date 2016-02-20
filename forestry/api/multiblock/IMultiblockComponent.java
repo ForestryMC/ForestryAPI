@@ -5,9 +5,9 @@
  ******************************************************************************/
 package forestry.api.multiblock;
 
-import net.minecraft.util.ChunkCoordinates;
-
 import com.mojang.authlib.GameProfile;
+
+import net.minecraft.util.BlockPos;
 
 /**
  * Basic interface for a multiblock machine component.
@@ -19,7 +19,7 @@ public interface IMultiblockComponent {
 	 * Returns the location of this tile entity in the world.
 	 * @return ChunkCoordinates set to the location of this tile entity in the world.
 	 */
-	ChunkCoordinates getCoordinates();
+	BlockPos getCoordinates();
 
 	/**
 	 * @return the gameProfile of the player who owns this single component (not the entire multiblock)
@@ -38,7 +38,7 @@ public interface IMultiblockComponent {
 	 * of the machine! They form an outer bounding box for the whole machine itself.
 	 * @param multiblockController The controller to which this part is being assembled.
 	 */
-	void onMachineAssembled(IMultiblockController multiblockController, ChunkCoordinates minCoord, ChunkCoordinates maxCoord);
+	void onMachineAssembled(IMultiblockController multiblockController, BlockPos minCoord, BlockPos maxCoord);
 
 	/**
 	 * Called when the machine is broken for game reasons, e.g. a player removed a block
