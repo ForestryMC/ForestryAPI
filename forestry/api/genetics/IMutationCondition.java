@@ -5,6 +5,7 @@
  ******************************************************************************/
 package forestry.api.genetics;
 
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public interface IMutationCondition {
@@ -14,7 +15,7 @@ public interface IMutationCondition {
 	 * Most will return 1 if the condition is met and 0 otherwise,
 	 * but the float offers flexibility for more advanced conditions.
 	 */
-	float getChance(World world, int x, int y, int z, IAllele allele0, IAllele allele1, IGenome genome0, IGenome genome1);
+	float getChance(World world, BlockPos pos, IAllele allele0, IAllele allele1, IGenome genome0, IGenome genome1);
 
 	/**
 	 * A localized description of the mutation condition. (i.e. "A temperature of HOT is required.")

@@ -5,21 +5,19 @@
  ******************************************************************************/
 package forestry.api.core;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.util.IIcon;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * Provides icons, needed in some interfaces, most notably for bees and trees. 
  */
-public interface IIconProvider {
+public interface ISpriteProvider {
 	
 	@SideOnly(Side.CLIENT)
-	IIcon getIcon(short texUID);
+	TextureAtlasSprite getSprite(short texUID);
 	
 	@SideOnly(Side.CLIENT)
-	void registerIcons(IIconRegister register);
+	void registerSprites();
 
 }

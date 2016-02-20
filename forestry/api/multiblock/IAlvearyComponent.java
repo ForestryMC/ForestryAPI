@@ -18,6 +18,7 @@ public interface IAlvearyComponent<T extends IMultiblockLogicAlveary> extends IM
 	/**
 	 * @return the multiblock logic for this component
 	 */
+	@Override
 	T getMultiblockLogic();
 
 	/**

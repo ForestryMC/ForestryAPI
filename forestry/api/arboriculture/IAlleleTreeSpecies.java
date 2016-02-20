@@ -7,18 +7,18 @@ package forestry.api.arboriculture;
 
 import java.util.Collection;
 
-import net.minecraft.util.IIcon;
-
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraftforge.common.EnumPlantType;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import forestry.api.core.IModelManager;
 import forestry.api.genetics.IAlleleSpecies;
 import forestry.api.genetics.IFruitFamily;
 
-public interface IAlleleTreeSpecies extends IAlleleSpecies {
+public interface IAlleleTreeSpecies extends IAlleleSpecies, Comparable<IAlleleTreeSpecies> {
 
+	@Override
 	ITreeRoot getRoot();
 	
 	/**
@@ -36,14 +36,27 @@ public interface IAlleleTreeSpecies extends IAlleleSpecies {
 	 */
 	ITreeGenerator getGenerator();
 
+	/**
+	 * @return The ModID from the mod.
+	 */
+	String getModID();
+	
+	/**
+	 * @return The name of the model from the tree.
+	 */
+	String getModelName();
+
 	/* TEXTURES AND OVERRIDES */
 	int getLeafColour(boolean pollinated);
 
 	@SideOnly(Side.CLIENT)
-	IIcon getLeafIcon(boolean pollinated, boolean fancy);
+	TextureAtlasSprite getLeafSprite(boolean pollinated, boolean fancy);
 
 	@SideOnly(Side.CLIENT)
-	IIcon getGermlingIcon(EnumGermlingType type, int renderPass);
+	ModelResourceLocation getGermlingModel(EnumGermlingType type);
+	
+	@SideOnly(Side.CLIENT)
+	void registerModels(IModelManager manager);
 	
 	@SideOnly(Side.CLIENT)
 	int getGermlingColour(EnumGermlingType type, int renderPass);

@@ -9,6 +9,7 @@ import forestry.api.genetics.IMutation;
 
 public interface IBeeMutation extends IMutation {
 	
+	@Override
 	IBeeRoot getRoot();
 	
 	/**

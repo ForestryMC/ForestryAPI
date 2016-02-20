@@ -8,8 +8,7 @@ package forestry.api.farming;
 import java.util.Collection;
 
 import net.minecraft.item.ItemStack;
-
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraft.util.BlockPos;
 
 /**
  * Easily extendable default farmListener.
@@ -33,12 +32,12 @@ public class DefaultFarmListener implements IFarmListener {
 	}
 
 	@Override
-	public void hasCultivated(IFarmLogic logic, int x, int y, int z, FarmDirection direction, int extent) {
+	public void hasCultivated(IFarmLogic logic, BlockPos pos, FarmDirection direction, int extent) {
 
 	}
 
 	@Override
-	public void hasScheduledHarvest(Collection<ICrop> harvested, IFarmLogic logic, int x, int y, int z, FarmDirection direction, int extent) {
+	public void hasScheduledHarvest(Collection<ICrop> harvested, IFarmLogic logic, BlockPos pos, FarmDirection direction, int extent) {
 
 	}
 

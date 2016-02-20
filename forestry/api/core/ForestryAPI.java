@@ -7,8 +7,8 @@ package forestry.api.core;
 
 import java.util.Set;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * Forestry's API is divided into several subcategories to make it easier to understand.
@@ -40,6 +40,12 @@ public class ForestryAPI {
 	 */
 	@SideOnly(Side.CLIENT)
 	public static ITextureManager textureManager;
+	
+	/**
+	 * A {@link IModelManager} needed for some things in the API.
+	 */
+	@SideOnly(Side.CLIENT)
+	public static IModelManager modleManager;
 
 	/**
 	 * The currently active {@link IGameMode}.

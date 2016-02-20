@@ -11,7 +11,7 @@ import java.util.Map;
 import net.minecraft.item.ItemStack;
 
 import net.minecraftforge.common.BiomeDictionary;
-
+import forestry.api.core.ISpriteProvider;
 import forestry.api.genetics.IAlleleSpecies;
 
 public interface IAlleleButterflySpecies extends IAlleleSpecies {
@@ -19,6 +19,7 @@ public interface IAlleleButterflySpecies extends IAlleleSpecies {
 	/**
 	 * @return the IBeeRoot
 	 */
+	@Override
 	IButterflyRoot getRoot();
 
 	/**
@@ -56,4 +57,6 @@ public interface IAlleleButterflySpecies extends IAlleleSpecies {
 	Map<ItemStack, Float> getButterflyLoot();
 	
 	Map<ItemStack, Float> getCaterpillarLoot();
+	
+	ISpriteProvider getSpriteProvider();
 }

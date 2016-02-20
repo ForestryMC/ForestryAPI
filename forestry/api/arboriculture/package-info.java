@@ -5,4 +5,5 @@
  ******************************************************************************/
 @API(apiVersion = "4.2.1", owner = "ForestryAPI|core", provides = "ForestryAPI|arboriculture")
 package forestry.api.arboriculture;
-import cpw.mods.fml.common.API;
+
+import net.minecraftforge.fml.common.API;

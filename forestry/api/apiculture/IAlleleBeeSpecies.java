@@ -7,12 +7,10 @@ package forestry.api.apiculture;
 
 import java.util.Map;
 
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import forestry.api.genetics.IAlleleSpecies;
 
 public interface IAlleleBeeSpecies extends IAlleleSpecies {
@@ -20,6 +18,7 @@ public interface IAlleleBeeSpecies extends IAlleleSpecies {
 	/**
 	 * @return the IBeeRoot
 	 */
+	@Override
 	IBeeRoot getRoot();
 
 	/**
@@ -44,7 +43,7 @@ public interface IAlleleBeeSpecies extends IAlleleSpecies {
 	boolean isJubilant(IBeeGenome genome, IBeeHousing housing);
 
 	@SideOnly(Side.CLIENT)
-	IIcon getIcon(EnumBeeType type, int renderPass);
+	ModelResourceLocation getModel(EnumBeeType type);
 
 	/**
 	 * @deprecated since Forestry 3.6.

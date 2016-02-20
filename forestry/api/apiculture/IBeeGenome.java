@@ -17,8 +17,10 @@ import forestry.api.genetics.IGenome;
  */
 public interface IBeeGenome extends IGenome {
 
+	@Override
 	IAlleleBeeSpecies getPrimary();
 	
+	@Override
 	IAlleleBeeSpecies getSecondary();
 
 	float getSpeed();

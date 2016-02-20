@@ -7,12 +7,12 @@ package forestry.api.farming;
 
 import java.util.Collection;
 
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public interface IFarmLogic {
 
@@ -26,16 +26,17 @@ public interface IFarmLogic {
 
 	Collection<ItemStack> collect();
 
-	boolean cultivate(int x, int y, int z, FarmDirection direction, int extent);
+	boolean cultivate(BlockPos pos, FarmDirection direction, int extent);
 
-	Collection<ICrop> harvest(int x, int y, int z, FarmDirection direction, int extent);
+	Collection<ICrop> harvest(BlockPos pos, FarmDirection direction, int extent);
 
 	IFarmLogic setManual(boolean manual);
-
+	
 	@SideOnly(Side.CLIENT)
-	IIcon getIcon();
-
-	ResourceLocation getSpriteSheet();
+	ResourceLocation getTextureMap();
 	
 	String getName();
+	
+	@SideOnly(Side.CLIENT)
+	ItemStack getStack();
 }

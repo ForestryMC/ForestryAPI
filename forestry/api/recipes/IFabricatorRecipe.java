@@ -35,13 +35,6 @@ public interface IFabricatorRecipe extends IForestryRecipe {
 	int getHeight();
 
 	/**
-	 * @return true if this recipe copies the NBT from input items to output items
-	 * @deprecated since Forestry 4.2 wood itemStacks use item damage (meta) instead of NBT
-	 */
-	@Deprecated
-	boolean preservesNbt();
-
-	/**
 	 * @return the plan for this recipe (the item in the top right slot).
 	 */
 	@Nullable
@@ -51,20 +44,4 @@ public interface IFabricatorRecipe extends IForestryRecipe {
 	 * @return the result of this recipe
 	 */
 	ItemStack getRecipeOutput();
-
-	/**
-	 * Returns an Item that is the result of this recipe
-	 * @deprecated since Forestry 4.1. Forestry uses getRecipeOutput() and preservesNbt() to determine the result.
-	 */
-	@Deprecated
-	ItemStack getCraftingResult(IInventory craftingInventory);
-
-	/**
-	 * @param plan The Fabricator plan, the item in the top right slot.
-	 * @param resources The resources in the crafting grid.
-	 * @return true if the plan and resources match this recipe.
-	 * @deprecated since Forestry 4.1. This is handled by Forestry instead.
-	 */
-	@Deprecated
-	boolean matches(@Nullable ItemStack plan, ItemStack[][] resources);
 }

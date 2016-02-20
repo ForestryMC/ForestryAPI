@@ -10,7 +10,7 @@ import java.util.Random;
 import java.util.Set;
 
 import net.minecraft.block.Block;
-import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import forestry.api.apiculture.IBee;
@@ -58,17 +58,17 @@ public interface IFlowerRegistry {
 	/**
 	 * Calls the appropriate IFlowerGrowthRule to grow a flower at a specified position.
 	 */
-	boolean growFlower(String flowerType, World world, IIndividual individual, int x, int y, int z);
+	boolean growFlower(String flowerType, World world, IIndividual individual, BlockPos pos);
 
 	/**
 	 * @return the coordinates of a nearby accepted flower or null if there is none.
 	 */
-	ChunkCoordinates getAcceptedFlowerCoordinates(IBeeHousing beeHousing, IBee bee, String flowerType);
+	BlockPos getAcceptedFlowerCoordinates(IBeeHousing beeHousing, IBee bee, String flowerType);
 
 	/**
 	 * Checks a single coordinate to see if it is an accepted flower.
 	 */
-	boolean isAcceptedFlower(String flowerType, World world, int x, int y, int z);
+	boolean isAcceptedFlower(String flowerType, World world, BlockPos pos);
 
 	/**
 	 * For use by IFlowerGrowthRule implementations

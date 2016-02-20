@@ -17,6 +17,7 @@ public interface IFarmComponent<T extends IMultiblockLogicFarm> extends IMultibl
 	/**
 	 * @return the multiblock logic for this component
 	 */
+	@Override
 	T getMultiblockLogic();
 
 	/**
