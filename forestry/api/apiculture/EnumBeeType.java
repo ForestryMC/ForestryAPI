@@ -10,14 +10,16 @@ import java.util.Locale;
 import forestry.api.genetics.ISpeciesType;
 
 public enum EnumBeeType implements ISpeciesType {
-	DRONE, PRINCESS, QUEEN, LARVAE, NONE;
+	DRONE, PRINCESS, QUEEN, LARVAE, NONE, ROYAL_LARVAE;
 
 	public static final EnumBeeType[] VALUES = values();
 
 	String name;
 
 	EnumBeeType() {
-		this.name = this.toString().toLowerCase(Locale.ENGLISH);
+		this.name = this.toString()
+			.toLowerCase(Locale.ENGLISH)
+			.replace("_", "");
 	}
 
 	public String getName() {
